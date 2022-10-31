@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusUpdates.cs" />
     <EmbeddedResource Include="PlaneModule.resx">
       <DependentUpon>PlaneModule.cs</DependentUpon>
     </EmbeddedResource>
