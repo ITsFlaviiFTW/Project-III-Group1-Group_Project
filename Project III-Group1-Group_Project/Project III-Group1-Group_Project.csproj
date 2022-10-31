@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeoLocation.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="PlaneModule.cs">
       <SubType>Form</SubType>
