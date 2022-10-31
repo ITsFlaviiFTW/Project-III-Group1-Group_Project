@@ -73,7 +73,7 @@ namespace Project_III_Group1_Group_Project
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) // this needs to be here for the images to be alive
         {
 
         }
