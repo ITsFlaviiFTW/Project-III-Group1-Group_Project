@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Project_III_Group1_Group_Project
 {
-    internal class GeoLocation
+    public class GeoLocation
     {
+        private string currLatitude { get; set; }
+        private string currLongitude { get; set; }
+
+
+        public override string ToString()
+        {
+            return currLatitude + "U+002C" + currLongitude;
+        }
     }
 }
