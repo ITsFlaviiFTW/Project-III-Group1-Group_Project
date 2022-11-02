@@ -1,0 +1,5 @@
+﻿Aardvark, John, Smith, 200, Miami, San Diego, 3:00AM, 12:00PM
+Blackbird, Patrick, Star, 150, Toronto, Vancouver, 4:00AM, 2:00PM
+Black Jet, Homer, Simpson, 300, Chicago, Dallas, 6:00PM, 10:00PM
+Cranberry, Ted, Mosby, 275, Detroit, Toronto, 4:00PM, 7:00PM
+Gator, Dwight, Smith, 165, Sacramento, Vancouver, 2:00AM, 7:00AM

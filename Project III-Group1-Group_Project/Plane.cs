@@ -30,7 +30,8 @@ namespace Project_III_Group1_Group_Project
         }
         public override string ToString()
         {
-            return planeName + " " + pilotFirstName + " " + pilotLastName + " " + planeCapacity + " " + startingLocation + " " + destination + " " + departureTime + " " + arrivalTime;
+            return "\nPlane Name: " + planeName + "\n" + "Pilot Name: " + pilotFirstName + pilotLastName + "\n" + "Plane Passenger Capacity: " + planeCapacity + "\n" + "Starting Location: " + 
+                startingLocation + "\n" + "End Destination: " + destination + "\n" + "Flight Depature Time: " + departureTime + "\n" + "Estimated Flight Arrival Time" + arrivalTime;
         }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -11,8 +12,12 @@ using System.Windows.Forms;
 
 namespace Project_III_Group1_Group_Project
 {
+    
     public partial class Form1 : Form
     {
+        string filePath = "Resources\\flights.txt";
+        Random random = new Random();
+        Plane currentFlight;
         int i = 1;
         public Form1()
         {
@@ -22,11 +27,19 @@ namespace Project_III_Group1_Group_Project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // pre-existing flight information here
+            try
+            {
+                // pre-existing flight information here
+                string[] flights = File.ReadAllLines(filePath);
+                string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
+                currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);
+            }
+            catch(Exception)
+            {
+                DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                       
+                Environment.Exit(1);                             
+            }
         }
-
-
-
         private void aGauge1_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
         {
 
@@ -88,5 +101,11 @@ namespace Project_III_Group1_Group_Project
 
         }
 
+        private void btnViewFlightInformation_Click(object sender, EventArgs e)
+        {
+            DialogResult flightInformation = MessageBox.Show($"Here is the current flight information: {currentFlight.ToString()}");
+
+
+        }
     }
 }
