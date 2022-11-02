@@ -8,14 +8,14 @@ namespace Project_III_Group1_Group_Project
 {
     public class Plane
     {
-        private string planeName { get; set; }
-        private string pilotFirstName { get; set; }
-        private string pilotLastName { get; set; }
-        private int planeCapacity { get; set; }
-        private string startingLocation { get; set; }
-        private string destination { get; set; }
-        private string departureTime { get; set; }
-        private string arrivalTime { get; set; }
+        public string planeName { get; set; }
+        public string pilotFirstName { get; set; }
+        public string pilotLastName { get; set; }
+        public int planeCapacity { get; set; }
+        public string startingLocation { get; set; }
+        public string destination { get; set; }
+        public string departureTime { get; set; }
+        public string arrivalTime { get; set; }
 
         public Plane(string planeName, string pilotFirstName, string pilotLastName, int planeCapacity, string startingLocation, string destination, string departureTime, string arrivalTime)
         {

@@ -17,7 +17,7 @@ namespace Project_III_Group1_Group_Project
     {
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
-        Plane currentFlight;
+        public Plane currentFlight { get; set; }
         int i = 1;
         public Form1()
         {
@@ -32,7 +32,7 @@ namespace Project_III_Group1_Group_Project
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-                currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);
+                currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);              
             }
             catch(Exception)
             {
@@ -102,10 +102,10 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnViewFlightInformation_Click(object sender, EventArgs e)
-        {
-            DialogResult flightInformation = MessageBox.Show($"Here is the current flight information: {currentFlight.ToString()}");
-
-
+        {           
+            flightInformation frm = new flightInformation();
+            frm.currentFlight = currentFlight;
+            frm.Show();
         }
     }
 }
