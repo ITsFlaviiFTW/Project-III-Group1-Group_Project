@@ -25,7 +25,5 @@ namespace Project_III_Group1_Group_Project
         {
             return "Weather: " + weather + " Temperature: " + temperature + " Air Pressure: " + airPressure + " Day Type: " + dayType;
         }
-
-
     }
 }
