@@ -20,14 +20,14 @@ namespace Project_III_Group1_Group_Project
 
         private void flightInformation_Load(object sender, EventArgs e)
         {
-            txtPlaneName.Text = currentFlight.planeName;
-            txtPilotFirstName.Text = currentFlight.pilotFirstName;
-            txtPilotLastName.Text = currentFlight.pilotLastName;
-            txtPlaneCapacity.Text = currentFlight.planeCapacity.ToString();
-            txtFlightStartingLocation.Text = currentFlight.startingLocation;
-            txtFlightDestination.Text = currentFlight.destination;
-            txtFlightDepatureTime.Text = currentFlight.departureTime;
-            txtFlightArrivalTime.Text = currentFlight.arrivalTime;
+            txtPlaneName.Text = currentFlight.planeData.getPlaneName();
+            txtPilotFirstName.Text = currentFlight.planeData.getPilotFirstName();
+            txtPilotLastName.Text = currentFlight.planeData.getPilotLastName();
+            txtPlaneCapacity.Text = currentFlight.planeData.getPlaneCapacity().ToString();
+            txtFlightStartingLocation.Text = currentFlight.planeData.getStartingLocation();
+            txtFlightDestination.Text = currentFlight.planeData.getDestination();
+            txtFlightDepatureTime.Text = currentFlight.planeData.getDepartureTime();
+            txtFlightArrivalTime.Text = currentFlight.planeData.getArrivalTime();
         }
 
         private void btnSubmitFlightEdits_Click(object sender, EventArgs e)
@@ -49,14 +49,14 @@ namespace Project_III_Group1_Group_Project
                     throw new Exception("There was an error when updating your flight. Please note: Capacity must be a whole number");
                 }
 
-                currentFlight.planeName = txtPlaneName.Text.Trim();
-                currentFlight.pilotFirstName = txtPilotFirstName.Text.Trim();
-                currentFlight.pilotLastName = txtPilotLastName.Text.Trim();
-                currentFlight.planeCapacity = planeCapacity;
-                currentFlight.startingLocation = txtFlightStartingLocation.Text.Trim();
-                currentFlight.destination = txtFlightDepatureTime.Text.Trim();
-                currentFlight.departureTime = txtFlightDepatureTime.Text.Trim();
-                currentFlight.arrivalTime = txtFlightArrivalTime.Text.Trim();
+                currentFlight.planeData.setPlaneName(txtPlaneName.Text.Trim());
+                currentFlight.planeData.setPilotFirstName(txtPilotFirstName.Text.Trim()); 
+                currentFlight.planeData.setPilotLastName(txtPilotLastName.Text.Trim()); 
+                currentFlight.planeData.setPlaneCapacity(int.Parse(txtPlaneCapacity.Text.Trim())); 
+                currentFlight.planeData.setStartingLocation(txtFlightStartingLocation.Text.Trim()); 
+                currentFlight.planeData.setDestination(txtFlightDestination.Text.Trim()); 
+                currentFlight.planeData.setDepartureTime(txtFlightDepatureTime.Text.Trim()); 
+                currentFlight.planeData.setArrivialTime(txtFlightArrivalTime.Text.Trim());                     
                 DialogResult res = MessageBox.Show("Your flight has been updated! Now returning to the main application screen", "Flight Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
