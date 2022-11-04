@@ -15,6 +15,7 @@ namespace Project_III_Group1_Group_Project
     
     public partial class Form1 : Form
     {
+        PlaneData planeData = new PlaneData();
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
         public Plane currentFlight { get; set; }
@@ -32,7 +33,16 @@ namespace Project_III_Group1_Group_Project
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-                currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);              
+                planeData.setPlaneName(flightToUse[0]);
+                planeData.setPilotFirstName(flightToUse[1]);
+                planeData.setPilotLastName(flightToUse[2]);
+                planeData.setPlaneCapacity(int.Parse(flightToUse[3]));
+                planeData.setStartingLocation(flightToUse[4]);
+                planeData.setDestination(flightToUse[5]);
+                planeData.setDepartureTime(flightToUse[6]);
+                planeData.setArrivialTime(flightToUse[7]);
+
+                currentFlight = new Plane(planeData);              
             }
             catch(Exception)
             {
