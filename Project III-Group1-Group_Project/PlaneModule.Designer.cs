@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -35,6 +36,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnViewFlightInformation = new System.Windows.Forms.Button();
+            this.latitudeLongitudeTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblLatitude = new System.Windows.Forms.Label();
+            this.lblLongitude = new System.Windows.Forms.Label();
+            this.txtLatitude = new System.Windows.Forms.TextBox();
+            this.txtLongitude = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -134,11 +140,53 @@
             this.btnViewFlightInformation.UseVisualStyleBackColor = true;
             this.btnViewFlightInformation.Click += new System.EventHandler(this.btnViewFlightInformation_Click);
             // 
+            // latitudeLongitudeTimer
+            // 
+            this.latitudeLongitudeTimer.Tick += new System.EventHandler(this.latitudeLongitudeTimer_Tick);
+            // 
+            // lblLatitude
+            // 
+            this.lblLatitude.AutoSize = true;
+            this.lblLatitude.Location = new System.Drawing.Point(13, 80);
+            this.lblLatitude.Name = "lblLatitude";
+            this.lblLatitude.Size = new System.Drawing.Size(51, 13);
+            this.lblLatitude.TabIndex = 12;
+            this.lblLatitude.Text = "Latitude: ";
+            // 
+            // lblLongitude
+            // 
+            this.lblLongitude.AutoSize = true;
+            this.lblLongitude.Location = new System.Drawing.Point(13, 109);
+            this.lblLongitude.Name = "lblLongitude";
+            this.lblLongitude.Size = new System.Drawing.Size(60, 13);
+            this.lblLongitude.TabIndex = 13;
+            this.lblLongitude.Text = "Longitude: ";
+            // 
+            // txtLatitude
+            // 
+            this.txtLatitude.Location = new System.Drawing.Point(70, 77);
+            this.txtLatitude.Name = "txtLatitude";
+            this.txtLatitude.Size = new System.Drawing.Size(55, 20);
+            this.txtLatitude.TabIndex = 14;
+            this.txtLatitude.Text = "0";
+            // 
+            // txtLongitude
+            // 
+            this.txtLongitude.Location = new System.Drawing.Point(70, 109);
+            this.txtLongitude.Name = "txtLongitude";
+            this.txtLongitude.Size = new System.Drawing.Size(55, 20);
+            this.txtLongitude.TabIndex = 15;
+            this.txtLongitude.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 688);
+            this.Controls.Add(this.txtLongitude);
+            this.Controls.Add(this.txtLatitude);
+            this.Controls.Add(this.lblLongitude);
+            this.Controls.Add(this.lblLatitude);
             this.Controls.Add(this.btnViewFlightInformation);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -163,6 +211,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnViewFlightInformation;
+        private System.Windows.Forms.Timer latitudeLongitudeTimer;
+        private System.Windows.Forms.Label lblLatitude;
+        private System.Windows.Forms.Label lblLongitude;
+        private System.Windows.Forms.TextBox txtLatitude;
+        private System.Windows.Forms.TextBox txtLongitude;
     }
 }
 

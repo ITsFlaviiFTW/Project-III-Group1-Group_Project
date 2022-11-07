@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,26 +20,26 @@ namespace Project_III_Group1_Group_Project
     }
     public struct LocationData
     {
-        private string currLatitude;
-        private string currLongitude;
+        private double currLatitude;
+        private double currLongitude;
         private CompassBearing currBearing;
-        private string currCountry;
+        private string currProvinceState;
         private DateTime currEstimatedArrivalTime;
 
-        public void setCurrLatitude(string currLatitude)
+        public void setCurrLatitude(double currLatitude)
         {
             this.currLatitude = currLatitude;
         }
-        public string getCurrLatitude()
+        public double getCurrLatitude()
         {
             return this.currLatitude;
         }
 
-        public void setCurrLongitude(string currLongitude)
+        public void setCurrLongitude(double currLongitude)
         {
             this.currLongitude = currLongitude;
         }
-        public string getCurrLongitude()
+        public double getCurrLongitude()
         {
             return this.currLongitude;
         }
@@ -52,13 +53,13 @@ namespace Project_III_Group1_Group_Project
             return this.currBearing;
         }
 
-        public void setCurrCountry(string currCountry)
+        public void setCurrProvinceState(string currProvinceState)
         {
-            this.currCountry = currCountry;
+            this.currProvinceState = currProvinceState;
         }
-        public string getCurrCountry()
+        public string getCurrProvinceState()
         {
-            return this.currCountry;
+            return this.currProvinceState;
         }
 
         public void setCurrEstimatedArrivalTime(DateTime time)
@@ -72,15 +73,50 @@ namespace Project_III_Group1_Group_Project
     } 
     public class GeoLocation
     {
-        public LocationData locationData;        
+        public LocationData locationDataStruct;        
           public GeoLocation(LocationData locationData)
           {
-                this.locationData.setCurrLongitude(locationData.getCurrLongitude());
-                this.locationData.setCurrLatitude(locationData.getCurrLatitude());
-                this.locationData.setCompassBearing(locationData.GetCompassBearing());
-                this.locationData.setCurrCountry(locationData.getCurrCountry());
-                this.locationData.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
+                this.locationDataStruct.setCurrLongitude(locationData.getCurrLongitude());
+                this.locationDataStruct.setCurrLatitude(locationData.getCurrLatitude());
+                this.locationDataStruct.setCompassBearing(locationData.GetCompassBearing());
+                this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
+                this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
           }
+
+         public double obtainNewLongitude()
+         {
+            return 5.5;
+         }
+
+        public double obtainNewLatitude()
+        {
+            Random random = new Random();
+
+            string filePath = "Resources\\latitudes.txt";
+
+            string[] allLines = File.ReadAllLines(filePath);
+            double newLatitude = Convert.ToDouble(allLines[random.Next(allLines.Length)]);
+            return newLatitude;
+        }
+
+        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed)
+        {
+            return new DateTime();
+        }
+
+        public string obtainCurrentProvinceState()
+        {
+            return "";
+        }
+
+
+        public CompassBearing calculateNewCompassBearing(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
+        {
+            return CompassBearing.NE;
+        }
+
+
+
 
          
     }
