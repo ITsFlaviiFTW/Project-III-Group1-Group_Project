@@ -102,6 +102,9 @@
     <Content Include="Resources\flights.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\latitudes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\plane1-Bad-CPdoor.jpg" />
     <None Include="Resources\plane1.jpg" />
   </ItemGroup>

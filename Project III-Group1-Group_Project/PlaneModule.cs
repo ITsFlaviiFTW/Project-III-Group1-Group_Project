@@ -15,7 +15,8 @@ namespace Project_III_Group1_Group_Project
      
     public partial class Form1 : Form
     {
-
+        
+        GeoLocation locationData;       
         PlaneData planeData = new PlaneData();
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
@@ -31,6 +32,9 @@ namespace Project_III_Group1_Group_Project
         {
             try
             {
+                
+                LocationData locationDataStruct = new LocationData();
+                locationData = new GeoLocation(locationDataStruct);
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
@@ -42,8 +46,10 @@ namespace Project_III_Group1_Group_Project
                 planeData.setDestination(flightToUse[5]);
                 planeData.setDepartureTime(flightToUse[6]);
                 planeData.setArrivialTime(flightToUse[7]);
+                currentFlight = new Plane(planeData);   
+                
 
-                currentFlight = new Plane(planeData);              
+                latitudeLongitudeTimer.Start();
             }
             catch(Exception)
             {
@@ -117,6 +123,13 @@ namespace Project_III_Group1_Group_Project
             flightInformation frm = new flightInformation();
             frm.currentFlight = currentFlight;
             frm.Show();
+        }
+
+        private void latitudeLongitudeTimer_Tick(object sender, EventArgs e)
+        {
+            locationData.locationDataStruct.setCurrLatitude(locationData.obtainNewLatitude());
+            txtLatitude.Text = locationData.locationDataStruct.getCurrLatitude().ToString();
+            
         }
     }
 }
