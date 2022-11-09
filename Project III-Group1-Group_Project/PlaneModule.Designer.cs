@@ -41,8 +41,16 @@
             this.lblLongitude = new System.Windows.Forms.Label();
             this.txtLatitude = new System.Windows.Forms.TextBox();
             this.txtLongitude = new System.Windows.Forms.TextBox();
+            this.grpBoxCoordinateDetails = new System.Windows.Forms.GroupBox();
+            this.grpBoxPlaneTurning = new System.Windows.Forms.GroupBox();
+            this.btnLeft45 = new System.Windows.Forms.Button();
+            this.btnRight45 = new System.Windows.Forms.Button();
+            this.btnLeft90 = new System.Windows.Forms.Button();
+            this.btnRight90 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpBoxCoordinateDetails.SuspendLayout();
+            this.grpBoxPlaneTurning.SuspendLayout();
             this.SuspendLayout();
             // 
             // aGauge1
@@ -122,7 +130,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_CPdoor;
-            this.pictureBox1.Location = new System.Drawing.Point(252, 99);
+            this.pictureBox1.Location = new System.Drawing.Point(252, 115);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(573, 373);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,46 +155,112 @@
             // lblLatitude
             // 
             this.lblLatitude.AutoSize = true;
-            this.lblLatitude.Location = new System.Drawing.Point(13, 80);
+            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatitude.Location = new System.Drawing.Point(7, 22);
             this.lblLatitude.Name = "lblLatitude";
-            this.lblLatitude.Size = new System.Drawing.Size(51, 13);
+            this.lblLatitude.Size = new System.Drawing.Size(49, 12);
             this.lblLatitude.TabIndex = 12;
             this.lblLatitude.Text = "Latitude: ";
             // 
             // lblLongitude
             // 
             this.lblLongitude.AutoSize = true;
-            this.lblLongitude.Location = new System.Drawing.Point(13, 109);
+            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongitude.Location = new System.Drawing.Point(7, 51);
             this.lblLongitude.Name = "lblLongitude";
-            this.lblLongitude.Size = new System.Drawing.Size(60, 13);
+            this.lblLongitude.Size = new System.Drawing.Size(57, 12);
             this.lblLongitude.TabIndex = 13;
             this.lblLongitude.Text = "Longitude: ";
             // 
             // txtLatitude
             // 
-            this.txtLatitude.Location = new System.Drawing.Point(70, 77);
+            this.txtLatitude.Location = new System.Drawing.Point(64, 19);
             this.txtLatitude.Name = "txtLatitude";
-            this.txtLatitude.Size = new System.Drawing.Size(55, 20);
+            this.txtLatitude.ReadOnly = true;
+            this.txtLatitude.Size = new System.Drawing.Size(67, 20);
             this.txtLatitude.TabIndex = 14;
-            this.txtLatitude.Text = "0";
+            this.txtLatitude.Text = "0.000000";
             // 
             // txtLongitude
             // 
-            this.txtLongitude.Location = new System.Drawing.Point(70, 109);
+            this.txtLongitude.Location = new System.Drawing.Point(64, 51);
             this.txtLongitude.Name = "txtLongitude";
-            this.txtLongitude.Size = new System.Drawing.Size(55, 20);
+            this.txtLongitude.ReadOnly = true;
+            this.txtLongitude.Size = new System.Drawing.Size(67, 20);
             this.txtLongitude.TabIndex = 15;
-            this.txtLongitude.Text = "0";
+            this.txtLongitude.Text = "0.000000";
+            // 
+            // grpBoxCoordinateDetails
+            // 
+            this.grpBoxCoordinateDetails.Controls.Add(this.txtLatitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.txtLongitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblLatitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblLongitude);
+            this.grpBoxCoordinateDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(131, 3);
+            this.grpBoxCoordinateDetails.Name = "grpBoxCoordinateDetails";
+            this.grpBoxCoordinateDetails.Size = new System.Drawing.Size(152, 90);
+            this.grpBoxCoordinateDetails.TabIndex = 16;
+            this.grpBoxCoordinateDetails.TabStop = false;
+            this.grpBoxCoordinateDetails.Text = "Coordinate Details";
+            // 
+            // grpBoxPlaneTurning
+            // 
+            this.grpBoxPlaneTurning.Controls.Add(this.btnRight90);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnLeft90);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnLeft45);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnRight45);
+            this.grpBoxPlaneTurning.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(289, 3);
+            this.grpBoxPlaneTurning.Name = "grpBoxPlaneTurning";
+            this.grpBoxPlaneTurning.Size = new System.Drawing.Size(208, 106);
+            this.grpBoxPlaneTurning.TabIndex = 17;
+            this.grpBoxPlaneTurning.TabStop = false;
+            this.grpBoxPlaneTurning.Text = "Plane Turning Control Panel";
+            // 
+            // btnLeft45
+            // 
+            this.btnLeft45.Location = new System.Drawing.Point(106, 23);
+            this.btnLeft45.Name = "btnLeft45";
+            this.btnLeft45.Size = new System.Drawing.Size(91, 34);
+            this.btnLeft45.TabIndex = 18;
+            this.btnLeft45.Text = "Turn Left 45°";
+            this.btnLeft45.UseVisualStyleBackColor = true;
+            // 
+            // btnRight45
+            // 
+            this.btnRight45.Location = new System.Drawing.Point(10, 23);
+            this.btnRight45.Name = "btnRight45";
+            this.btnRight45.Size = new System.Drawing.Size(91, 34);
+            this.btnRight45.TabIndex = 19;
+            this.btnRight45.Text = "Turn Right 45°";
+            this.btnRight45.UseVisualStyleBackColor = true;
+            // 
+            // btnLeft90
+            // 
+            this.btnLeft90.Location = new System.Drawing.Point(10, 64);
+            this.btnLeft90.Name = "btnLeft90";
+            this.btnLeft90.Size = new System.Drawing.Size(91, 34);
+            this.btnLeft90.TabIndex = 20;
+            this.btnLeft90.Text = "Turn Left 90°";
+            this.btnLeft90.UseVisualStyleBackColor = true;
+            // 
+            // btnRight90
+            // 
+            this.btnRight90.Location = new System.Drawing.Point(106, 64);
+            this.btnRight90.Name = "btnRight90";
+            this.btnRight90.Size = new System.Drawing.Size(91, 34);
+            this.btnRight90.TabIndex = 21;
+            this.btnRight90.Text = "Turn Right 90°";
+            this.btnRight90.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 688);
-            this.Controls.Add(this.txtLongitude);
-            this.Controls.Add(this.txtLatitude);
-            this.Controls.Add(this.lblLongitude);
-            this.Controls.Add(this.lblLatitude);
+            this.Controls.Add(this.grpBoxPlaneTurning);
+            this.Controls.Add(this.grpBoxCoordinateDetails);
             this.Controls.Add(this.btnViewFlightInformation);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -198,6 +272,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpBoxCoordinateDetails.ResumeLayout(false);
+            this.grpBoxCoordinateDetails.PerformLayout();
+            this.grpBoxPlaneTurning.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +293,12 @@
         private System.Windows.Forms.Label lblLongitude;
         private System.Windows.Forms.TextBox txtLatitude;
         private System.Windows.Forms.TextBox txtLongitude;
+        private System.Windows.Forms.GroupBox grpBoxCoordinateDetails;
+        private System.Windows.Forms.GroupBox grpBoxPlaneTurning;
+        private System.Windows.Forms.Button btnRight90;
+        private System.Windows.Forms.Button btnLeft90;
+        private System.Windows.Forms.Button btnLeft45;
+        private System.Windows.Forms.Button btnRight45;
     }
 }
 

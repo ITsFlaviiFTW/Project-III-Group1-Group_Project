@@ -51,9 +51,9 @@ namespace Project_III_Group1_Group_Project
 
                 latitudeLongitudeTimer.Start();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                       
+                DialogResult res = MessageBox.Show(ex.Message.ToString(), "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                       
                 Environment.Exit(1);                             
             }
         }
@@ -126,10 +126,13 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void latitudeLongitudeTimer_Tick(object sender, EventArgs e)
-        {
-            locationData.locationDataStruct.setCurrLatitude(locationData.obtainNewLatitude());
-            txtLatitude.Text = locationData.locationDataStruct.getCurrLatitude().ToString();
-            
+        {                  
+                locationData.locationDataStruct.setCurrLatitude(locationData.obtainNewLatitude());
+                txtLatitude.Text = locationData.locationDataStruct.getCurrLatitude().ToString();
+
+                locationData.locationDataStruct.setCurrLongitude(locationData.obtainNewLongitude());
+                txtLongitude.Text = locationData.locationDataStruct.getCurrLongitude();                                    
         }
+      
     }
 }
