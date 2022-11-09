@@ -20,26 +20,26 @@ namespace Project_III_Group1_Group_Project
     }
     public struct LocationData
     {
-        private double currLatitude;
-        private double currLongitude;
+        private string currLatitude;
+        private string currLongitude;
         private CompassBearing currBearing;
         private string currProvinceState;
         private DateTime currEstimatedArrivalTime;
 
-        public void setCurrLatitude(double currLatitude)
+        public void setCurrLatitude(string currLatitude)
         {
             this.currLatitude = currLatitude;
         }
-        public double getCurrLatitude()
+        public string getCurrLatitude()
         {
             return this.currLatitude;
         }
 
-        public void setCurrLongitude(double currLongitude)
+        public void setCurrLongitude(string currLongitude)
         {
             this.currLongitude = currLongitude;
         }
-        public double getCurrLongitude()
+        public string getCurrLongitude()
         {
             return this.currLongitude;
         }
@@ -83,20 +83,39 @@ namespace Project_III_Group1_Group_Project
                 this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
           }
 
-         public double obtainNewLongitude()
+         public string obtainNewLongitude()
          {
-            return 5.5;
+            if (!File.Exists("Resources\\longitudes.txt"))
+            {
+                throw new Exception("Longitudes File does not exist");
+            }
+            else
+            {
+                Random random = new Random();
+                string decimalPoint = "", wholeNumber = "", filePath = "Resources\\longitudes.txt";
+                string[] allLines = File.ReadAllLines(filePath);
+
+                wholeNumber = allLines[random.Next(allLines.Length)];
+                decimalPoint = random.Next(0, 1000000).ToString("D6");
+
+                return wholeNumber + "." + decimalPoint;
+            }                               
          }
 
-        public double obtainNewLatitude()
+        public string obtainNewLatitude()
         {
-            Random random = new Random();
-
-            string filePath = "Resources\\latitudes.txt";
-
+            if (!File.Exists("Resources\\latitudes.txt"))
+            {
+                throw new Exception("Latitudes File does not exist");
+            }
+            Random random = new Random();          
+            string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";           
             string[] allLines = File.ReadAllLines(filePath);
-            double newLatitude = Convert.ToDouble(allLines[random.Next(allLines.Length)]);
-            return newLatitude;
+
+            wholeNumber= allLines[random.Next(allLines.Length)];
+            decimalPoint = random.Next(0, 1000000).ToString("D6");
+            
+            return wholeNumber + "." + decimalPoint;                    
         }
 
         public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed)
@@ -113,11 +132,6 @@ namespace Project_III_Group1_Group_Project
         public CompassBearing calculateNewCompassBearing(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
         {
             return CompassBearing.NE;
-        }
-
-
-
-
-         
+        }       
     }
 }

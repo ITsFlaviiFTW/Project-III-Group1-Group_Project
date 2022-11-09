@@ -98,11 +98,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AGauge.dll" />
-    <Content Include="Resources\CoordinateRandomizer.txt" />
     <Content Include="Resources\flights.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\latitudes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\longitudes.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\plane1-Bad-CPdoor.jpg" />
