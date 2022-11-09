@@ -48,7 +48,7 @@ namespace Project_III_Group1_Group_Project
         {                    
             this.currBearing = compassBearing;
         }
-        public CompassBearing GetCompassBearing()
+        public CompassBearing getCompassBearing()
         {
             return this.currBearing;
         }
@@ -78,7 +78,7 @@ namespace Project_III_Group1_Group_Project
           {
                 this.locationDataStruct.setCurrLongitude(locationData.getCurrLongitude());
                 this.locationDataStruct.setCurrLatitude(locationData.getCurrLatitude());
-                this.locationDataStruct.setCompassBearing(locationData.GetCompassBearing());
+                this.locationDataStruct.setCompassBearing(locationData.getCompassBearing());
                 this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
                 this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
           }
@@ -131,7 +131,62 @@ namespace Project_III_Group1_Group_Project
 
         public CompassBearing calculateNewCompassBearing(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
         {
-            return CompassBearing.NE;
+            CompassBearing newBearing = CompassBearing.N;
+            switch (currentBearing)
+            {
+                case CompassBearing.N:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.NE; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.E; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.NW; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.W; }
+                    break;                
+                case CompassBearing.NE:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.E; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.SE; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.N; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.NW; }
+                    break;
+                case CompassBearing.E:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.SE; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.S; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.NE; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.N; }
+                    break;
+                case CompassBearing.SE:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.S; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.SW; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.E; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.NE; }
+                    break;
+                case CompassBearing.S:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.SW; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.W; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.SE; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.E; }
+                    break;
+                case CompassBearing.SW:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.W; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.NW; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.S; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.SE; }
+                    break;
+                case CompassBearing.W:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.NW; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.N; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.SW; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.S; }
+                    break;
+                case CompassBearing.NW:
+                    if (directionToTurn == "Right" && angleToTurn == 45) { newBearing = CompassBearing.N; }
+                    else if (directionToTurn == "Right" && angleToTurn == 90) { newBearing = CompassBearing.NE; }
+                    else if (directionToTurn == "Left" && angleToTurn == 45) { newBearing = CompassBearing.W; }
+                    else if (directionToTurn == "Left" && angleToTurn == 90) { newBearing = CompassBearing.SW; }
+                    break;
+                default:
+                    newBearing = CompassBearing.N;
+                    break;
+            }
+            return newBearing;
         }       
     }
 }

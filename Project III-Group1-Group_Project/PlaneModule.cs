@@ -14,13 +14,17 @@ namespace Project_III_Group1_Group_Project
 {
      
     public partial class Form1 : Form
-    {
-        
-        GeoLocation locationData;       
-        PlaneData planeData = new PlaneData();
-        string filePath = "Resources\\flights.txt";
-        Random random = new Random();
+    {      
+        GeoLocation locationData;
         public Plane currentFlight { get; set; }
+
+        PlaneData planeDataStruct = new PlaneData();
+        LocationData locationDataStruct = new LocationData();
+
+        string filePath = "Resources\\flights.txt";
+
+        Random random = new Random();
+       
         int i = 1;
         public Form1()
         {
@@ -31,25 +35,33 @@ namespace Project_III_Group1_Group_Project
         private void Form1_Load(object sender, EventArgs e)
         {
             try
-            {
-                
-                LocationData locationDataStruct = new LocationData();
-                locationData = new GeoLocation(locationDataStruct);
+            {         
+                //Setting up default GeoLocation information
+                locationDataStruct.setCurrLongitude("0.000000");
+                locationDataStruct.setCurrLatitude("0.000000");
+                locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
+                locationDataStruct.setCurrProvinceState(planeDataStruct.getStartingLocation());
+                locationDataStruct.setCompassBearing(CompassBearing.N);
+            
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-                planeData.setPlaneName(flightToUse[0]);
-                planeData.setPilotFirstName(flightToUse[1]);
-                planeData.setPilotLastName(flightToUse[2]);
-                planeData.setPlaneCapacity(int.Parse(flightToUse[3]));
-                planeData.setStartingLocation(flightToUse[4]);
-                planeData.setDestination(flightToUse[5]);
-                planeData.setDepartureTime(flightToUse[6]);
-                planeData.setArrivialTime(flightToUse[7]);
-                currentFlight = new Plane(planeData);   
-                
+                planeDataStruct.setPlaneName(flightToUse[0]);
+                planeDataStruct.setPilotFirstName(flightToUse[1]);
+                planeDataStruct.setPilotLastName(flightToUse[2]);
+                planeDataStruct.setPlaneCapacity(int.Parse(flightToUse[3]));
+                planeDataStruct.setStartingLocation(flightToUse[4]);
+                planeDataStruct.setDestination(flightToUse[5]);
+                planeDataStruct.setDepartureTime(flightToUse[6]);
+                planeDataStruct.setArrivialTime(flightToUse[7]);
 
+                //Assign objects with created structs
+                currentFlight = new Plane(planeDataStruct);
+                locationData = new GeoLocation(locationDataStruct);
+
+                //Start Latitude Longitude timer, runs as long as program is on
                 latitudeLongitudeTimer.Start();
+                lblCompassBearing.Text = locationDataStruct.getCompassBearing().ToString();
             }
             catch(Exception ex)
             {
@@ -126,13 +138,86 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void latitudeLongitudeTimer_Tick(object sender, EventArgs e)
-        {                  
+        {             
+            if(locationData.locationDataStruct.getCompassBearing() == CompassBearing.N || locationData.locationDataStruct.getCompassBearing() == CompassBearing.S)
+            {
+                txtLongitude.Enabled = false;
+                txtLatitude.Enabled = true;
+                locationData.locationDataStruct.setCurrLatitude(locationData.obtainNewLatitude());
+                txtLatitude.Text = locationData.locationDataStruct.getCurrLatitude().ToString();
+            }
+            else if (locationData.locationDataStruct.getCompassBearing() == CompassBearing.E || locationData.locationDataStruct.getCompassBearing() == CompassBearing.W)
+            {
+                txtLongitude.Enabled = true;
+                txtLatitude.Enabled = false;
+                locationData.locationDataStruct.setCurrLongitude(locationData.obtainNewLongitude());
+                txtLongitude.Text = locationData.locationDataStruct.getCurrLongitude();
+            }
+            else
+            {
+                txtLongitude.Enabled = true;
+                txtLatitude.Enabled = true;
                 locationData.locationDataStruct.setCurrLatitude(locationData.obtainNewLatitude());
                 txtLatitude.Text = locationData.locationDataStruct.getCurrLatitude().ToString();
 
                 locationData.locationDataStruct.setCurrLongitude(locationData.obtainNewLongitude());
-                txtLongitude.Text = locationData.locationDataStruct.getCurrLongitude();                                    
+                txtLongitude.Text = locationData.locationDataStruct.getCurrLongitude();
+            }                                           
         }
-      
+
+        private void btnLeft45_Click(object sender, EventArgs e)
+        {
+            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Left", 45);
+        }
+
+        private void btnLeft90_Click(object sender, EventArgs e)
+        {
+            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Left", 90);
+        }
+
+        private void btnRight45_Click(object sender, EventArgs e)
+        {
+            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Right", 45);
+        }
+
+        private void btnRight90_Click(object sender, EventArgs e)
+        {
+            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Right", 90);
+           
+        }
+
+
+        private void turnPlane(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
+        {
+            locationData.locationDataStruct.setCompassBearing(locationData.calculateNewCompassBearing(currentBearing, directionToTurn, angleToTurn));
+         
+            if (angleToTurn == 45)
+            {             
+                turningPlaneTimer.Interval = 3000;                                                   
+            }
+            else
+            {         
+                turningPlaneTimer.Interval = 6000;             
+            }
+
+            foreach(Button button in grpBoxPlaneTurning.Controls)
+            {
+                button.Enabled = false;
+            }
+            lblPlaneIsTurning.Text = "Plane is currently turning...";          
+            turningPlaneTimer.Start();
+        }
+
+        private void turningPlaneTimer_Tick(object sender, EventArgs e)
+        {
+            
+            turningPlaneTimer.Stop();
+            lblPlaneIsTurning.Text = "";
+            lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
+            foreach (Button button in grpBoxPlaneTurning.Controls)
+            {
+                button.Enabled = true;
+            }
+        }
     }
 }
