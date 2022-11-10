@@ -56,28 +56,26 @@ namespace Project_III_Group1_Group_Project
         {
             return this.AutoPilot;
         }
+    }
+    internal class StatusUpdates
+    {
+        public StatusUpdatesData StatusUpdatesData;
 
-        internal class StatusUpdates
+
+        public StatusUpdates(StatusUpdatesData data)
         {
-            public StatusUpdatesData StatusUpdatesData;
-       
+            this.StatusUpdatesData.setOutDoor(data.getOutDoor());
+            this.StatusUpdatesData.setCockpitDoor(data.getCockpitDoor());
+            this.StatusUpdatesData.setLandingGear(data.getLandingGear());
+            this.StatusUpdatesData.setInFlight(data.getInFlight());
+            this.StatusUpdatesData.setAutoPilot(data.getAutoPilot());
 
-            public StatusUpdates(StatusUpdatesData data)
-            {
-                this.StatusUpdatesData.setOutDoor(data.getOutDoor());
-                this.StatusUpdatesData.setCockpitDoor(data.getCockpitDoor());
-                this.StatusUpdatesData.setLandingGear(data.getLandingGear());
-                this.StatusUpdatesData.setInFlight(data.getInFlight());
-                this.StatusUpdatesData.setAutoPilot(data.getAutoPilot());
-
-            }
-            public override string ToString()
-            {
-                return "Outter Door Status: " + StatusUpdatesData.getOutDoor() + " " + "Cockpit Door Status: " + StatusUpdatesData.getCockpitDoor() + " " + "Landing Gear Status: " + StatusUpdatesData.getLandingGear() + " "
-                    + "In Flight Status: " + StatusUpdatesData.getInFlight() + " " + "Auto Pilot Status: " + StatusUpdatesData.getAutoPilot();
-
-            }
         }
+        public override string ToString()
+        {
+            return "Outter Door Status: " + StatusUpdatesData.getOutDoor() + " " + "Cockpit Door Status: " + StatusUpdatesData.getCockpitDoor() + " " + "Landing Gear Status: " + StatusUpdatesData.getLandingGear() + " "
+                + "In Flight Status: " + StatusUpdatesData.getInFlight() + " " + "Auto Pilot Status: " + StatusUpdatesData.getAutoPilot();
 
+        }
     }
 }
