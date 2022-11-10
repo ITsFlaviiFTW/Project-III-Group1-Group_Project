@@ -10,15 +10,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Project_III_Group1_Group_Project
 {
     
     public partial class Form1 : Form
     {
+        
+        MeteorologicalData meteorologicalData = new MeteorologicalData();
+        string weatherImagePath = "Resources\\weatherID.txt";
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
         public Plane currentFlight { get; set; }
         int i = 1;
+        int weatherimageNum = 0;
+        int tempimageNum = 0;
         public Form1()
         {
             InitializeComponent();
@@ -106,6 +112,52 @@ namespace Project_III_Group1_Group_Project
             flightInformation frm = new flightInformation();
             frm.currentFlight = currentFlight;
             frm.Show();
+        }
+
+        private void weatherPictureBox_Click(object sender, EventArgs e)
+        {
+           
+        }
+        
+        private void weatherTimer_Tick(object sender, EventArgs e)
+        {
+            /*  
+              farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
+              weatherPictureBox.Image = weatherImageList.Images[weatherimageNum];
+              if (weatherimageNum == weatherImageList.Images.Count - 1) 
+              {
+                  weatherimageNum = 0;
+              }
+              else
+              {
+                  weatherimageNum++;
+              }
+              temperaturePictureBox.Image = temperatureImageList.Images[tempimageNum];
+              if (tempimageNum == temperatureImageList.Images.Count - 1)
+              {
+                  tempimageNum = 0;
+              }
+              else
+              {
+                  tempimageNum++;
+              }
+            */
+
+        }
+
+        private void temperaturePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void farrenheitSymbolPictureBox_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void airPressureGauge_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
         }
     }
 }
