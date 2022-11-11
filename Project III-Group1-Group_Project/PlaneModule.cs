@@ -17,15 +17,12 @@ namespace Project_III_Group1_Group_Project
     {      
         GeoLocation locationData;
         public Plane currentFlight { get; set; }
-
         PlaneData planeDataStruct = new PlaneData();
         LocationData locationDataStruct = new LocationData();
-
         string filePath = "Resources\\flights.txt";
-
-        Random random = new Random();
-       
+        Random random = new Random();     
         int i = 1;
+
         public Form1()
         {
             InitializeComponent();
@@ -35,35 +32,28 @@ namespace Project_III_Group1_Group_Project
         private void Form1_Load(object sender, EventArgs e)
         {
             try
-            {         
-                //Setting up default GeoLocation information
-                locationDataStruct.setCurrLongitude("0.000000");
-                locationDataStruct.setCurrLatitude("0.000000");
-                locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
-                locationDataStruct.setCurrProvinceState(planeDataStruct.getStartingLocation());
-                locationDataStruct.setCompassBearing(CompassBearing.N);
-            
+            {
+
+
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-                planeDataStruct.setPlaneName(flightToUse[0]);
-                planeDataStruct.setPilotFirstName(flightToUse[1]);
-                planeDataStruct.setPilotLastName(flightToUse[2]);
-                planeDataStruct.setPlaneCapacity(int.Parse(flightToUse[3]));
-                planeDataStruct.setStartingLocation(flightToUse[4]);
-                planeDataStruct.setDestination(flightToUse[5]);
-                planeDataStruct.setDepartureTime(flightToUse[6]);
-                planeDataStruct.setArrivialTime(flightToUse[7]);
+                planeDataStruct.setPlaneName(flightToUse[0].Trim());
+                planeDataStruct.setPilotFirstName(flightToUse[1].Trim());
+                planeDataStruct.setPilotLastName(flightToUse[2].Trim());
+                planeDataStruct.setPlaneCapacity(int.Parse(flightToUse[3].Trim()));
+                planeDataStruct.setStartingLocation(flightToUse[4].Trim());
+                planeDataStruct.setDestination(flightToUse[5].Trim());
+                planeDataStruct.setDepartureTime(flightToUse[6].Trim());
+                planeDataStruct.setArrivialTime(flightToUse[7].Trim());
 
                 //Assign objects with created structs
                 currentFlight = new Plane(planeDataStruct);
-                locationData = new GeoLocation(locationDataStruct);
 
-                //Start Latitude Longitude timer, runs as long as program is on
-                latitudeLongitudeTimer.Start();
-                lblCompassBearing.Text = locationDataStruct.getCompassBearing().ToString();
+                //Sets up everything regarding GeoLocation
+                GeoLocationSetup();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 DialogResult res = MessageBox.Show(ex.Message.ToString(), "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                       
                 Environment.Exit(1);                             
@@ -186,7 +176,6 @@ namespace Project_III_Group1_Group_Project
            
         }
 
-
         private void turnPlane(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
         {
             locationData.locationDataStruct.setCompassBearing(locationData.calculateNewCompassBearing(currentBearing, directionToTurn, angleToTurn));
@@ -219,5 +208,58 @@ namespace Project_III_Group1_Group_Project
                 button.Enabled = true;
             }
         }
+
+        private void changingLocationTimer_Tick(object sender, EventArgs e)
+        {
+            locationData.locationDataStruct.setCurrCountry(locationData.obtainCurrentCountry());
+
+            if(locationData.locationDataStruct.getCurrCountry() == "CAN")
+            {
+                locationData.locationDataStruct.setCurrProvinceState(locationData.obtainCurrentProvinceState(locationData.locationDataStruct.getCurrCountry()));
+                picBoxCountry.ImageLocation = "Resources\\canadaFlag.png";
+                lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
+
+            }
+            else
+            {
+                locationData.locationDataStruct.setCurrProvinceState(locationData.obtainCurrentProvinceState(locationData.locationDataStruct.getCurrCountry()));
+                picBoxCountry.ImageLocation = "Resources\\usaFlag.png";
+                lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
+            }
+        }
+
+        private void GeoLocationSetup()
+        {
+            
+            //Setting up default GeoLocation information
+            locationDataStruct.setCurrLongitude("0.000000");
+            locationDataStruct.setCurrLatitude("0.000000");
+            locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
+            locationDataStruct.setCurrProvinceState(currentFlight.planeData.getStartingLocation());           
+            if(locationDataStruct.getCurrProvinceState() == "Toronto")
+            {
+                locationDataStruct.setCurrCountry("CAN");
+                picBoxCountry.ImageLocation = "Resources\\canadaFlag.png";
+            }
+            else
+            {
+                locationDataStruct.setCurrCountry("USA");
+                picBoxCountry.ImageLocation = "Resources\\usaFlag.png";
+
+            }       
+            locationDataStruct.setCompassBearing(CompassBearing.N);
+            //Setting object
+            locationData = new GeoLocation(locationDataStruct);
+
+            //Starting needed timers
+            latitudeLongitudeTimer.Start();
+            changingLocationTimer.Start();
+       
+            //Setting default GUI information
+            lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
+            lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
+        }
+
+       
     }
 }

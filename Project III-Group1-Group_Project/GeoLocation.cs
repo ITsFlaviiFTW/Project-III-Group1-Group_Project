@@ -24,6 +24,7 @@ namespace Project_III_Group1_Group_Project
         private string currLongitude;
         private CompassBearing currBearing;
         private string currProvinceState;
+        private string currCountry;
         private DateTime currEstimatedArrivalTime;
 
         public void setCurrLatitude(string currLatitude)
@@ -62,6 +63,16 @@ namespace Project_III_Group1_Group_Project
             return this.currProvinceState;
         }
 
+        public void setCurrCountry(string currCountry)
+        {
+            this.currCountry = currCountry;
+        }
+        public string getCurrCountry()
+        {
+            return this.currCountry;
+        }
+
+
         public void setCurrEstimatedArrivalTime(DateTime time)
         {
             this.currEstimatedArrivalTime = time;
@@ -80,6 +91,7 @@ namespace Project_III_Group1_Group_Project
                 this.locationDataStruct.setCurrLatitude(locationData.getCurrLatitude());
                 this.locationDataStruct.setCompassBearing(locationData.getCompassBearing());
                 this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
+                this.locationDataStruct.setCurrCountry(locationData.getCurrCountry());
                 this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
           }
 
@@ -123,9 +135,39 @@ namespace Project_III_Group1_Group_Project
             return new DateTime();
         }
 
-        public string obtainCurrentProvinceState()
+        public string obtainCurrentCountry()
         {
-            return "";
+            Random random = new Random();
+            string currCountry = "";
+
+            if(random.Next(1, 3) == 1)
+            {
+                currCountry = "CAN";
+            }
+            else
+            {
+                currCountry = "USA";
+            }
+
+            return currCountry;
+        }
+
+        public string obtainCurrentProvinceState(string currCountry)
+        {
+            Random rand = new Random();
+            string[] allLines;
+            string result = "";
+            if (currCountry == "CAN")
+            {             
+                allLines = File.ReadAllLines("Resources\\Provinces.txt");
+                result = allLines[rand.Next(allLines.Length)];
+            }
+            else
+            {
+                allLines = File.ReadAllLines("Resources\\States.txt");
+                result = allLines[rand.Next(allLines.Length)];
+            }
+            return result;
         }
 
 

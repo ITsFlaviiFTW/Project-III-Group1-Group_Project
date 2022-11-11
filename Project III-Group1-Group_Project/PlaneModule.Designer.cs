@@ -51,10 +51,17 @@
             this.btnLeft45 = new System.Windows.Forms.Button();
             this.btnRight45 = new System.Windows.Forms.Button();
             this.turningPlaneTimer = new System.Windows.Forms.Timer(this.components);
+            this.changingLocationTimer = new System.Windows.Forms.Timer(this.components);
+            this.grpBoxLocation = new System.Windows.Forms.GroupBox();
+            this.picBoxCountry = new System.Windows.Forms.PictureBox();
+            this.lblProvinceStateInfo = new System.Windows.Forms.Label();
+            this.lblProvinceState = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpBoxCoordinateDetails.SuspendLayout();
             this.grpBoxPlaneTurning.SuspendLayout();
+            this.grpBoxLocation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
             this.SuspendLayout();
             // 
             // aGauge1
@@ -204,7 +211,7 @@
             this.grpBoxCoordinateDetails.Controls.Add(this.lblLatitude);
             this.grpBoxCoordinateDetails.Controls.Add(this.lblLongitude);
             this.grpBoxCoordinateDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(3, 78);
+            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(3, 100);
             this.grpBoxCoordinateDetails.Name = "grpBoxCoordinateDetails";
             this.grpBoxCoordinateDetails.Size = new System.Drawing.Size(166, 143);
             this.grpBoxCoordinateDetails.TabIndex = 16;
@@ -245,7 +252,7 @@
             this.grpBoxPlaneTurning.Controls.Add(this.btnLeft45);
             this.grpBoxPlaneTurning.Controls.Add(this.btnRight45);
             this.grpBoxPlaneTurning.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(3, 221);
+            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(3, 261);
             this.grpBoxPlaneTurning.Name = "grpBoxPlaneTurning";
             this.grpBoxPlaneTurning.Size = new System.Drawing.Size(208, 106);
             this.grpBoxPlaneTurning.TabIndex = 17;
@@ -296,11 +303,57 @@
             // 
             this.turningPlaneTimer.Tick += new System.EventHandler(this.turningPlaneTimer_Tick);
             // 
+            // changingLocationTimer
+            // 
+            this.changingLocationTimer.Interval = 30000;
+            this.changingLocationTimer.Tick += new System.EventHandler(this.changingLocationTimer_Tick);
+            // 
+            // grpBoxLocation
+            // 
+            this.grpBoxLocation.Controls.Add(this.picBoxCountry);
+            this.grpBoxLocation.Controls.Add(this.lblProvinceStateInfo);
+            this.grpBoxLocation.Controls.Add(this.lblProvinceState);
+            this.grpBoxLocation.Location = new System.Drawing.Point(199, 9);
+            this.grpBoxLocation.Name = "grpBoxLocation";
+            this.grpBoxLocation.Size = new System.Drawing.Size(394, 100);
+            this.grpBoxLocation.TabIndex = 18;
+            this.grpBoxLocation.TabStop = false;
+            this.grpBoxLocation.Text = "Location Details";
+            // 
+            // picBoxCountry
+            // 
+            this.picBoxCountry.Location = new System.Drawing.Point(8, 32);
+            this.picBoxCountry.Name = "picBoxCountry";
+            this.picBoxCountry.Size = new System.Drawing.Size(115, 62);
+            this.picBoxCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxCountry.TabIndex = 22;
+            this.picBoxCountry.TabStop = false;
+            // 
+            // lblProvinceStateInfo
+            // 
+            this.lblProvinceStateInfo.AutoSize = true;
+            this.lblProvinceStateInfo.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceStateInfo.Location = new System.Drawing.Point(123, 17);
+            this.lblProvinceStateInfo.Name = "lblProvinceStateInfo";
+            this.lblProvinceStateInfo.Size = new System.Drawing.Size(0, 12);
+            this.lblProvinceStateInfo.TabIndex = 21;
+            // 
+            // lblProvinceState
+            // 
+            this.lblProvinceState.AutoSize = true;
+            this.lblProvinceState.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceState.Location = new System.Drawing.Point(6, 16);
+            this.lblProvinceState.Name = "lblProvinceState";
+            this.lblProvinceState.Size = new System.Drawing.Size(111, 12);
+            this.lblProvinceState.TabIndex = 20;
+            this.lblProvinceState.Text = "Currently Flying over: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 688);
+            this.Controls.Add(this.grpBoxLocation);
             this.Controls.Add(this.grpBoxPlaneTurning);
             this.Controls.Add(this.grpBoxCoordinateDetails);
             this.Controls.Add(this.btnViewFlightInformation);
@@ -317,6 +370,9 @@
             this.grpBoxCoordinateDetails.ResumeLayout(false);
             this.grpBoxCoordinateDetails.PerformLayout();
             this.grpBoxPlaneTurning.ResumeLayout(false);
+            this.grpBoxLocation.ResumeLayout(false);
+            this.grpBoxLocation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,6 +401,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPlaneIsTurning;
         private System.Windows.Forms.Timer turningPlaneTimer;
+        private System.Windows.Forms.Timer changingLocationTimer;
+        private System.Windows.Forms.GroupBox grpBoxLocation;
+        private System.Windows.Forms.Label lblProvinceStateInfo;
+        private System.Windows.Forms.Label lblProvinceState;
+        private System.Windows.Forms.PictureBox picBoxCountry;
     }
 }
 
