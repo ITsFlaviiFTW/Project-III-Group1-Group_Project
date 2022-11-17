@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.aGauge1 = new System.Windows.Forms.AGauge();
+            this.aGauge2 = new System.Windows.Forms.AGauge();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,7 +83,7 @@
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
             this.aGauge1.Location = new System.Drawing.Point(957, 12);
-            this.aGauge1.MaxValue = 100F;
+            this.aGauge1.MaxValue = 800F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
             this.aGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
@@ -96,7 +98,7 @@
             this.aGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black;
             this.aGauge1.ScaleLinesMajorInnerRadius = 70;
             this.aGauge1.ScaleLinesMajorOuterRadius = 80;
-            this.aGauge1.ScaleLinesMajorStepValue = 50F;
+            this.aGauge1.ScaleLinesMajorStepValue = 100F;
             this.aGauge1.ScaleLinesMajorWidth = 2;
             this.aGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray;
             this.aGauge1.ScaleLinesMinorInnerRadius = 75;
@@ -115,6 +117,50 @@
             this.aGauge1.Value = 0F;
             this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
+            // aGauge2
+            // 
+            this.aGauge2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.aGauge2.BaseArcColor = System.Drawing.Color.RosyBrown;
+            this.aGauge2.BaseArcRadius = 80;
+            this.aGauge2.BaseArcStart = 135;
+            this.aGauge2.BaseArcSweep = 270;
+            this.aGauge2.BaseArcWidth = 2;
+            this.aGauge2.Center = new System.Drawing.Point(100, 100);
+            this.aGauge2.Location = new System.Drawing.Point(957, 250);
+            this.aGauge2.MaxValue = 42000F;
+            this.aGauge2.MinValue = 0F;
+            this.aGauge2.Name = "aGauge2";
+            this.aGauge2.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.aGauge2.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.aGauge2.NeedleRadius = 80;
+            this.aGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.aGauge2.NeedleWidth = 2;
+            this.aGauge2.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.aGauge2.ScaleLinesInterInnerRadius = 73;
+            this.aGauge2.ScaleLinesInterOuterRadius = 80;
+            this.aGauge2.ScaleLinesInterWidth = 1;
+            this.aGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.aGauge2.ScaleLinesMajorInnerRadius = 70;
+            this.aGauge2.ScaleLinesMajorOuterRadius = 80;
+            this.aGauge2.ScaleLinesMajorStepValue = 5000F;
+            this.aGauge2.ScaleLinesMajorWidth = 2;
+            this.aGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.aGauge2.ScaleLinesMinorInnerRadius = 75;
+            this.aGauge2.ScaleLinesMinorOuterRadius = 80;
+            this.aGauge2.ScaleLinesMinorTicks = 9;
+            this.aGauge2.ScaleLinesMinorWidth = 1;
+            this.aGauge2.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.aGauge2.ScaleNumbersFormat = null;
+            this.aGauge2.ScaleNumbersRadius = 95;
+            this.aGauge2.ScaleNumbersRotation = 0;
+            this.aGauge2.ScaleNumbersStartScaleLine = 0;
+            this.aGauge2.ScaleNumbersStepScaleLines = 1;
+            this.aGauge2.Size = new System.Drawing.Size(205, 180);
+            this.aGauge2.TabIndex = 1;
+            this.aGauge2.Text = "aGauge2";
+            this.aGauge2.Value = 0F;
+            this.aGauge2.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge2_ValueInRangeChanged);
+            // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(973, 198);
@@ -124,6 +170,16 @@
             this.trackBar1.TabIndex = 2;
             this.trackBar1.TickFrequency = 20;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(973, 438);
+            this.trackBar2.Maximum = 100;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(169, 45);
+            this.trackBar2.TabIndex = 2;
+            this.trackBar2.TickFrequency = 20;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // button2
             // 
@@ -422,7 +478,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.aGauge1);
+            this.Controls.Add(this.aGauge2);
             this.Name = "Form1";
             this.Text = "PlaneModule";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -444,7 +502,9 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.AGauge aGauge1;
+        private System.Windows.Forms.AGauge aGauge2;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
