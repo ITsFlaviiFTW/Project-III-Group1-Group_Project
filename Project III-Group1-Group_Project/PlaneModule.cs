@@ -62,22 +62,14 @@ namespace Project_III_Group1_Group_Project
                 GeoLocationSetup();
             }
            
-            catch (Exception ex)
+            catch (Exception)
             {
                 DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
                                         
             }
         }
-        private void aGauge1_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
-        {
-
-        }
-
-        private void aGauge2_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
-        {
-
-        }
+       
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
