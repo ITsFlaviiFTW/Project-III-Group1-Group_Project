@@ -10,9 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Project_III_Group1_Group_Project
+{
+
 {  
     public partial class Form1 : Form
+    {
+        Meteorological meteorologicalData;
+        MeteorologicalData meteorologicalDataStruct = new MeteorologicalData();
+
     {      
         GeoLocation locationData;
         public Plane currentFlight { get; set; }
@@ -21,6 +28,8 @@ namespace Project_III_Group1_Group_Project
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
         int i = 1;
+        int weatherimageNum = 0;
+        int tempimageNum = 0;
 
         public Form1()
         {
@@ -35,6 +44,8 @@ namespace Project_III_Group1_Group_Project
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
+                currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);
+
                 planeDataStruct.setPlaneName(flightToUse[0].Trim());
                 planeDataStruct.setPilotFirstName(flightToUse[1].Trim());
                 planeDataStruct.setPilotLastName(flightToUse[2].Trim());
@@ -50,8 +61,11 @@ namespace Project_III_Group1_Group_Project
                 //Sets up everything regarding GeoLocation
                 GeoLocationSetup();
             }
+            catch (Exception)
             catch (Exception ex)
             {
+                DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(1);
                 DialogResult res = MessageBox.Show(ex.Message.ToString(), "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                                       
                 Environment.Exit(1);                             
             }
@@ -127,11 +141,61 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnViewFlightInformation_Click(object sender, EventArgs e)
-        {           
+        {
             flightInformation frm = new flightInformation();
             frm.currentFlight = currentFlight;
             frm.Show();
         }
+
+        private void weatherPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void weatherTimer_Tick(object sender, EventArgs e)
+        {
+
+            farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
+            //loop pictures into picturebox from resources folder
+            string[] weatherImages = Directory.GetFiles("Resources\\weatherImages");
+            string[] tempImages = Directory.GetFiles("Resources\\tempImages");
+            weatherPictureBox.Image = Image.FromFile(weatherImages[weatherimageNum]);
+            temperaturePictureBox.Image = Image.FromFile(tempImages[tempimageNum]);
+            weatherimageNum++;
+            tempimageNum++;
+            if (weatherimageNum >= weatherImages.Length)
+            {
+                weatherimageNum = 0;
+            }
+            if (tempimageNum >= tempImages.Length)
+            {
+                tempimageNum = 0;
+            }
+
+
+        }
+
+        private void temperaturePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void farrenheitSymbolPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void airPressureTimer_Tick(object sender, EventArgs e)
+        {
+            if (meteorologicalData.meteorologicalDataStruct.getAirPressure() == 100)
+            {
+                txtAirPressure.Enabled = true;
+                txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+            }
+        }
+    }
+}
+
 
         private void latitudeLongitudeTimer_Tick(object sender, EventArgs e)
         {             

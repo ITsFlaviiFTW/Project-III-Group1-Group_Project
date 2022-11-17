@@ -63,6 +63,16 @@ namespace Project_III_Group1_Group_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap farrenheit_resized {
+            get {
+                object obj = ResourceManager.GetObject("farrenheit-resized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plane1 {
             get {
                 object obj = ResourceManager.GetObject("plane1", resourceCulture);
