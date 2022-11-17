@@ -277,7 +277,7 @@
             this.aGauge1.Size = new System.Drawing.Size(205, 180);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Value = 0F;
-            this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
+            //this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
             // aGauge2
             // 
@@ -321,7 +321,7 @@
             this.aGauge2.TabIndex = 1;
             this.aGauge2.Text = "aGauge2";
             this.aGauge2.Value = 0F;
-            this.aGauge2.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge2_ValueInRangeChanged);
+            //this.aGauge2.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge2_ValueInRangeChanged);
             // 
             // trackBar1
             // 
@@ -624,7 +624,7 @@
             // 
             // dateTimeTimer
             // 
-            //this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
+            this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
             // 
             // Form1
             // 
