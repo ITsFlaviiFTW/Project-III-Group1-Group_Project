@@ -105,27 +105,67 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AGauge.dll" />
-    <Content Include="Resources\tempImages\0.png" />
-    <Content Include="Resources\tempImages\1.png" />
-    <Content Include="Resources\tempImages\2.png" />
-    <Content Include="Resources\tempImages\3.png" />
-    <Content Include="Resources\tempImages\4.png" />
-    <Content Include="Resources\tempImages\5.png" />
-    <Content Include="Resources\tempImages\6.png" />
-    <Content Include="Resources\tempImages\7.png" />
-    <Content Include="Resources\tempImages\8.png" />
-    <Content Include="Resources\tempImages\9.png" />
-    <Content Include="Resources\weatherImages\0.png" />
-    <Content Include="Resources\weatherImages\1.png" />
-    <Content Include="Resources\weatherImages\2.png" />
-    <Content Include="Resources\weatherImages\3.png" />
-    <Content Include="Resources\weatherImages\4.png" />
-    <Content Include="Resources\weatherImages\5.png" />
-    <Content Include="Resources\weatherImages\6.png" />
-    <Content Include="Resources\weatherImages\7.png" />
-    <Content Include="Resources\weatherImages\8.png" />
-    <Content Include="Resources\weatherImages\9.png" />
+    <Content Include="Resources\tempImages\0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\tempImages\9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\weatherID.txt" />
+    <Content Include="Resources\weatherImages\0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\weatherImages\9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\farrenheit-resized.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

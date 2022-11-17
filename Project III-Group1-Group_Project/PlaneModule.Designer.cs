@@ -42,12 +42,16 @@
             this.weatherPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.farrenheitSymbolPictureBox = new System.Windows.Forms.PictureBox();
+            this.grpBoxAirPressure = new System.Windows.Forms.GroupBox();
+            this.txtAirPressure = new System.Windows.Forms.TextBox();
+            this.airPressureTimer = new System.Windows.Forms.Timer(this.components);
             this.aGauge1 = new System.Windows.Forms.AGauge();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).BeginInit();
+            this.grpBoxAirPressure.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -138,7 +142,7 @@
             // 
             // temperaturePictureBox
             // 
-            this.temperaturePictureBox.Location = new System.Drawing.Point(1088, 403);
+            this.temperaturePictureBox.Location = new System.Drawing.Point(1101, 511);
             this.temperaturePictureBox.Name = "temperaturePictureBox";
             this.temperaturePictureBox.Size = new System.Drawing.Size(54, 44);
             this.temperaturePictureBox.TabIndex = 13;
@@ -148,7 +152,7 @@
             // weatherPictureBox
             // 
             this.weatherPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.weatherPictureBox.Location = new System.Drawing.Point(1042, 297);
+            this.weatherPictureBox.Location = new System.Drawing.Point(1055, 405);
             this.weatherPictureBox.Name = "weatherPictureBox";
             this.weatherPictureBox.Size = new System.Drawing.Size(100, 100);
             this.weatherPictureBox.TabIndex = 12;
@@ -167,12 +171,35 @@
             // 
             // farrenheitSymbolPictureBox
             // 
-            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(1052, 415);
+            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(1065, 511);
             this.farrenheitSymbolPictureBox.Name = "farrenheitSymbolPictureBox";
             this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(30, 30);
             this.farrenheitSymbolPictureBox.TabIndex = 14;
             this.farrenheitSymbolPictureBox.TabStop = false;
             this.farrenheitSymbolPictureBox.Click += new System.EventHandler(this.farrenheitSymbolPictureBox_Click);
+            // 
+            // grpBoxAirPressure
+            // 
+            this.grpBoxAirPressure.Controls.Add(this.txtAirPressure);
+            this.grpBoxAirPressure.Location = new System.Drawing.Point(932, 405);
+            this.grpBoxAirPressure.Name = "grpBoxAirPressure";
+            this.grpBoxAirPressure.Size = new System.Drawing.Size(83, 69);
+            this.grpBoxAirPressure.TabIndex = 15;
+            this.grpBoxAirPressure.TabStop = false;
+            this.grpBoxAirPressure.Text = "Air Pressure";
+            // 
+            // txtAirPressure
+            // 
+            this.txtAirPressure.Location = new System.Drawing.Point(22, 19);
+            this.txtAirPressure.Name = "txtAirPressure";
+            this.txtAirPressure.ReadOnly = true;
+            this.txtAirPressure.Size = new System.Drawing.Size(45, 20);
+            this.txtAirPressure.TabIndex = 0;
+            this.txtAirPressure.Text = "100.000";
+            // 
+            // airPressureTimer
+            // 
+            this.airPressureTimer.Tick += new System.EventHandler(this.airPressureTimer_Tick);
             // 
             // aGauge1
             // 
@@ -222,6 +249,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 567);
+            this.Controls.Add(this.grpBoxAirPressure);
             this.Controls.Add(this.farrenheitSymbolPictureBox);
             this.Controls.Add(this.temperaturePictureBox);
             this.Controls.Add(this.weatherPictureBox);
@@ -239,6 +267,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).EndInit();
+            this.grpBoxAirPressure.ResumeLayout(false);
+            this.grpBoxAirPressure.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +288,9 @@
         private System.Windows.Forms.PictureBox temperaturePictureBox;
         private System.Windows.Forms.ImageList temperatureImageList;
         private System.Windows.Forms.PictureBox farrenheitSymbolPictureBox;
+        private System.Windows.Forms.GroupBox grpBoxAirPressure;
+        private System.Windows.Forms.TextBox txtAirPressure;
+        private System.Windows.Forms.Timer airPressureTimer;
     }
 }
 

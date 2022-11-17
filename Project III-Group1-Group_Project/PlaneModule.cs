@@ -153,6 +153,15 @@ namespace Project_III_Group1_Group_Project
         {
 
         }
+
+        private void airPressureTimer_Tick(object sender, EventArgs e)
+        {
+            if (meteorologicalData.meteorologicalDataStruct.getAirPressure() == 100)
+            {
+                txtAirPressure.Enabled = true;
+                txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+            }
+        }
     }
 }
 
