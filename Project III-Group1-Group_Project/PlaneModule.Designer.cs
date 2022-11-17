@@ -56,12 +56,19 @@
             this.picBoxCountry = new System.Windows.Forms.PictureBox();
             this.lblProvinceStateInfo = new System.Windows.Forms.Label();
             this.lblProvinceState = new System.Windows.Forms.Label();
+            this.lblFlightTimeRemaining = new System.Windows.Forms.Label();
+            this.grpBoxTimeDetails = new System.Windows.Forms.GroupBox();
+            this.lblCurrentTimeLeft = new System.Windows.Forms.Label();
+            this.lblTimeLeft = new System.Windows.Forms.Label();
+            this.lblCurrentTime = new System.Windows.Forms.Label();
+            this.dateTimeTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpBoxCoordinateDetails.SuspendLayout();
             this.grpBoxPlaneTurning.SuspendLayout();
             this.grpBoxLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
+            this.grpBoxTimeDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // aGauge1
@@ -348,11 +355,65 @@
             this.lblProvinceState.TabIndex = 20;
             this.lblProvinceState.Text = "Currently Flying over: ";
             // 
+            // lblFlightTimeRemaining
+            // 
+            this.lblFlightTimeRemaining.AutoSize = true;
+            this.lblFlightTimeRemaining.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightTimeRemaining.Location = new System.Drawing.Point(6, 16);
+            this.lblFlightTimeRemaining.Name = "lblFlightTimeRemaining";
+            this.lblFlightTimeRemaining.Size = new System.Drawing.Size(163, 12);
+            this.lblFlightTimeRemaining.TabIndex = 19;
+            this.lblFlightTimeRemaining.Text = "Estimated Flight Time Remaining: ";
+            // 
+            // grpBoxTimeDetails
+            // 
+            this.grpBoxTimeDetails.Controls.Add(this.lblCurrentTimeLeft);
+            this.grpBoxTimeDetails.Controls.Add(this.lblTimeLeft);
+            this.grpBoxTimeDetails.Controls.Add(this.lblCurrentTime);
+            this.grpBoxTimeDetails.Controls.Add(this.lblFlightTimeRemaining);
+            this.grpBoxTimeDetails.Location = new System.Drawing.Point(616, 9);
+            this.grpBoxTimeDetails.Name = "grpBoxTimeDetails";
+            this.grpBoxTimeDetails.Size = new System.Drawing.Size(335, 100);
+            this.grpBoxTimeDetails.TabIndex = 20;
+            this.grpBoxTimeDetails.TabStop = false;
+            this.grpBoxTimeDetails.Text = "Time Details";
+            // 
+            // lblCurrentTimeLeft
+            // 
+            this.lblCurrentTimeLeft.AutoSize = true;
+            this.lblCurrentTimeLeft.Location = new System.Drawing.Point(175, 39);
+            this.lblCurrentTimeLeft.Name = "lblCurrentTimeLeft";
+            this.lblCurrentTimeLeft.Size = new System.Drawing.Size(0, 13);
+            this.lblCurrentTimeLeft.TabIndex = 22;
+            // 
+            // lblTimeLeft
+            // 
+            this.lblTimeLeft.AutoSize = true;
+            this.lblTimeLeft.Location = new System.Drawing.Point(175, 17);
+            this.lblTimeLeft.Name = "lblTimeLeft";
+            this.lblTimeLeft.Size = new System.Drawing.Size(0, 13);
+            this.lblTimeLeft.TabIndex = 21;
+            // 
+            // lblCurrentTime
+            // 
+            this.lblCurrentTime.AutoSize = true;
+            this.lblCurrentTime.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentTime.Location = new System.Drawing.Point(6, 37);
+            this.lblCurrentTime.Name = "lblCurrentTime";
+            this.lblCurrentTime.Size = new System.Drawing.Size(73, 12);
+            this.lblCurrentTime.TabIndex = 20;
+            this.lblCurrentTime.Text = "Current Time: ";
+            // 
+            // dateTimeTimer
+            // 
+            this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 688);
+            this.Controls.Add(this.grpBoxTimeDetails);
             this.Controls.Add(this.grpBoxLocation);
             this.Controls.Add(this.grpBoxPlaneTurning);
             this.Controls.Add(this.grpBoxCoordinateDetails);
@@ -373,6 +434,8 @@
             this.grpBoxLocation.ResumeLayout(false);
             this.grpBoxLocation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).EndInit();
+            this.grpBoxTimeDetails.ResumeLayout(false);
+            this.grpBoxTimeDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,6 +469,12 @@
         private System.Windows.Forms.Label lblProvinceStateInfo;
         private System.Windows.Forms.Label lblProvinceState;
         private System.Windows.Forms.PictureBox picBoxCountry;
+        private System.Windows.Forms.Label lblFlightTimeRemaining;
+        private System.Windows.Forms.GroupBox grpBoxTimeDetails;
+        private System.Windows.Forms.Label lblCurrentTimeLeft;
+        private System.Windows.Forms.Label lblTimeLeft;
+        private System.Windows.Forms.Label lblCurrentTime;
+        private System.Windows.Forms.Timer dateTimeTimer;
     }
 }
 

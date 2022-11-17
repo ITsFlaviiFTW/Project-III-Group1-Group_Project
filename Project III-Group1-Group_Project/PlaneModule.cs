@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project_III_Group1_Group_Project
-{
-     
+{  
     public partial class Form1 : Form
     {      
         GeoLocation locationData;
@@ -20,7 +19,7 @@ namespace Project_III_Group1_Group_Project
         PlaneData planeDataStruct = new PlaneData();
         LocationData locationDataStruct = new LocationData();
         string filePath = "Resources\\flights.txt";
-        Random random = new Random();     
+        Random random = new Random();
         int i = 1;
 
         public Form1()
@@ -33,8 +32,6 @@ namespace Project_III_Group1_Group_Project
         {
             try
             {
-
-
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
@@ -104,7 +101,6 @@ namespace Project_III_Group1_Group_Project
             }
 
         }
-
         private void pictureBox1_Click(object sender, EventArgs e) // this needs to be here for the images to be alive
         {
 
@@ -172,34 +168,33 @@ namespace Project_III_Group1_Group_Project
 
         private void btnRight90_Click(object sender, EventArgs e)
         {
-            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Right", 90);
-           
+            turnPlane(locationData.locationDataStruct.getCompassBearing(), "Right", 90);        
         }
 
-        private void turnPlane(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
+        public void turnPlane(CompassBearing currentBearing, string directionToTurn, int angleToTurn)
         {
             locationData.locationDataStruct.setCompassBearing(locationData.calculateNewCompassBearing(currentBearing, directionToTurn, angleToTurn));
          
             if (angleToTurn == 45)
             {             
-                turningPlaneTimer.Interval = 3000;                                                   
+                
+                turningPlaneTimer.Interval = 3000;
             }
             else
-            {         
-                turningPlaneTimer.Interval = 6000;             
+            {
+                turningPlaneTimer.Interval = 6000;
             }
 
             foreach(Button button in grpBoxPlaneTurning.Controls)
             {
                 button.Enabled = false;
             }
-            lblPlaneIsTurning.Text = "Plane is currently turning...";          
+            lblPlaneIsTurning.Text = "Plane is currently turning...";
             turningPlaneTimer.Start();
         }
 
         private void turningPlaneTimer_Tick(object sender, EventArgs e)
-        {
-            
+        {           
             turningPlaneTimer.Stop();
             lblPlaneIsTurning.Text = "";
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
@@ -218,7 +213,6 @@ namespace Project_III_Group1_Group_Project
                 locationData.locationDataStruct.setCurrProvinceState(locationData.obtainCurrentProvinceState(locationData.locationDataStruct.getCurrCountry()));
                 picBoxCountry.ImageLocation = "Resources\\canadaFlag.png";
                 lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
-
             }
             else
             {
@@ -254,12 +248,20 @@ namespace Project_III_Group1_Group_Project
             //Starting needed timers
             latitudeLongitudeTimer.Start();
             changingLocationTimer.Start();
+            dateTimeTimer.Start();
        
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
             lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
         }
 
-       
+        private void dateTimeTimer_Tick(object sender, EventArgs e)
+        {
+            locationData.locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
+            lblTimeLeft.Text = DateTime.Now.ToString();
+            lblCurrentTimeLeft.Text = locationData.locationDataStruct.getCurrEstimatedArrivalTime().ToString();
+        }
+
+      
     }
 }
