@@ -624,7 +624,7 @@
             // 
             // dateTimeTimer
             // 
-            this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
+            //this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
             // 
             // Form1
             // 
