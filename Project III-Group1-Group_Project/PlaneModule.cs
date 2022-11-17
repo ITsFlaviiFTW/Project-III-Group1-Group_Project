@@ -36,18 +36,11 @@ namespace Project_III_Group1_Group_Project
         {
             try
             {
-                // pre-existing meteorological data
-
-                meteorological.setWeather("Sunny");
-                meteorological.setTemperature(90);
-                meteorological.setAirPressure(70);
-                meteorological.setDayType(true);
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
                 currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);
 
-                meteorologicalData = new Meteorological(meteorological);
             }
             catch (Exception)
             {
@@ -157,16 +150,6 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void farrenheitSymbolPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void airPressureGauge_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
-        {
-
-        }
-
-        private void airPressureTrackBar_Scroll(object sender, EventArgs e)
         {
 
         }

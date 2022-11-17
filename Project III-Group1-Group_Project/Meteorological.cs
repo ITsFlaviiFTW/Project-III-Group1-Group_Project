@@ -104,7 +104,7 @@ namespace Project_III_Group1_Group_Project
 
         public override string ToString()
         {
-            return "Weather: " + meteorologicalData.getWeather() + " Temperature: " + meteorologicalData.getTemperature() + " Air Pressure: " + meteorologicalData.getAirPressure() + " Day Type: " + meteorologicalData.getDayType();
+            return "Weather: " + meteorologicalDataStruct.getWeather() + " Temperature: " + meteorologicalDataStruct.getTemperature() + " Air Pressure: " + meteorologicalDataStruct.getAirPressure() + " Day Type: " + meteorologicalDataStruct.getDayType();
         }
 
 
