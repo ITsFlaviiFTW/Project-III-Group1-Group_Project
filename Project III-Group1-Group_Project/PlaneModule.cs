@@ -61,9 +61,19 @@ namespace Project_III_Group1_Group_Project
 
         }
 
+        private void aGauge2_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
+        }
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             aGauge1.Value = trackBar1.Value; // gauge slider functionality 
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            aGauge2.Value = trackBar2.Value; // gauge slider functionality 
         }
 
         private void GoBack(object sender, EventArgs e)
