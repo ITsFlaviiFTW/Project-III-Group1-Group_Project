@@ -33,7 +33,6 @@
             System.Windows.Forms.AGaugeRange aGaugeRange1 = new System.Windows.Forms.AGaugeRange();
             System.Windows.Forms.AGaugeRange aGaugeRange2 = new System.Windows.Forms.AGaugeRange();
             System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange4 = new System.Windows.Forms.AGaugeRange();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.button2 = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.farrenheitSymbolPictureBox = new System.Windows.Forms.PictureBox();
             this.warningAirPressureLabel = new System.Windows.Forms.Label();
+            this.airPressureTrackBar = new System.Windows.Forms.TrackBar();
             this.airPressureGauge = new System.Windows.Forms.AGauge();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -54,25 +54,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airPressureTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(1297, 244);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBar1.Location = new System.Drawing.Point(973, 198);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(225, 56);
+            this.trackBar1.Size = new System.Drawing.Size(169, 45);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.TickFrequency = 20;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(336, 730);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(252, 593);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(208, 66);
+            this.button2.Size = new System.Drawing.Size(156, 54);
             this.button2.TabIndex = 7;
             this.button2.Text = "GoBack";
             this.button2.UseVisualStyleBackColor = true;
@@ -80,10 +79,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(821, 722);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(616, 587);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(237, 73);
+            this.button1.Size = new System.Drawing.Size(178, 59);
             this.button1.TabIndex = 9;
             this.button1.Text = "GoNext";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,10 +89,9 @@
             // 
             // btnViewFlightInformation
             // 
-            this.btnViewFlightInformation.Location = new System.Drawing.Point(4, 2);
-            this.btnViewFlightInformation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnViewFlightInformation.Location = new System.Drawing.Point(3, 2);
             this.btnViewFlightInformation.Name = "btnViewFlightInformation";
-            this.btnViewFlightInformation.Size = new System.Drawing.Size(163, 73);
+            this.btnViewFlightInformation.Size = new System.Drawing.Size(122, 59);
             this.btnViewFlightInformation.TabIndex = 11;
             this.btnViewFlightInformation.Text = "View current flight information";
             this.btnViewFlightInformation.UseVisualStyleBackColor = true;
@@ -148,10 +145,9 @@
             // 
             // temperaturePictureBox
             // 
-            this.temperaturePictureBox.Location = new System.Drawing.Point(1451, 511);
-            this.temperaturePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.temperaturePictureBox.Location = new System.Drawing.Point(1088, 403);
             this.temperaturePictureBox.Name = "temperaturePictureBox";
-            this.temperaturePictureBox.Size = new System.Drawing.Size(40, 37);
+            this.temperaturePictureBox.Size = new System.Drawing.Size(54, 44);
             this.temperaturePictureBox.TabIndex = 13;
             this.temperaturePictureBox.TabStop = false;
             this.temperaturePictureBox.Click += new System.EventHandler(this.temperaturePictureBox_Click);
@@ -159,20 +155,18 @@
             // weatherPictureBox
             // 
             this.weatherPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.weatherPictureBox.Location = new System.Drawing.Point(1349, 319);
-            this.weatherPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.weatherPictureBox.Location = new System.Drawing.Point(1042, 297);
             this.weatherPictureBox.Name = "weatherPictureBox";
-            this.weatherPictureBox.Size = new System.Drawing.Size(200, 185);
+            this.weatherPictureBox.Size = new System.Drawing.Size(100, 100);
             this.weatherPictureBox.TabIndex = 12;
             this.weatherPictureBox.TabStop = false;
             this.weatherPictureBox.Click += new System.EventHandler(this.weatherPictureBox_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(336, 122);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(252, 99);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(764, 459);
+            this.pictureBox1.Size = new System.Drawing.Size(573, 373);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -180,10 +174,9 @@
             // 
             // farrenheitSymbolPictureBox
             // 
-            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(1403, 511);
-            this.farrenheitSymbolPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(1052, 415);
             this.farrenheitSymbolPictureBox.Name = "farrenheitSymbolPictureBox";
-            this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(40, 37);
+            this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(30, 30);
             this.farrenheitSymbolPictureBox.TabIndex = 14;
             this.farrenheitSymbolPictureBox.TabStop = false;
             this.farrenheitSymbolPictureBox.Click += new System.EventHandler(this.farrenheitSymbolPictureBox_Click);
@@ -191,11 +184,22 @@
             // warningAirPressureLabel
             // 
             this.warningAirPressureLabel.AutoSize = true;
-            this.warningAirPressureLabel.Location = new System.Drawing.Point(1225, 604);
+            this.warningAirPressureLabel.Location = new System.Drawing.Point(919, 491);
+            this.warningAirPressureLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.warningAirPressureLabel.Name = "warningAirPressureLabel";
-            this.warningAirPressureLabel.Size = new System.Drawing.Size(44, 16);
+            this.warningAirPressureLabel.Size = new System.Drawing.Size(35, 13);
             this.warningAirPressureLabel.TabIndex = 16;
             this.warningAirPressureLabel.Text = "label1";
+            // 
+            // airPressureTrackBar
+            // 
+            this.airPressureTrackBar.Location = new System.Drawing.Point(842, 524);
+            this.airPressureTrackBar.Maximum = 100;
+            this.airPressureTrackBar.Name = "airPressureTrackBar";
+            this.airPressureTrackBar.Size = new System.Drawing.Size(169, 45);
+            this.airPressureTrackBar.TabIndex = 2;
+            this.airPressureTrackBar.TickFrequency = 20;
+            this.airPressureTrackBar.Scroll += new System.EventHandler(this.airPressureTrackBar_Scroll);
             // 
             // airPressureGauge
             // 
@@ -205,40 +209,32 @@
             this.airPressureGauge.BaseArcSweep = 270;
             this.airPressureGauge.BaseArcWidth = 2;
             this.airPressureGauge.GaugeAutoSize = false;
-            aGaugeRange1.Color = System.Drawing.Color.Yellow;
-            aGaugeRange1.EndValue = 50F;
+            aGaugeRange1.Color = System.Drawing.Color.Red;
+            aGaugeRange1.EndValue = 25F;
             aGaugeRange1.InnerRadius = 70;
             aGaugeRange1.InRange = false;
             aGaugeRange1.Name = "GaugeRange1";
             aGaugeRange1.OuterRadius = 80;
-            aGaugeRange1.StartValue = 25F;
-            aGaugeRange2.Color = System.Drawing.Color.Lime;
-            aGaugeRange2.EndValue = 75F;
+            aGaugeRange1.StartValue = 0F;
+            aGaugeRange2.Color = System.Drawing.Color.Yellow;
+            aGaugeRange2.EndValue = 50F;
             aGaugeRange2.InnerRadius = 70;
             aGaugeRange2.InRange = false;
             aGaugeRange2.Name = "GaugeRange2";
             aGaugeRange2.OuterRadius = 80;
-            aGaugeRange2.StartValue = 50F;
-            aGaugeRange3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            aGaugeRange3.EndValue = 25F;
+            aGaugeRange2.StartValue = 25F;
+            aGaugeRange3.Color = System.Drawing.Color.Lime;
+            aGaugeRange3.EndValue = 75F;
             aGaugeRange3.InnerRadius = 70;
             aGaugeRange3.InRange = false;
             aGaugeRange3.Name = "GaugeRange3";
             aGaugeRange3.OuterRadius = 80;
-            aGaugeRange3.StartValue = 0F;
-            aGaugeRange4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            aGaugeRange4.EndValue = 100F;
-            aGaugeRange4.InnerRadius = 70;
-            aGaugeRange4.InRange = false;
-            aGaugeRange4.Name = "GaugeRange4";
-            aGaugeRange4.OuterRadius = 80;
-            aGaugeRange4.StartValue = 75F;
+            aGaugeRange3.StartValue = 50F;
             this.airPressureGauge.GaugeRanges.Add(aGaugeRange1);
             this.airPressureGauge.GaugeRanges.Add(aGaugeRange2);
             this.airPressureGauge.GaugeRanges.Add(aGaugeRange3);
-            this.airPressureGauge.GaugeRanges.Add(aGaugeRange4);
-            this.airPressureGauge.Location = new System.Drawing.Point(1122, 415);
-            this.airPressureGauge.MaxValue = 100F;
+            this.airPressureGauge.Location = new System.Drawing.Point(842, 337);
+            this.airPressureGauge.MaxValue = 75F;
             this.airPressureGauge.MinValue = 0F;
             this.airPressureGauge.Name = "airPressureGauge";
             this.airPressureGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
@@ -267,8 +263,8 @@
             this.airPressureGauge.ScaleNumbersRotation = 0;
             this.airPressureGauge.ScaleNumbersStartScaleLine = 0;
             this.airPressureGauge.ScaleNumbersStepScaleLines = 1;
-            this.airPressureGauge.Size = new System.Drawing.Size(274, 257);
-            this.airPressureGauge.TabIndex = 15;
+            this.airPressureGauge.Size = new System.Drawing.Size(206, 209);
+            this.airPressureGauge.TabIndex = 1;
             this.airPressureGauge.Text = "aGauge2";
             this.airPressureGauge.Value = 0F;
             this.airPressureGauge.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.airPressureGauge_ValueInRangeChanged);
@@ -282,8 +278,7 @@
             this.aGauge1.BaseArcSweep = 270;
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.GaugeAutoSize = false;
-            this.aGauge1.Location = new System.Drawing.Point(1276, 15);
-            this.aGauge1.Margin = new System.Windows.Forms.Padding(4);
+            this.aGauge1.Location = new System.Drawing.Point(957, 12);
             this.aGauge1.MaxValue = 100F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -312,16 +307,17 @@
             this.aGauge1.ScaleNumbersRotation = 0;
             this.aGauge1.ScaleNumbersStartScaleLine = 0;
             this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(273, 222);
+            this.aGauge1.Size = new System.Drawing.Size(205, 180);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Value = 0F;
             this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1577, 847);
+            this.ClientSize = new System.Drawing.Size(1167, 567);
+            this.Controls.Add(this.airPressureTrackBar);
             this.Controls.Add(this.warningAirPressureLabel);
             this.Controls.Add(this.airPressureGauge);
             this.Controls.Add(this.farrenheitSymbolPictureBox);
@@ -333,7 +329,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.aGauge1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "PlaneModule";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -342,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airPressureTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,8 +357,9 @@
         private System.Windows.Forms.PictureBox temperaturePictureBox;
         private System.Windows.Forms.ImageList temperatureImageList;
         private System.Windows.Forms.PictureBox farrenheitSymbolPictureBox;
-        private System.Windows.Forms.AGauge airPressureGauge;
         private System.Windows.Forms.Label warningAirPressureLabel;
+        public System.Windows.Forms.AGauge airPressureGauge;
+        public System.Windows.Forms.TrackBar airPressureTrackBar;
     }
 }
 

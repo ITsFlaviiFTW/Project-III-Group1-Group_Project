@@ -105,10 +105,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AGauge.dll" />
-    <Content Include="Resources\sunny.png" />
+    <Content Include="Resources\tempImages\0.png" />
+    <Content Include="Resources\tempImages\1.png" />
+    <Content Include="Resources\tempImages\2.png" />
+    <Content Include="Resources\tempImages\3.png" />
+    <Content Include="Resources\tempImages\4.png" />
+    <Content Include="Resources\tempImages\5.png" />
+    <Content Include="Resources\tempImages\6.png" />
+    <Content Include="Resources\tempImages\7.png" />
+    <Content Include="Resources\tempImages\8.png" />
+    <Content Include="Resources\tempImages\9.png" />
+    <Content Include="Resources\weatherImages\0.png" />
+    <Content Include="Resources\weatherImages\1.png" />
+    <Content Include="Resources\weatherImages\2.png" />
+    <Content Include="Resources\weatherImages\3.png" />
+    <Content Include="Resources\weatherImages\4.png" />
+    <Content Include="Resources\weatherImages\5.png" />
+    <Content Include="Resources\weatherImages\6.png" />
+    <Content Include="Resources\weatherImages\7.png" />
+    <Content Include="Resources\weatherImages\8.png" />
+    <Content Include="Resources\weatherImages\9.png" />
     <Content Include="Resources\weatherID.txt" />
     <None Include="Resources\farrenheit-resized.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Resources\flights.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -116,5 +135,6 @@
     <None Include="Resources\plane1-Bad-CPdoor.jpg" />
     <None Include="Resources\plane1.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Project_III_Group1_Group_Project
 {
-
-
-
     public struct MeteorologicalData
     {
         private string weather;
@@ -61,15 +58,15 @@ namespace Project_III_Group1_Group_Project
     }
     public class Meteorological
     {
-        public MeteorologicalData meteorologicalData;
+        public MeteorologicalData meteorologicalDataStruct;
         public Meteorological(MeteorologicalData data)
         {
-            this.meteorologicalData.setWeather(data.getWeather());
-            this.meteorologicalData.setTemperature(data.getTemperature());
-            this.meteorologicalData.setAirPressure(data.getAirPressure());
-            this.meteorologicalData.setDayType(data.getDayType());
+            this.meteorologicalDataStruct.setWeather(data.getWeather());
+            this.meteorologicalDataStruct.setTemperature(data.getTemperature());
+            this.meteorologicalDataStruct.setAirPressure(data.getAirPressure());
+            this.meteorologicalDataStruct.setDayType(data.getDayType());
         }
-        public void AirPressure()
+        public int AirPressure()
         {
             //create an array for air pressure values
             int[] airPressure = new int[5];
@@ -101,6 +98,7 @@ namespace Project_III_Group1_Group_Project
                     Console.WriteLine("The air pressure is high, reduce the pressure!");
                 }
             }
+            return airPressure[0];
         }
 
 
