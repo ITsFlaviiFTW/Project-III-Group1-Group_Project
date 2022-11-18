@@ -278,11 +278,10 @@ namespace Project_III_Group1_Group_Project
 
         private void GeoLocationSetup()
         {
-
             //Setting up default GeoLocation information
             locationDataStruct.setCurrLongitude("0.000000");
             locationDataStruct.setCurrLatitude("0.000000");
-            locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
+            locationDataStruct.setCurrEstimatedArrivalTimeLeft(DateTime.Now.ToString());
             locationDataStruct.setCurrProvinceState(currentFlight.planeData.getStartingLocation());
             if (locationDataStruct.getCurrProvinceState() == "Toronto")
             {
@@ -296,6 +295,7 @@ namespace Project_III_Group1_Group_Project
 
             }
             locationDataStruct.setCompassBearing(CompassBearing.N);
+
             //Setting object
             locationData = new GeoLocation(locationDataStruct);
 
@@ -303,17 +303,26 @@ namespace Project_III_Group1_Group_Project
             latitudeLongitudeTimer.Start();
             changingLocationTimer.Start();
             dateTimeTimer.Start();
+            estimatedTimeTimer.Start();
 
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
             lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
+            TimeSpan difference = TimeSpan.Parse(planeDataStruct.getDepartureTime().Replace("PM", "").Replace("AM", "")) - TimeSpan.Parse(planeDataStruct.getArrivalTime().Replace("PM", "").Replace("AM", ""));
+
+            locationDataStruct.setCurrEstimatedArrivalTimeLeft(difference.ToString().Replace("-", ""));
+            lblEstimatedTimeLeft.Text = difference.ToString().Replace("-", "");
         }
 
         private void dateTimeTimer_Tick(object sender, EventArgs e)
+        {                     
+            lblCurrentDateTime.Text = DateTime.Now.ToString();            
+        }
+
+        private void estimatedTimeTimer_Tick(object sender, EventArgs e)
         {
-            locationData.locationDataStruct.setCurrEstimatedArrivalTime(DateTime.Now);
-            lblTimeLeft.Text = DateTime.Now.ToString();
-            lblCurrentTimeLeft.Text = locationData.locationDataStruct.getCurrEstimatedArrivalTime().ToString();
+            locationDataStruct.setCurrEstimatedArrivalTimeLeft(locationData.obtainNewEstimatedTimeUntilArrival(456, locationDataStruct.getCurrEstimatedArrivalTimeLeft()));
+            lblEstimatedTimeLeft.Text = locationDataStruct.getCurrEstimatedArrivalTimeLeft().ToString();
         }
     }
 }

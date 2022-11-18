@@ -25,7 +25,7 @@ namespace Project_III_Group1_Group_Project
         private CompassBearing currBearing;
         private string currProvinceState;
         private string currCountry;
-        private DateTime currEstimatedArrivalTime;
+        private string currEstimatedArrivalTimeLeft;
 
         public void setCurrLatitude(string currLatitude)
         {
@@ -73,13 +73,13 @@ namespace Project_III_Group1_Group_Project
         }
 
 
-        public void setCurrEstimatedArrivalTime(DateTime time)
+        public void setCurrEstimatedArrivalTimeLeft(string time)
         {
-            this.currEstimatedArrivalTime = time;
+            this.currEstimatedArrivalTimeLeft = time;
         }
-        public DateTime getCurrEstimatedArrivalTime()
+        public string getCurrEstimatedArrivalTimeLeft()
         {
-            return this.currEstimatedArrivalTime;
+            return this.currEstimatedArrivalTimeLeft;
         }
     } 
     public class GeoLocation
@@ -92,7 +92,7 @@ namespace Project_III_Group1_Group_Project
                 this.locationDataStruct.setCompassBearing(locationData.getCompassBearing());
                 this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
                 this.locationDataStruct.setCurrCountry(locationData.getCurrCountry());
-                this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
+                this.locationDataStruct.setCurrEstimatedArrivalTimeLeft(locationData.getCurrEstimatedArrivalTimeLeft());
           }
 
          public string obtainNewLongitude()
@@ -131,11 +131,12 @@ namespace Project_III_Group1_Group_Project
             }                                     
         }
 
-        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed, DateTime currentEstimatedTime)
+        public string obtainNewEstimatedTimeUntilArrival(int planeSpeed, string currentEstimatedTime)
         {
+            TimeSpan curr = TimeSpan.Parse(currentEstimatedTime);
             if (!File.Exists("Resources\\updatingEstimatedTime.txt"))
             {
-                throw new Exception("Time File does not exist");             
+                throw new Exception("Time File does not exist");
             }
             else
             {
@@ -146,28 +147,29 @@ namespace Project_III_Group1_Group_Project
                 switch (int.Parse(line))
                 {
                     case 1:
-                        currentEstimatedTime.AddMinutes(5);                      
+                        curr = curr.Add(TimeSpan.FromMinutes(5));
+                        
                         break;
                     case 2:
-                        currentEstimatedTime.AddMinutes(10);
+                        curr = curr.Add(TimeSpan.FromMinutes(10));
                         break;
                     case 3:
-                        currentEstimatedTime.AddMinutes(15);
+                        curr = curr.Add(TimeSpan.FromMinutes(15));
                         break;
-                }                
+                }
                 if (planeSpeed >= 0 && planeSpeed <= 299)
                 {
-                    currentEstimatedTime.AddMinutes(5);
+                    curr = curr.Add(TimeSpan.FromMinutes(1));
                 }
-                else if(planeSpeed >= 300 && planeSpeed <= 599)
+                else if (planeSpeed >= 300 && planeSpeed <= 599)
                 {
-                    currentEstimatedTime.AddMinutes(3);
+                    curr = curr.Add(TimeSpan.FromMinutes(5));
                 }
                 else
                 {
-                    currentEstimatedTime.AddMinutes(1);
+                    curr = curr.Add(TimeSpan.FromMinutes(10));
                 }
-                return currentEstimatedTime;
+                return curr.ToString();
             }       
         }
 
