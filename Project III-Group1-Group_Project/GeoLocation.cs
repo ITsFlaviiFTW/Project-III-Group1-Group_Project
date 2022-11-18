@@ -109,7 +109,6 @@ namespace Project_III_Group1_Group_Project
 
                 wholeNumber = allLines[random.Next(allLines.Length)];
                 decimalPoint = random.Next(0, 1000000).ToString("D6");
-
                 return wholeNumber + "." + decimalPoint;
             }                               
          }
@@ -120,19 +119,56 @@ namespace Project_III_Group1_Group_Project
             {
                 throw new Exception("Latitudes File does not exist");
             }
-            Random random = new Random();          
-            string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";           
-            string[] allLines = File.ReadAllLines(filePath);
+            else
+            {
+                Random random = new Random();
+                string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";
+                string[] allLines = File.ReadAllLines(filePath);
 
-            wholeNumber= allLines[random.Next(allLines.Length)];
-            decimalPoint = random.Next(0, 1000000).ToString("D6");
-            
-            return wholeNumber + "." + decimalPoint;                    
+                wholeNumber = allLines[random.Next(allLines.Length)];
+                decimalPoint = random.Next(0, 1000000).ToString("D6");
+                return wholeNumber + "." + decimalPoint;
+            }                                     
         }
 
-        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed)
+        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed, DateTime currentEstimatedTime)
         {
-            return new DateTime();
+            if (!File.Exists("Resources\\updatingEstimatedTime.txt"))
+            {
+                throw new Exception("Time File does not exist");             
+            }
+            else
+            {
+                Random random = new Random();
+                string line = "", filePath = "Resources\\updatingEstimatedTime.txt";
+                string[] allLines = File.ReadAllLines(filePath);
+                line = allLines[random.Next(allLines.Length)];
+                switch (int.Parse(line))
+                {
+                    case 1:
+                        currentEstimatedTime.AddMinutes(5);                      
+                        break;
+                    case 2:
+                        currentEstimatedTime.AddMinutes(10);
+                        break;
+                    case 3:
+                        currentEstimatedTime.AddMinutes(15);
+                        break;
+                }                
+                if (planeSpeed >= 0 && planeSpeed <= 299)
+                {
+                    currentEstimatedTime.AddMinutes(5);
+                }
+                else if(planeSpeed >= 300 && planeSpeed <= 599)
+                {
+                    currentEstimatedTime.AddMinutes(3);
+                }
+                else
+                {
+                    currentEstimatedTime.AddMinutes(1);
+                }
+                return currentEstimatedTime;
+            }       
         }
 
         public string obtainCurrentCountry()

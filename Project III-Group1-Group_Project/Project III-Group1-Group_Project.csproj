@@ -137,6 +137,7 @@
     <Content Include="Resources\tempImages\9.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\updatingEstimatedTime.txt" />
     <Content Include="Resources\weatherID.txt" />
     <Content Include="Resources\weatherImages\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
