@@ -33,14 +33,16 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
 using System.Collections;
-
+#pragma warning disable CS0436 // Type conflicts with imported type
 namespace System.Windows.Forms
 {
-  /// <summary>
-  /// <para>AGauge - Copyright (C) 2007 A.J.Bauer</para>
-  /// <link>http://www.codeproject.com/Articles/17559/A-fast-and-performing-gauge</link>
-  /// </summary>
-  [ToolboxBitmapAttribute(typeof(AGauge), "AGauge.AGauge.bmp"),
+    /// <summary>
+    /// <para>AGauge - Copyright (C) 2007 A.J.Bauer</para>
+    /// <link>http://www.codeproject.com/Articles/17559/A-fast-and-performing-gauge</link>
+    /// </summary>
+
+    [ToolboxBitmapAttribute(typeof(AGauge), "AGauge.AGauge.bmp"),
+
   DefaultEvent("ValueInRangeChanged"),
   Description("Displays a value on an analog gauge. Raises an event if the value enters one of the definable ranges.")]
   public partial class AGauge : Control

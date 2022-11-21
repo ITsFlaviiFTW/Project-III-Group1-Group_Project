@@ -25,7 +25,7 @@ namespace Project_III_Group1_Group_Project
         private CompassBearing currBearing;
         private string currProvinceState;
         private string currCountry;
-        private DateTime currEstimatedArrivalTime;
+        private string currEstimatedArrivalTimeLeft;
 
         public void setCurrLatitude(string currLatitude)
         {
@@ -73,13 +73,13 @@ namespace Project_III_Group1_Group_Project
         }
 
 
-        public void setCurrEstimatedArrivalTime(DateTime time)
+        public void setCurrEstimatedArrivalTimeLeft(string time)
         {
-            this.currEstimatedArrivalTime = time;
+            this.currEstimatedArrivalTimeLeft = time;
         }
-        public DateTime getCurrEstimatedArrivalTime()
+        public string getCurrEstimatedArrivalTimeLeft()
         {
-            return this.currEstimatedArrivalTime;
+            return this.currEstimatedArrivalTimeLeft;
         }
     } 
     public class GeoLocation
@@ -92,7 +92,7 @@ namespace Project_III_Group1_Group_Project
                 this.locationDataStruct.setCompassBearing(locationData.getCompassBearing());
                 this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
                 this.locationDataStruct.setCurrCountry(locationData.getCurrCountry());
-                this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
+                this.locationDataStruct.setCurrEstimatedArrivalTimeLeft(locationData.getCurrEstimatedArrivalTimeLeft());
           }
 
          public string obtainNewLongitude()
@@ -109,7 +109,6 @@ namespace Project_III_Group1_Group_Project
 
                 wholeNumber = allLines[random.Next(allLines.Length)];
                 decimalPoint = random.Next(0, 1000000).ToString("D6");
-
                 return wholeNumber + "." + decimalPoint;
             }                               
          }
@@ -120,19 +119,58 @@ namespace Project_III_Group1_Group_Project
             {
                 throw new Exception("Latitudes File does not exist");
             }
-            Random random = new Random();          
-            string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";           
-            string[] allLines = File.ReadAllLines(filePath);
+            else
+            {
+                Random random = new Random();
+                string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";
+                string[] allLines = File.ReadAllLines(filePath);
 
-            wholeNumber= allLines[random.Next(allLines.Length)];
-            decimalPoint = random.Next(0, 1000000).ToString("D6");
-            
-            return wholeNumber + "." + decimalPoint;                    
+                wholeNumber = allLines[random.Next(allLines.Length)];
+                decimalPoint = random.Next(0, 1000000).ToString("D6");
+                return wholeNumber + "." + decimalPoint;
+            }                                     
         }
 
-        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed)
+        public string obtainNewEstimatedTimeUntilArrival(int planeSpeed, string currentEstimatedTime)
         {
-            return new DateTime();
+            TimeSpan curr = TimeSpan.Parse(currentEstimatedTime);
+            if (!File.Exists("Resources\\updatingEstimatedTime.txt"))
+            {
+                throw new Exception("Time File does not exist");
+            }
+            else
+            {
+                Random random = new Random();
+                string line = "", filePath = "Resources\\updatingEstimatedTime.txt";
+                string[] allLines = File.ReadAllLines(filePath);
+                line = allLines[random.Next(allLines.Length)];
+                switch (int.Parse(line))
+                {
+                    case 1:
+                        curr = curr.Add(TimeSpan.FromMinutes(5));
+                        
+                        break;
+                    case 2:
+                        curr = curr.Add(TimeSpan.FromMinutes(10));
+                        break;
+                    case 3:
+                        curr = curr.Add(TimeSpan.FromMinutes(15));
+                        break;
+                }
+                if (planeSpeed >= 0 && planeSpeed <= 299)
+                {
+                    curr = curr.Add(TimeSpan.FromMinutes(1));
+                }
+                else if (planeSpeed >= 300 && planeSpeed <= 599)
+                {
+                    curr = curr.Add(TimeSpan.FromMinutes(5));
+                }
+                else
+                {
+                    curr = curr.Add(TimeSpan.FromMinutes(10));
+                }
+                return curr.ToString();
+            }       
         }
 
         public string obtainCurrentCountry()
