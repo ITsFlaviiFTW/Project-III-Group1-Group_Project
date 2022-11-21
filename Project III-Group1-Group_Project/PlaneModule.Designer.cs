@@ -1,4 +1,6 @@
-﻿namespace Project_III_Group1_Group_Project
+﻿using System.Windows.Forms;
+
+namespace Project_III_Group1_Group_Project
 {
     partial class Form1
     {
@@ -31,6 +33,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.aGauge1 = new System.Windows.Forms.AGauge();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button2 = new System.Windows.Forms.Button();
@@ -86,6 +89,50 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
             this.grpBoxTimeDetails.SuspendLayout();
             this.SuspendLayout();
+            //
+            // gauge
+            //
+            this.aGauge1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.aGauge1.BaseArcColor = System.Drawing.Color.RosyBrown;
+            this.aGauge1.BaseArcRadius = 80;
+            this.aGauge1.BaseArcStart = 135;
+            this.aGauge1.BaseArcSweep = 270;
+            this.aGauge1.BaseArcWidth = 2;
+            this.aGauge1.Center = new System.Drawing.Point(100, 100);
+            this.aGauge1.Location = new System.Drawing.Point(957, 12);
+            this.aGauge1.MaxValue = 800F;
+            this.aGauge1.MinValue = 0F;
+            this.aGauge1.Name = "aGauge1";
+            this.aGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.aGauge1.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.aGauge1.NeedleRadius = 80;
+            this.aGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.aGauge1.NeedleWidth = 2;
+            this.aGauge1.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.aGauge1.ScaleLinesInterInnerRadius = 73;
+            this.aGauge1.ScaleLinesInterOuterRadius = 80;
+            this.aGauge1.ScaleLinesInterWidth = 1;
+            this.aGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.aGauge1.ScaleLinesMajorInnerRadius = 70;
+            this.aGauge1.ScaleLinesMajorOuterRadius = 80;
+            this.aGauge1.ScaleLinesMajorStepValue = 100F;
+            this.aGauge1.ScaleLinesMajorWidth = 2;
+            this.aGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.aGauge1.ScaleLinesMinorInnerRadius = 75;
+            this.aGauge1.ScaleLinesMinorOuterRadius = 80;
+            this.aGauge1.ScaleLinesMinorTicks = 9;
+            this.aGauge1.ScaleLinesMinorWidth = 1;
+            this.aGauge1.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.aGauge1.ScaleNumbersFormat = null;
+            this.aGauge1.ScaleNumbersRadius = 95;
+            this.aGauge1.ScaleNumbersRotation = 0;
+            this.aGauge1.ScaleNumbersStartScaleLine = 0;
+            this.aGauge1.ScaleNumbersStepScaleLines = 1;
+            this.aGauge1.Size = new System.Drawing.Size(205, 180);
+            this.aGauge1.TabIndex = 1;
+            this.aGauge1.Text = "aGauge1";
+            this.aGauge1.Value = 0F;
+            this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
             // trackBar1
             // 
@@ -507,6 +554,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.trackBar2);
             this.Name = "Form1";
@@ -535,6 +583,7 @@
 
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.AGauge aGauge1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Button button2;

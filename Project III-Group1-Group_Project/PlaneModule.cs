@@ -70,8 +70,12 @@ namespace Project_III_Group1_Group_Project
             }
         }
        
+        private void aGauge1_ValueInRangeChanged(object sender, EventArgs e)
+        {
 
-      
+        }
+
+
 
         private void GoBack(object sender, EventArgs e)
         {
