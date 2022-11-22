@@ -312,10 +312,11 @@ namespace Project_III_Group1_Group_Project
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
             lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
-            TimeSpan difference = TimeSpan.Parse(planeDataStruct.getDepartureTime().Replace("PM", "").Replace("AM", "")) - TimeSpan.Parse(planeDataStruct.getArrivalTime().Replace("PM", "").Replace("AM", ""));
+            //TimeSpan difference = TimeSpan.Parse(planeDataStruct.getDepartureTime().Replace("PM", "").Replace("AM", "")) - TimeSpan.Parse(planeDataStruct.getArrivalTime().Replace("PM", "").Replace("AM", ""));
+            var diffInTimes = DateTime.Parse(planeDataStruct.getDepartureTime()) - DateTime.Parse(planeDataStruct.getArrivalTime());
 
-            locationDataStruct.setCurrEstimatedArrivalTimeLeft(difference.ToString().Replace("-", ""));
-            lblEstimatedTimeLeft.Text = difference.ToString().Replace("-", "");
+            locationDataStruct.setCurrEstimatedArrivalTimeLeft(diffInTimes.ToString().Replace("-", ""));
+            lblEstimatedTimeLeft.Text = diffInTimes.ToString().Replace("-", "");
         }
 
         private void dateTimeTimer_Tick(object sender, EventArgs e)
