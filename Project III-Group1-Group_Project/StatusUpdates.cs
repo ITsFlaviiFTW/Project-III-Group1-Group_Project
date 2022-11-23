@@ -1,14 +1,18 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Project_III_Group1_Group_Project.Properties;
 
 namespace Project_III_Group1_Group_Project
 {
 
     public struct StatusUpdatesData
+
     {
         private bool OutDoor;
         private bool CockpitDoor;
@@ -57,11 +61,12 @@ namespace Project_III_Group1_Group_Project
             return this.AutoPilot;
         }
     }
-    internal class StatusUpdates
+
+    public class StatusUpdates
     {
         public StatusUpdatesData StatusUpdatesData;
 
-
+       
         public StatusUpdates(StatusUpdatesData data)
         {
             this.StatusUpdatesData.setOutDoor(data.getOutDoor());
@@ -71,11 +76,131 @@ namespace Project_III_Group1_Group_Project
             this.StatusUpdatesData.setAutoPilot(data.getAutoPilot());
 
         }
+        public void fileOpen(string[] args)
+        {
+
+            if (File.Exists("Resources\\doors.txt"))
+            {
+                // Read a text file line by line.  
+                // all of the file will contain is the door status? maybe something better 
+                string[] lines = File.ReadAllLines("Resources\\doors");
+                foreach (string line in lines)
+                    Console.WriteLine(line);
+            }
+
+            Console.ReadKey();
+        }
+
+        public bool obtainDoorStatus()
+        {
+            //create an array for door numbers values
+            // good for traversing the pictures? or better to have 4 doors and cycle?
+            bool[] doorNumber = new bool[4];
+            doorNumber[0] = false;
+            doorNumber[1] = false;
+            doorNumber[2] = false;
+            doorNumber[3] = false;
+
+
+            for (int i = 0; i < doorNumber.Length; i++)
+            {
+                if (doorNumber[i] == false)
+                {
+                    Console.WriteLine("Door Unlocked.");
+
+                }
+                else if (doorNumber[i] == true)
+                {
+                    Console.WriteLine("Doors locked");
+                }
+            }
+            return doorNumber[0];
+        }
+        public bool obtainCPDoorStatus()
+        {
+            Random random = new Random();
+
+            bool cpDoorStatus = false;
+
+            if (StatusUpdatesData.getOutDoor() == false)
+            {
+                cpDoorStatus = false;
+
+                if (StatusUpdatesData.getOutDoor() == true)
+                // probably better logic in here to time the door opening and closing 
+                {
+                    if (random.Next(1, 4) == 1)
+                    {
+                        cpDoorStatus = false;
+                    }
+                    else
+                    {
+                        cpDoorStatus = true;
+                    }
+                }
+            }
+
+            return cpDoorStatus;
+        }
+
+        public bool obtainLandingGearstatus()
+        {
+            Random random = new Random();
+
+            bool landingGear = true;
+
+            if (StatusUpdatesData.getInFlight() == true)
+                landingGear = false;
+            // logic here if the speed is under *x* then the landing gear comes out 
+            //elseif (ActiveGauges.getSpeed < *x*)
+            //    landingGear = true;
+
+            return landingGear;
+        }
+        public bool obtainAutoPilotstatus()
+        {
+            Random random = new Random();
+
+            bool autoPilot = false;
+            // cant auto pilot if not inflight
+            if (StatusUpdatesData.getInFlight() == false)
+                autoPilot = false;
+            // cant auto pilot if the cockpitdoor is open
+            if (StatusUpdatesData.getCockpitDoor() == false)
+                autoPilot = false;
+            // cant autopilot if the weather is bad 
+            else if (StatusUpdatesData.getCockpitDoor() == true) // && MeteorologicalData.getWeater == good)
+            {
+                if (random.Next(1, 2) == 1)
+                {
+                    autoPilot = false;
+                }
+                else
+                {
+                    autoPilot = true;
+                }
+            }
+
+            return autoPilot;
+        }
+        public bool obtainInFlightstatus()
+        {
+            Random random = new Random();
+
+            bool inFlight = false;
+            // cant be inflight is landing gear is down
+            if (StatusUpdatesData.getLandingGear() == true)
+                inFlight = false;
+            if (StatusUpdatesData.getLandingGear() == false)
+                inFlight = true;
+
+            return inFlight;
+        }
         public override string ToString()
         {
-            return "Outter Door Status: " + StatusUpdatesData.getOutDoor() + " " + "Cockpit Door Status: " + StatusUpdatesData.getCockpitDoor() + " " + "Landing Gear Status: " + StatusUpdatesData.getLandingGear() + " "
-                + "In Flight Status: " + StatusUpdatesData.getInFlight() + " " + "Auto Pilot Status: " + StatusUpdatesData.getAutoPilot();
-
+            return "Door: " + StatusUpdatesData.getOutDoor() + " InFlight: " + StatusUpdatesData.getInFlight() + " Landing Gear: " + StatusUpdatesData.getLandingGear() + " CockPit Door: "
+                + StatusUpdatesData.getCockpitDoor() + "Auto Pilot: " + StatusUpdatesData.getAutoPilot();
         }
     }
+
 }

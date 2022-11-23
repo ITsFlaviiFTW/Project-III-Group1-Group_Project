@@ -96,11 +96,14 @@ namespace Project_III_Group1_Group_Project
                 i = 1;
             }
             changeImage(i);
-
+           
         }
         private void changeImage(int num)
         {
-
+            // starting image
+            pictureBox1.Image = Properties.Resources.plane1;
+            // check doors to traverse images
+                        
             switch (num)
             {
                 case 1:
