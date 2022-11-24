@@ -69,13 +69,6 @@ namespace Project_III_Group1_Group_Project
                                         
             }
         }
-       
-        private void aGauge1_ValueInRangeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void GoBack(object sender, EventArgs e)
         {
@@ -331,6 +324,26 @@ namespace Project_III_Group1_Group_Project
         {
             locationDataStruct.setCurrEstimatedArrivalTimeLeft(locationData.obtainNewEstimatedTimeUntilArrival(456, locationDataStruct.getCurrEstimatedArrivalTimeLeft()));
             lblEstimatedTimeLeft.Text = locationDataStruct.getCurrEstimatedArrivalTimeLeft().ToString();
+        }
+
+        private void aGauge1_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
+        }
+
+        private void aGauge2_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
+        }
+
+        private void aGauge3_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
+        }
+
+        private void aGauge4_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        {
+
         }
     }
 }
