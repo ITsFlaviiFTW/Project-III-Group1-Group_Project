@@ -80,6 +80,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
+            this.SpeedTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
@@ -97,7 +98,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(1272, 228);
+            this.trackBar1.Location = new System.Drawing.Point(1272, 271);
             this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar1.Maximum = 800;
             this.trackBar1.Name = "trackBar1";
@@ -539,7 +540,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(1161, 351);
+            this.trackBar3.Location = new System.Drawing.Point(1356, 395);
             this.trackBar3.Maximum = 42000;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(104, 56);
@@ -585,7 +586,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.ScaleNumbersRotation = 0;
             this.aGauge1.ScaleNumbersStartScaleLine = 0;
             this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(259, 208);
+            this.aGauge1.Size = new System.Drawing.Size(272, 219);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Text = "aGauge1";
             this.aGauge1.Value = 0F;
@@ -630,7 +631,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.ScaleNumbersRotation = 0;
             this.aGauge2.ScaleNumbersStartScaleLine = 0;
             this.aGauge2.ScaleNumbersStepScaleLines = 1;
-            this.aGauge2.Size = new System.Drawing.Size(200, 200);
+            this.aGauge2.Size = new System.Drawing.Size(275, 231);
             this.aGauge2.TabIndex = 1;
             this.aGauge2.Text = "aGauge2";
             this.aGauge2.Value = 0F;
@@ -720,11 +721,17 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.ScaleNumbersRotation = 0;
             this.aGauge4.ScaleNumbersStartScaleLine = 0;
             this.aGauge4.ScaleNumbersStepScaleLines = 1;
-            this.aGauge4.Size = new System.Drawing.Size(207, 187);
+            this.aGauge4.Size = new System.Drawing.Size(264, 232);
             this.aGauge4.TabIndex = 1;
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
+            // 
+            // SpeedTimer
+            // 
+            this.SpeedTimer.Enabled = true;
+            this.SpeedTimer.Interval = 10;
+            this.SpeedTimer.Tick += new System.EventHandler(this.SpeedTimer_Tick);
             // 
             // Form1
             // 
@@ -826,6 +833,7 @@ namespace Project_III_Group1_Group_Project
         private System.Windows.Forms.Timer dateTimeTimer;
         private System.Windows.Forms.Timer estimatedTimeTimer;
         private TrackBar trackBar3;
+        private Timer SpeedTimer;
     }
 }
 

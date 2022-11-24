@@ -12,7 +12,7 @@ namespace Project_III_Group1_Group_Project
         private float altitude;
         private float fuelLevel;
         private float oxygenLevel;
-        private bool turbulance; // Not sure if the implementation of this is still probable 
+        private bool startUpDone;
 
         public int getPlaneSpeed()
         {
@@ -54,14 +54,14 @@ namespace Project_III_Group1_Group_Project
             this.oxygenLevel = oxygenLevel;
         }
 
-        public bool getTurbulence()
+        public bool getSetUp()
         {
-            return turbulance;
+            return startUpDone;
         }
 
-        public void setTurbulence(bool turbulence)
+        public void setSetUp(bool setUp)
         {
-            this.turbulance = turbulence;
+            this.startUpDone = setUp;
         }
     }
     public class ActiveGauges
@@ -70,11 +70,10 @@ namespace Project_III_Group1_Group_Project
 
         public ActiveGauges(GaugesData gaugesData)
         {
-            this.gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed());
-            this.gaugesData.setPlaneAltitude(gaugesData.getPlaneAltitude());
-            this.gaugesData.setFuelLevel(gaugesData.getFuelLevel());
-            this.gaugesData.setOxygenLevel(gaugesData.getOxygenLevel());
-            this.gaugesData.setTurbulence(gaugesData.getTurbulence());
+            gaugesData.setPlaneSpeed(1);
+            gaugesData.setPlaneAltitude(1); 
+            gaugesData.setFuelLevel(1);
+            gaugesData.setOxygenLevel(1);
         }
 
         void determineSafeSpeed(bool turbulence, string weather)

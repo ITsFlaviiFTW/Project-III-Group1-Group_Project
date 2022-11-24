@@ -20,6 +20,9 @@ namespace Project_III_Group1_Group_Project
         Meteorological meteorologicalData;
         MeteorologicalData meteorologicalDataStruct = new MeteorologicalData();
 
+        ActiveGauges activeGauges;
+        GaugesData gaugesData = new GaugesData();
+        
          
         GeoLocation locationData;
         public Plane currentFlight { get; set; }
@@ -354,6 +357,21 @@ namespace Project_III_Group1_Group_Project
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
             aGauge2.Value = trackBar3.Value;
+        }
+
+        private void SpeedTimer_Tick(object sender, EventArgs e)
+        {
+            if (gaugesData.getPlaneSpeed() < 800 && gaugesData.getSetUp() == false)
+            {
+                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() + 20);
+                aGauge1.Value = gaugesData.getPlaneSpeed();
+            }
+            else
+            {
+                gaugesData.setSetUp(true);
+                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() - 20);
+                aGauge1.Value = gaugesData.getPlaneSpeed();
+            }
         }
     }
 }
