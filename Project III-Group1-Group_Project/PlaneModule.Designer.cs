@@ -75,6 +75,7 @@ namespace Project_III_Group1_Group_Project
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.dateTimeTimer = new System.Windows.Forms.Timer(this.components);
             this.estimatedTimeTimer = new System.Windows.Forms.Timer(this.components);
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
@@ -91,23 +92,25 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
             this.grpBoxTimeDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(1297, 244);
+            this.trackBar1.Location = new System.Drawing.Point(1272, 228);
             this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.trackBar1.Maximum = 100;
+            this.trackBar1.Maximum = 800;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(225, 56);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.TickFrequency = 20;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // trackBar2
             // 
             this.trackBar2.Location = new System.Drawing.Point(1297, 539);
             this.trackBar2.Margin = new System.Windows.Forms.Padding(4);
-            this.trackBar2.Maximum = 100;
+            this.trackBar2.Maximum = 42000;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(225, 56);
             this.trackBar2.TabIndex = 2;
@@ -534,6 +537,15 @@ namespace Project_III_Group1_Group_Project
             this.estimatedTimeTimer.Interval = 10000;
             this.estimatedTimeTimer.Tick += new System.EventHandler(this.estimatedTimeTimer_Tick);
             // 
+            // trackBar3
+            // 
+            this.trackBar3.Location = new System.Drawing.Point(1161, 351);
+            this.trackBar3.Maximum = 42000;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(104, 56);
+            this.trackBar3.TabIndex = 21;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            // 
             // aGauge1
             // 
             this.aGauge1.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -573,7 +585,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.ScaleNumbersRotation = 0;
             this.aGauge1.ScaleNumbersStartScaleLine = 0;
             this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(207, 187);
+            this.aGauge1.Size = new System.Drawing.Size(264, 214);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Text = "aGauge1";
             this.aGauge1.Value = 0F;
@@ -588,8 +600,8 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.BaseArcSweep = 270;
             this.aGauge2.BaseArcWidth = 2;
             this.aGauge2.GaugeAutoSize = false;
-            this.aGauge2.Location = new System.Drawing.Point(1276, 308);
-            this.aGauge2.Margin = new System.Windows.Forms.Padding(4);
+            this.aGauge2.Location = new System.Drawing.Point(1272, 271);
+            this.aGauge2.Margin = new System.Windows.Forms.Padding(1);
             this.aGauge2.MaxValue = 42000F;
             this.aGauge2.MinValue = 0F;
             this.aGauge2.Name = "aGauge2";
@@ -618,7 +630,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.ScaleNumbersRotation = 0;
             this.aGauge2.ScaleNumbersStartScaleLine = 0;
             this.aGauge2.ScaleNumbersStepScaleLines = 1;
-            this.aGauge2.Size = new System.Drawing.Size(273, 222);
+            this.aGauge2.Size = new System.Drawing.Size(200, 200);
             this.aGauge2.TabIndex = 1;
             this.aGauge2.Text = "aGauge2";
             this.aGauge2.Value = 0F;
@@ -718,7 +730,8 @@ namespace Project_III_Group1_Group_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1577, 839);
+            this.ClientSize = new System.Drawing.Size(1642, 839);
+            this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.grpBoxAirPressure);
             this.Controls.Add(this.farrenheitSymbolPictureBox);
             this.Controls.Add(this.temperaturePictureBox);
@@ -740,6 +753,7 @@ namespace Project_III_Group1_Group_Project
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "PlaneModule";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
@@ -757,6 +771,7 @@ namespace Project_III_Group1_Group_Project
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).EndInit();
             this.grpBoxTimeDetails.ResumeLayout(false);
             this.grpBoxTimeDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,6 +825,7 @@ namespace Project_III_Group1_Group_Project
         private System.Windows.Forms.Label lblCurrentTime;
         private System.Windows.Forms.Timer dateTimeTimer;
         private System.Windows.Forms.Timer estimatedTimeTimer;
+        private TrackBar trackBar3;
     }
 }
 

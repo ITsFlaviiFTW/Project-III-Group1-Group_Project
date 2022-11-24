@@ -345,6 +345,16 @@ namespace Project_III_Group1_Group_Project
         {
 
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            aGauge1.Value = trackBar1.Value;
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            aGauge2.Value = trackBar3.Value;
+        }
     }
 }
 
