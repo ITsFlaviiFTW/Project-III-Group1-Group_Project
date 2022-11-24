@@ -555,7 +555,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.BaseArcSweep = 270;
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.GaugeAutoSize = false;
-            this.aGauge1.Location = new System.Drawing.Point(2292, 50);
+            this.aGauge1.Location = new System.Drawing.Point(1560, 146);
             this.aGauge1.Margin = new System.Windows.Forms.Padding(4);
             this.aGauge1.MaxValue = 800F;
             this.aGauge1.MinValue = 0F;
@@ -600,7 +600,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.BaseArcSweep = 270;
             this.aGauge2.BaseArcWidth = 2;
             this.aGauge2.GaugeAutoSize = false;
-            this.aGauge2.Location = new System.Drawing.Point(370, 1110);
+            this.aGauge2.Location = new System.Drawing.Point(1560, 401);
             this.aGauge2.Margin = new System.Windows.Forms.Padding(1);
             this.aGauge2.MaxValue = 42000F;
             this.aGauge2.MinValue = 0F;
@@ -645,7 +645,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3.BaseArcSweep = 270;
             this.aGauge3.BaseArcWidth = 2;
             this.aGauge3.GaugeAutoSize = false;
-            this.aGauge3.Location = new System.Drawing.Point(1779, 958);
+            this.aGauge3.Location = new System.Drawing.Point(1559, 656);
             this.aGauge3.Margin = new System.Windows.Forms.Padding(4);
             this.aGauge3.MaxValue = 100F;
             this.aGauge3.MinValue = 0F;
@@ -730,7 +730,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2564, 1320);
+            this.ClientSize = new System.Drawing.Size(1845, 986);
             this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.grpBoxAirPressure);
             this.Controls.Add(this.farrenheitSymbolPictureBox);
