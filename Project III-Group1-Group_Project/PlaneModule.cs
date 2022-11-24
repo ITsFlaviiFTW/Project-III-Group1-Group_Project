@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -18,11 +11,11 @@ namespace Project_III_Group1_Group_Project
     {
         Meteorological meteorologicalData;
         MeteorologicalData meteorologicalDataStruct = new MeteorologicalData();
-
+        
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
         public Plane currentFlight { get; set; }
-        public 
+        public
         int i = 1;
         int weatherimageNum = 0;
         int tempimageNum = 0;
@@ -40,13 +33,24 @@ namespace Project_III_Group1_Group_Project
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
                 currentFlight = new Plane(flightToUse[0], flightToUse[1], flightToUse[2], int.Parse(flightToUse[3]), flightToUse[4], flightToUse[5], flightToUse[6], flightToUse[7]);
-
+                MeteorologicalSetup();
             }
             catch (Exception)
             {
                 DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
             }
+        }
+
+        private void MeteorologicalSetup()
+        {
+            meteorologicalDataStruct.setAirPressure("100");
+            meteorologicalDataStruct.setAirPressureValues(AirPressureValues.Stable);
+            meteorologicalDataStruct.setWeather("Resources\\weatherImages\\0.png");
+            meteorologicalDataStruct.setTemperature("Resources\\tempImages\\0.png");
+            weatherPictureBox.ImageLocation = meteorologicalDataStruct.getWeather();
+            temperaturePictureBox.ImageLocation = meteorologicalDataStruct.getTemperature();
+            farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
         }
         private void aGauge1_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
         {
@@ -156,12 +160,35 @@ namespace Project_III_Group1_Group_Project
 
         private void airPressureTimer_Tick(object sender, EventArgs e)
         {
-            if (meteorologicalData.meteorologicalDataStruct.getAirPressure() == 100)
+            Meteorological meteorologicalData = new Meteorological(meteorologicalDataStruct);
+            txtAirPressure.Enabled = true;
+            meteorologicalData.meteorologicalDataStruct.setAirPressure(meteorologicalData.obtainNewAirPressure());
+            meteorologicalData.meteorologicalDataStruct.setAirPressureValues(meteorologicalData.obtainNewAirPressureMessage(int.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure())));
+            txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+
+            if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Stable || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Normal)
             {
-                txtAirPressure.Enabled = true;
-                txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+                txtAirPressure.BackColor = Color.Green;
+                lbAirPressure.Text = "Air Pressure: Stable";
+                btnAirPressure.Enabled = false;
+                btnAirPressure.Visible = false;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Low)
+            {
+                txtAirPressure.BackColor = Color.Yellow;
+                lbAirPressure.Text = "Air Pressure: Low";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Danger || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Critical)
+            {
+                txtAirPressure.BackColor = Color.Red;
+                lbAirPressure.Text = "Air Pressure: Critical";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
             }
         }
+
     }
 }
 

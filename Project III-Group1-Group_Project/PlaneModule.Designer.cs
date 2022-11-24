@@ -43,6 +43,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.farrenheitSymbolPictureBox = new System.Windows.Forms.PictureBox();
             this.grpBoxAirPressure = new System.Windows.Forms.GroupBox();
+            this.btnAirPressure = new System.Windows.Forms.Button();
+            this.lbAirPressure = new System.Windows.Forms.Label();
             this.txtAirPressure = new System.Windows.Forms.TextBox();
             this.airPressureTimer = new System.Windows.Forms.Timer(this.components);
             this.aGauge1 = new System.Windows.Forms.AGauge();
@@ -180,25 +182,47 @@
             // 
             // grpBoxAirPressure
             // 
+            this.grpBoxAirPressure.Controls.Add(this.btnAirPressure);
+            this.grpBoxAirPressure.Controls.Add(this.lbAirPressure);
             this.grpBoxAirPressure.Controls.Add(this.txtAirPressure);
-            this.grpBoxAirPressure.Location = new System.Drawing.Point(932, 405);
+            this.grpBoxAirPressure.Location = new System.Drawing.Point(902, 405);
             this.grpBoxAirPressure.Name = "grpBoxAirPressure";
-            this.grpBoxAirPressure.Size = new System.Drawing.Size(83, 69);
+            this.grpBoxAirPressure.Size = new System.Drawing.Size(113, 100);
             this.grpBoxAirPressure.TabIndex = 15;
             this.grpBoxAirPressure.TabStop = false;
             this.grpBoxAirPressure.Text = "Air Pressure";
+            // 
+            // btnAirPressure
+            // 
+            this.btnAirPressure.Location = new System.Drawing.Point(22, 71);
+            this.btnAirPressure.Name = "btnAirPressure";
+            this.btnAirPressure.Size = new System.Drawing.Size(85, 23);
+            this.btnAirPressure.TabIndex = 2;
+            this.btnAirPressure.Text = "Depressurize";
+            this.btnAirPressure.UseVisualStyleBackColor = true;
+            this.btnAirPressure.Visible = false;
+            // 
+            // lbAirPressure
+            // 
+            this.lbAirPressure.AutoSize = true;
+            this.lbAirPressure.Location = new System.Drawing.Point(6, 53);
+            this.lbAirPressure.Name = "lbAirPressure";
+            this.lbAirPressure.Size = new System.Drawing.Size(62, 13);
+            this.lbAirPressure.TabIndex = 1;
+            this.lbAirPressure.Text = "placeholder";
             // 
             // txtAirPressure
             // 
             this.txtAirPressure.Location = new System.Drawing.Point(22, 19);
             this.txtAirPressure.Name = "txtAirPressure";
             this.txtAirPressure.ReadOnly = true;
-            this.txtAirPressure.Size = new System.Drawing.Size(45, 20);
+            this.txtAirPressure.Size = new System.Drawing.Size(85, 20);
             this.txtAirPressure.TabIndex = 0;
-            this.txtAirPressure.Text = "100.000";
+            this.txtAirPressure.Text = "100";
             // 
             // airPressureTimer
             // 
+            this.airPressureTimer.Enabled = true;
             this.airPressureTimer.Tick += new System.EventHandler(this.airPressureTimer_Tick);
             // 
             // aGauge1
@@ -291,6 +315,8 @@
         private System.Windows.Forms.GroupBox grpBoxAirPressure;
         private System.Windows.Forms.TextBox txtAirPressure;
         private System.Windows.Forms.Timer airPressureTimer;
+        private System.Windows.Forms.Label lbAirPressure;
+        private System.Windows.Forms.Button btnAirPressure;
     }
 }
 
