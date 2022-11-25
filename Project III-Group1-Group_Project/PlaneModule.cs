@@ -18,7 +18,7 @@ namespace Project_III_Group1_Group_Project
     public partial class Form1 : Form
     {
         Meteorological meteorologicalData;
-        MeteorologicalData meteorologicalDataStruct = new MeteorologicalData();
+        MeteorologicalData meteorologicalDataStruct;
 
         ActiveGauges activeGauges;
         GaugesData gaugesData = new GaugesData();
@@ -63,6 +63,7 @@ namespace Project_III_Group1_Group_Project
 
                 //Sets up everything regarding GeoLocation
                 GeoLocationSetup();
+                MeteorologicalSetup();
             }
            
             catch (Exception)
@@ -72,6 +73,21 @@ namespace Project_III_Group1_Group_Project
                                         
             }
         }
+
+        private void MeteorologicalSetup()
+        {
+            //Meteorological meteorologicalData = new Meteorological(meteorologicalDataStruct);
+            meteorologicalDataStruct.setAirPressure("100");
+            meteorologicalDataStruct.setAirPressureValues(AirPressureValues.Stable);
+            meteorologicalDataStruct.setWeather("Resources\\weatherImages\\0.png");
+            meteorologicalDataStruct.setTemperature("Resources\\tempImages\\0.png");
+            weatherPictureBox.ImageLocation = meteorologicalDataStruct.getWeather();
+            temperaturePictureBox.ImageLocation = meteorologicalDataStruct.getTemperature();
+            farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
+            meteorologicalData = new Meteorological(meteorologicalDataStruct);
+            airPressureTimer.Start();
+        }
+
 
         private void GoBack(object sender, EventArgs e)
         {
@@ -173,10 +189,32 @@ namespace Project_III_Group1_Group_Project
 
         private void airPressureTimer_Tick(object sender, EventArgs e)
         {
-            if (meteorologicalData.meteorologicalDataStruct.getAirPressure() == 100)
+            
+            txtAirPressure.Enabled = true;
+            meteorologicalData.meteorologicalDataStruct.setAirPressure(meteorologicalData.obtainNewAirPressure());
+            meteorologicalData.meteorologicalDataStruct.setAirPressureValues(meteorologicalData.obtainNewAirPressureMessage(int.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure())));
+            txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+
+            if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Stable || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Normal)
             {
-                txtAirPressure.Enabled = true;
-                txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+                txtAirPressure.BackColor = Color.Green;
+                lbAirPressure.Text = "Air Pressure: Stable";
+                btnAirPressure.Enabled = false;
+                btnAirPressure.Visible = false;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Low)
+            {
+                txtAirPressure.BackColor = Color.Yellow;
+                lbAirPressure.Text = "Air Pressure: Low";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Danger || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Critical)
+            {
+                txtAirPressure.BackColor = Color.Red;
+                lbAirPressure.Text = "Air Pressure: Critical";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
             }
         }
 

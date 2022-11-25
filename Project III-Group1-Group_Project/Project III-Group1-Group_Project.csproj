@@ -104,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AGauge.dll" />
+    <Content Include="Resources\airpressure.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\tempImages\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
