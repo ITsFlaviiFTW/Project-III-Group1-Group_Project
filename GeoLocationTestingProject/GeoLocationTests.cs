@@ -224,11 +224,11 @@ namespace GeoLocationTestingProject
             Assert.AreEqual("Prince Edward Island", result);
         }
 
-        /// <summary>
-        /// This test will ensure that the calculate new compass bearing can obtain a new compass bearing and properly return it 
-        /// </summary>
+        /*The next set of tests will be testing every possible outcome of my calculateCompassBearing function
+         They are all very similar tests with only 1-2 things changed*/
+      
         [TestMethod]
-        public void obtainNewCompassBearing_UponCreatingNewCompassBearing_CorrectBearingIsReturned()
+        public void obtainNewCompassBearingFromN_UponCreatingNewCompassBearing_NEIsReturned()
         {
             //Arrange
             LocationData locationData = new LocationData();
@@ -243,6 +243,568 @@ namespace GeoLocationTestingProject
             //Assert
             Assert.AreEqual(newBearing, CompassBearing.NE);
         }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromN_UponCreatingNewCompassBearing_EIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.N;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.E);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromN_UponCreatingNewCompassBearing_NWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.N;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromN_UponCreatingNewCompassBearing_WIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.N;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.W);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNE_UponCreatingNewCompassBearing_EIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NE;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.E);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNE_UponCreatingNewCompassBearing_SEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NE;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNE_UponCreatingNewCompassBearing_NIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NE;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.N);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNE_UponCreatingNewCompassBearing_WIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NE;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NW);
+        }
+
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromE_UponCreatingNewCompassBearing_SEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.E;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromE_UponCreatingNewCompassBearing_SIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.E;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.S);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromE_UponCreatingNewCompassBearing_NEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.E;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromE_UponCreatingNewCompassBearing_NIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.E;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.N);
+        }
+
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSE_UponCreatingNewCompassBearing_SIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SE;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.S);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSE_UponCreatingNewCompassBearing_SWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SE;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSE_UponCreatingNewCompassBearing_EIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SE;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.E);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSE_UponCreatingNewCompassBearing_NEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SE;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromS_UponCreatingNewCompassBearing_SWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.S;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromS_UponCreatingNewCompassBearing_WIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.S;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.W);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromS_UponCreatingNewCompassBearing_SEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.S;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromS_UponCreatingNewCompassBearing_EIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.S;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.E);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSW_UponCreatingNewCompassBearing_WIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SW;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.W);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSW_UponCreatingNewCompassBearing_NWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SW;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSW_UponCreatingNewCompassBearing_SIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SW;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.S);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromSW_UponCreatingNewCompassBearing_SEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.SW;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SE);
+        }
+
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromW_UponCreatingNewCompassBearing_NWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.W;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromW_UponCreatingNewCompassBearing_NIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.W;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.N);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromW_UponCreatingNewCompassBearing_SWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.W;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromW_UponCreatingNewCompassBearing_SIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.W;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.S);
+        }
+
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNW_UponCreatingNewCompassBearing_NIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NW;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.N);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNW_UponCreatingNewCompassBearing_NEIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NW;
+            string directionToTurn = "Right";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NE);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNW_UponCreatingNewCompassBearing_WIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NW;
+            string directionToTurn = "Left";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.W);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearingFromNW_UponCreatingNewCompassBearing_SWIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.NW;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.SW);
+        }
+
+        [TestMethod]
+        public void obtainNewCompassBearing_UponCreatingNewCompassBearing_DefaultIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.usedForTestingDefault;
+            string directionToTurn = "Left";
+            int angleToTurn = 90;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.N);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

@@ -9,7 +9,8 @@
         S,
         SW,
         W,
-        NW
+        NW,
+        usedForTestingDefault
     }
 
     public struct LocationData
