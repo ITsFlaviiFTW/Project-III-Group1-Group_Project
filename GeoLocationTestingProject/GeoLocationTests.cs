@@ -9,7 +9,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setCurrLongitude_uponSettingLongitude_correctLongitudeIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
 
@@ -17,7 +17,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCurrLongitude(longitude);
 
-            //Arrange
+            //Assert
             Assert.AreEqual("45.456456", locationData.getCurrLongitude());
         }
 
@@ -27,7 +27,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setCurrLatitude_uponSettingLatitude_correctLatitudeIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);         
             string latitude = "45.456456";
@@ -35,7 +35,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCurrLatitude(latitude);
 
-            //Arrange
+            //Assert
             Assert.AreEqual("45.456456", locationData.getCurrLatitude());
         }
 
@@ -45,7 +45,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setCompassBearing_uponSettingCompassBearing_correctCompassBearingIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             CompassBearing compassBearing = CompassBearing.NE;
@@ -53,7 +53,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCompassBearing(compassBearing);
 
-            //Arrange
+            //Assert
             Assert.AreEqual(CompassBearing.NE, locationData.getCompassBearing());
         }
 
@@ -63,7 +63,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setProvinceState_uponSettingProvinceState_correctProvinceStateIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             string state = "Texas";
@@ -71,7 +71,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCurrProvinceState(state);
 
-            //Arrange
+            //Assert
             Assert.AreEqual("Texas", locationData.getCurrProvinceState());
         }
 
@@ -81,7 +81,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setCountry_uponSettingCountry_correctCountryIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             string country = "Canada";
@@ -89,7 +89,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCurrCountry(country);
 
-            //Arrange
+            //Assert
             Assert.AreEqual("Canada", locationData.getCurrCountry());
         }
 
@@ -99,7 +99,7 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void setEstimatedTime_uponSettingEstimatedTime_correctEstimatedTimeIsSet()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             DateTime date = DateTime.Parse("10:00PM");
@@ -107,7 +107,7 @@ namespace GeoLocationTestingProject
             //Act
             locationData.setCurrEstimatedArrivalTimeLeft(date.ToString("hh"));
 
-            //Arrange
+            //Assert
             Assert.AreEqual("10", locationData.getCurrEstimatedArrivalTimeLeft());
         }
 
@@ -118,14 +118,15 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void obtainNewLongitude_UponCreatingALongitude_CorrectLongitudeIsReturned()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             string result = "";
 
             //Act
             result = geo.obtainNewLongitude();
-            //Arrange
+
+            //Assert
             Assert.AreEqual("-139.638781", result);
         }
 
@@ -136,15 +137,112 @@ namespace GeoLocationTestingProject
         [TestMethod]
         public void obtainNewLatitude_UponCreatingALatitude_CorrectLatitudeIsReturned()
         {
-            //Assert
+            //Arrange
             LocationData locationData = new LocationData();
             GeoLocation geo = new GeoLocation(locationData);
             string result = "";
 
             //Act
             result = geo.obtainNewLatitude();
-            //Arrange
-            Assert.AreEqual("68.638781", result);
+
+            //Assert
+            Assert.AreEqual("68.638781", result);              
         }
+
+        /// <summary>
+        /// This test will ensure that the geolocation class can create a new estimated time of arrical and
+        /// can return it back correctly.
+        /// </summary>
+        [TestMethod]
+        public void obtainNewEstimatedTimeOfArrival_UponCreatingANewEstimatedTimeOfArrival_CorrectEstimatedTimeOfArrivalIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            int planeSpeed = 300;
+            string currentTime = "10:00";
+            string result = "";
+
+            //Act
+            result = geo.obtainNewEstimatedTimeUntilArrival(planeSpeed, currentTime);
+
+            //Assert
+            Assert.AreEqual("09:54:16", result);
+        }
+
+        /// <summary>
+        /// This test will ensure that the obtain new country function can properly obtain a new country, and can return it  
+        /// </summary>
+        [TestMethod]
+        public void obtainNewCountry_UponCreatingANewCountry_CorrectCountryIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);        
+            string result = "";
+
+            //Act
+            result = geo.obtainCurrentCountry();
+
+            //Assert
+            Assert.AreEqual("USA", result);
+        }
+
+        /// <summary>
+        /// This test will ensure that the obtain new country function can properly obtain a new state, and can return it  
+        /// </summary>
+        [TestMethod]
+        public void obtainNewState_UponCreatingANeweState_CorrectStateIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            string result = "", country = "USA";
+
+            //Act
+            result = geo.obtainCurrentProvinceState(country);
+
+            //Assert
+            Assert.AreEqual("Pennsylvania", result);
+        }
+
+        /// <summary>
+        /// This test will ensure that the obtain new country function can properly obtain a new province, and can return it  
+        /// </summary>
+        [TestMethod]
+        public void obtainNewProvince_UponCreatingANewProvince_CorrectProvinceIsReturned()
+        {
+            //Assert
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            string result = "", country = "CAN";
+
+            //Act
+            result = geo.obtainCurrentProvinceState(country);
+
+            //Assert
+            Assert.AreEqual("Prince Edward Island", result);
+        }
+
+        /// <summary>
+        /// This test will ensure that the calculate new compass bearing can obtain a new compass bearing and properly return it 
+        /// </summary>
+        [TestMethod]
+        public void obtainNewCompassBearing_UponCreatingNewCompassBearing_CorrectBearingIsReturned()
+        {
+            //Arrange
+            LocationData locationData = new LocationData();
+            GeoLocation geo = new GeoLocation(locationData);
+            CompassBearing compassBearing = CompassBearing.N;
+            string directionToTurn = "Right";
+            int angleToTurn = 45;
+
+            //Act
+            CompassBearing newBearing = geo.calculateNewCompassBearing(compassBearing, directionToTurn, angleToTurn);
+
+            //Assert
+            Assert.AreEqual(newBearing, CompassBearing.NE);
+        }
+
     }
 }

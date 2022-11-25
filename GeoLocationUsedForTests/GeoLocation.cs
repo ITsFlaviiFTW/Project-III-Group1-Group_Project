@@ -138,7 +138,8 @@
             }
             else
             {
-                Random random = new Random();
+                int seed = 10101;
+                Random random = new Random(seed);
                 string line = "", filePath = "Resources\\updatingEstimatedTime.txt";
                 string[] allLines = File.ReadAllLines(filePath);
                 line = allLines[random.Next(allLines.Length)];
@@ -177,7 +178,8 @@
 
         public string obtainCurrentCountry()
         {
-            Random random = new Random();
+            int seed = 10101;
+            Random random = new Random(seed);
             string currCountry = "";
 
             if (random.Next(1, 3) == 1)
@@ -194,7 +196,8 @@
 
         public string obtainCurrentProvinceState(string currCountry)
         {
-            Random rand = new Random();
+            int seed = 10101;
+            Random rand = new Random(seed);
             string[] allLines;
             string result = "";
             if (currCountry == "CAN")

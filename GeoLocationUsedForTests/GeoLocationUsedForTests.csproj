@@ -9,6 +9,9 @@
   <ItemGroup>
     <None Remove="Resources\latitudes.txt" />
     <None Remove="Resources\longitudes.txt" />
+    <None Remove="Resources\Provinces.txt" />
+    <None Remove="Resources\States.txt" />
+    <None Remove="Resources\updatingEstimatedTime.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +19,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\longitudes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Provinces.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\States.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\updatingEstimatedTime.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
