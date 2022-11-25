@@ -99,7 +99,8 @@
             }
             else
             {
-                Random random = new Random();
+                int seed = 10101;
+                Random random = new Random(seed);
                 string decimalPoint = "", wholeNumber = "", filePath = "Resources\\longitudes.txt";
                 string[] allLines = File.ReadAllLines(filePath);
 
@@ -117,7 +118,8 @@
             }
             else
             {
-                Random random = new Random();
+                int seed = 10101;
+                Random random = new Random(seed);
                 string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";
                 string[] allLines = File.ReadAllLines(filePath);
 
