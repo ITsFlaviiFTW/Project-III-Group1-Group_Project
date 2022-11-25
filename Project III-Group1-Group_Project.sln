@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project III-Group1-Group_Project", "Project III-Group1-Group_Project\Project III-Group1-Group_Project.csproj", "{CD9B5490-551E-43FB-9CEF-0950EFC7AE08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLocationTestingProject", "GeoLocationTestingProject\GeoLocationTestingProject.csproj", "{4A03C89E-591B-4F00-9A88-4906E6298E49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLocationUsedForTests", "GeoLocationUsedForTests\GeoLocationUsedForTests.csproj", "{444FD240-799C-441C-BAC0-1F55F8E5F4AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CD9B5490-551E-43FB-9CEF-0950EFC7AE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD9B5490-551E-43FB-9CEF-0950EFC7AE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD9B5490-551E-43FB-9CEF-0950EFC7AE08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A03C89E-591B-4F00-9A88-4906E6298E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A03C89E-591B-4F00-9A88-4906E6298E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A03C89E-591B-4F00-9A88-4906E6298E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A03C89E-591B-4F00-9A88-4906E6298E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{444FD240-799C-441C-BAC0-1F55F8E5F4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{444FD240-799C-441C-BAC0-1F55F8E5F4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{444FD240-799C-441C-BAC0-1F55F8E5F4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{444FD240-799C-441C-BAC0-1F55F8E5F4AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
