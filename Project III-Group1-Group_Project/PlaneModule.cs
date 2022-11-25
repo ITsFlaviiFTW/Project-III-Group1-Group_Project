@@ -17,17 +17,7 @@ namespace Project_III_Group1_Group_Project
  
     public partial class Form1 : Form
     {
-        Meteorological meteorologicalData;
-        MeteorologicalData meteorologicalDataStruct;
-
-        ActiveGauges activeGauges;
-        GaugesData gaugesData = new GaugesData();
-        
-         
-        GeoLocation locationData;
-        public Plane currentFlight { get; set; }
-        PlaneData planeDataStruct = new PlaneData();
-        LocationData locationDataStruct = new LocationData();
+        PlaneData planeData = new PlaneData();
         string filePath = "Resources\\flights.txt";
         Random random = new Random();
         int i = 1;
@@ -47,23 +37,16 @@ namespace Project_III_Group1_Group_Project
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-               
+                planeData.setPlaneName(flightToUse[0]);
+                planeData.setPilotFirstName(flightToUse[1]);
+                planeData.setPilotLastName(flightToUse[2]);
+                planeData.setPlaneCapacity(int.Parse(flightToUse[3]));
+                planeData.setStartingLocation(flightToUse[4]);
+                planeData.setDestination(flightToUse[5]);
+                planeData.setDepartureTime(flightToUse[6]);
+                planeData.setArrivialTime(flightToUse[7]);
 
-                planeDataStruct.setPlaneName(flightToUse[0].Trim());
-                planeDataStruct.setPilotFirstName(flightToUse[1].Trim());
-                planeDataStruct.setPilotLastName(flightToUse[2].Trim());
-                planeDataStruct.setPlaneCapacity(int.Parse(flightToUse[3].Trim()));
-                planeDataStruct.setStartingLocation(flightToUse[4].Trim());
-                planeDataStruct.setDestination(flightToUse[5].Trim());
-                planeDataStruct.setDepartureTime(flightToUse[6].Trim());
-                planeDataStruct.setArrivialTime(flightToUse[7].Trim());
-
-                //Assign objects with created structs
-                currentFlight = new Plane(planeDataStruct);
-
-                //Sets up everything regarding GeoLocation
-                GeoLocationSetup();
-                MeteorologicalSetup();
+                currentFlight = new Plane(planeData);              
             }
            
             catch (Exception)

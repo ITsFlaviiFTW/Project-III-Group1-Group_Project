@@ -31,23 +31,12 @@ namespace Project_III_Group1_Group_Project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnViewFlightInformation = new System.Windows.Forms.Button();
-            this.weatherTimer = new System.Windows.Forms.Timer(this.components);
-            this.weatherImageList = new System.Windows.Forms.ImageList(this.components);
-            this.temperatureImageList = new System.Windows.Forms.ImageList(this.components);
-            this.temperaturePictureBox = new System.Windows.Forms.PictureBox();
-            this.weatherPictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.farrenheitSymbolPictureBox = new System.Windows.Forms.PictureBox();
-            this.grpBoxAirPressure = new System.Windows.Forms.GroupBox();
-            this.txtAirPressure = new System.Windows.Forms.TextBox();
-            this.airPressureTimer = new System.Windows.Forms.Timer(this.components);
             this.latitudeLongitudeTimer = new System.Windows.Forms.Timer(this.components);
             this.lblLatitude = new System.Windows.Forms.Label();
             this.lblLongitude = new System.Windows.Forms.Label();
@@ -63,39 +52,13 @@ namespace Project_III_Group1_Group_Project
             this.btnLeft45 = new System.Windows.Forms.Button();
             this.btnRight45 = new System.Windows.Forms.Button();
             this.turningPlaneTimer = new System.Windows.Forms.Timer(this.components);
-            this.changingLocationTimer = new System.Windows.Forms.Timer(this.components);
-            this.grpBoxLocation = new System.Windows.Forms.GroupBox();
-            this.picBoxCountry = new System.Windows.Forms.PictureBox();
-            this.lblProvinceStateInfo = new System.Windows.Forms.Label();
-            this.lblProvinceState = new System.Windows.Forms.Label();
-            this.lblFlightTimeRemaining = new System.Windows.Forms.Label();
-            this.grpBoxTimeDetails = new System.Windows.Forms.GroupBox();
-            this.lblCurrentDateTime = new System.Windows.Forms.Label();
-            this.lblEstimatedTimeLeft = new System.Windows.Forms.Label();
-            this.lblCurrentTime = new System.Windows.Forms.Label();
-            this.dateTimeTimer = new System.Windows.Forms.Timer(this.components);
-            this.estimatedTimeTimer = new System.Windows.Forms.Timer(this.components);
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.aGauge1 = new System.Windows.Forms.AGauge();
-            this.aGauge2 = new System.Windows.Forms.AGauge();
-            this.aGauge3 = new System.Windows.Forms.AGauge();
-            this.aGauge4 = new System.Windows.Forms.AGauge();
-            this.SpeedTimer = new System.Windows.Forms.Timer(this.components);
-            this.lbAirPressure = new System.Windows.Forms.Label();
-            this.btnAirPressure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).BeginInit();
-            this.grpBoxAirPressure.SuspendLayout();
             this.grpBoxCoordinateDetails.SuspendLayout();
             this.grpBoxPlaneTurning.SuspendLayout();
-            this.grpBoxLocation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
-            this.grpBoxTimeDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -699,12 +662,14 @@ namespace Project_III_Group1_Group_Project
             // 
             // lbAirPressure
             // 
-            this.lbAirPressure.AutoSize = true;
-            this.lbAirPressure.Location = new System.Drawing.Point(7, 64);
-            this.lbAirPressure.Name = "lbAirPressure";
-            this.lbAirPressure.Size = new System.Drawing.Size(63, 13);
-            this.lbAirPressure.TabIndex = 1;
-            this.lbAirPressure.Text = "Air Pressure";
+            this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_CPdoor;
+            this.pictureBox1.Location = new System.Drawing.Point(252, 115);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(573, 373);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // btnAirPressure
             // 
@@ -715,18 +680,155 @@ namespace Project_III_Group1_Group_Project
             this.btnAirPressure.Text = "Depressurize";
             this.btnAirPressure.UseVisualStyleBackColor = true;
             // 
+            // latitudeLongitudeTimer
+            // 
+            this.latitudeLongitudeTimer.Tick += new System.EventHandler(this.latitudeLongitudeTimer_Tick);
+            // 
+            // lblLatitude
+            // 
+            this.lblLatitude.AutoSize = true;
+            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatitude.Location = new System.Drawing.Point(7, 22);
+            this.lblLatitude.Name = "lblLatitude";
+            this.lblLatitude.Size = new System.Drawing.Size(49, 12);
+            this.lblLatitude.TabIndex = 12;
+            this.lblLatitude.Text = "Latitude: ";
+            // 
+            // lblLongitude
+            // 
+            this.lblLongitude.AutoSize = true;
+            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongitude.Location = new System.Drawing.Point(7, 51);
+            this.lblLongitude.Name = "lblLongitude";
+            this.lblLongitude.Size = new System.Drawing.Size(57, 12);
+            this.lblLongitude.TabIndex = 13;
+            this.lblLongitude.Text = "Longitude: ";
+            // 
+            // txtLatitude
+            // 
+            this.txtLatitude.Location = new System.Drawing.Point(64, 19);
+            this.txtLatitude.Name = "txtLatitude";
+            this.txtLatitude.ReadOnly = true;
+            this.txtLatitude.Size = new System.Drawing.Size(67, 20);
+            this.txtLatitude.TabIndex = 14;
+            this.txtLatitude.Text = "0.000000";
+            // 
+            // txtLongitude
+            // 
+            this.txtLongitude.Location = new System.Drawing.Point(64, 51);
+            this.txtLongitude.Name = "txtLongitude";
+            this.txtLongitude.ReadOnly = true;
+            this.txtLongitude.Size = new System.Drawing.Size(67, 20);
+            this.txtLongitude.TabIndex = 15;
+            this.txtLongitude.Text = "0.000000";
+            // 
+            // grpBoxCoordinateDetails
+            // 
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblPlaneIsTurning);
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblCompassBearing);
+            this.grpBoxCoordinateDetails.Controls.Add(this.label1);
+            this.grpBoxCoordinateDetails.Controls.Add(this.txtLatitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.txtLongitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblLatitude);
+            this.grpBoxCoordinateDetails.Controls.Add(this.lblLongitude);
+            this.grpBoxCoordinateDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(3, 78);
+            this.grpBoxCoordinateDetails.Name = "grpBoxCoordinateDetails";
+            this.grpBoxCoordinateDetails.Size = new System.Drawing.Size(166, 143);
+            this.grpBoxCoordinateDetails.TabIndex = 16;
+            this.grpBoxCoordinateDetails.TabStop = false;
+            this.grpBoxCoordinateDetails.Text = "Coordinate Details";
+            // 
+            // lblPlaneIsTurning
+            // 
+            this.lblPlaneIsTurning.AutoSize = true;
+            this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Red;
+            this.lblPlaneIsTurning.Location = new System.Drawing.Point(7, 120);
+            this.lblPlaneIsTurning.Name = "lblPlaneIsTurning";
+            this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 12);
+            this.lblPlaneIsTurning.TabIndex = 19;
+            // 
+            // lblCompassBearing
+            // 
+            this.lblCompassBearing.AutoSize = true;
+            this.lblCompassBearing.Location = new System.Drawing.Point(141, 85);
+            this.lblCompassBearing.Name = "lblCompassBearing";
+            this.lblCompassBearing.Size = new System.Drawing.Size(0, 12);
+            this.lblCompassBearing.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 12);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Current Compass Bearing: ";
+            // 
+            // grpBoxPlaneTurning
+            // 
+            this.grpBoxPlaneTurning.Controls.Add(this.btnRight90);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnLeft90);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnLeft45);
+            this.grpBoxPlaneTurning.Controls.Add(this.btnRight45);
+            this.grpBoxPlaneTurning.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(3, 221);
+            this.grpBoxPlaneTurning.Name = "grpBoxPlaneTurning";
+            this.grpBoxPlaneTurning.Size = new System.Drawing.Size(208, 106);
+            this.grpBoxPlaneTurning.TabIndex = 17;
+            this.grpBoxPlaneTurning.TabStop = false;
+            this.grpBoxPlaneTurning.Text = "Plane Turning Control Panel";
+            // 
+            // btnRight90
+            // 
+            this.btnRight90.Location = new System.Drawing.Point(106, 64);
+            this.btnRight90.Name = "btnRight90";
+            this.btnRight90.Size = new System.Drawing.Size(91, 34);
+            this.btnRight90.TabIndex = 21;
+            this.btnRight90.Text = "Turn Right 90°";
+            this.btnRight90.UseVisualStyleBackColor = true;
+            this.btnRight90.Click += new System.EventHandler(this.btnRight90_Click);
+            // 
+            // btnLeft90
+            // 
+            this.btnLeft90.Location = new System.Drawing.Point(10, 64);
+            this.btnLeft90.Name = "btnLeft90";
+            this.btnLeft90.Size = new System.Drawing.Size(91, 34);
+            this.btnLeft90.TabIndex = 20;
+            this.btnLeft90.Text = "Turn Left 90°";
+            this.btnLeft90.UseVisualStyleBackColor = true;
+            this.btnLeft90.Click += new System.EventHandler(this.btnLeft90_Click);
+            // 
+            // btnLeft45
+            // 
+            this.btnLeft45.Location = new System.Drawing.Point(10, 24);
+            this.btnLeft45.Name = "btnLeft45";
+            this.btnLeft45.Size = new System.Drawing.Size(91, 34);
+            this.btnLeft45.TabIndex = 18;
+            this.btnLeft45.Text = "Turn Left 45°";
+            this.btnLeft45.UseVisualStyleBackColor = true;
+            this.btnLeft45.Click += new System.EventHandler(this.btnLeft45_Click);
+            // 
+            // btnRight45
+            // 
+            this.btnRight45.Location = new System.Drawing.Point(106, 24);
+            this.btnRight45.Name = "btnRight45";
+            this.btnRight45.Size = new System.Drawing.Size(91, 34);
+            this.btnRight45.TabIndex = 19;
+            this.btnRight45.Text = "Turn Right 45°";
+            this.btnRight45.UseVisualStyleBackColor = true;
+            this.btnRight45.Click += new System.EventHandler(this.btnRight45_Click);
+            // 
+            // turningPlaneTimer
+            // 
+            this.turningPlaneTimer.Tick += new System.EventHandler(this.turningPlaneTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 801);
-            this.Controls.Add(this.trackBar3);
-            this.Controls.Add(this.grpBoxAirPressure);
-            this.Controls.Add(this.farrenheitSymbolPictureBox);
-            this.Controls.Add(this.temperaturePictureBox);
-            this.Controls.Add(this.weatherPictureBox);
-            this.Controls.Add(this.grpBoxTimeDetails);
-            this.Controls.Add(this.grpBoxLocation);
+            this.ClientSize = new System.Drawing.Size(1183, 688);
             this.Controls.Add(this.grpBoxPlaneTurning);
             this.Controls.Add(this.grpBoxCoordinateDetails);
             this.Controls.Add(this.btnViewFlightInformation);
@@ -748,18 +850,9 @@ namespace Project_III_Group1_Group_Project
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.farrenheitSymbolPictureBox)).EndInit();
-            this.grpBoxAirPressure.ResumeLayout(false);
-            this.grpBoxAirPressure.PerformLayout();
             this.grpBoxCoordinateDetails.ResumeLayout(false);
             this.grpBoxCoordinateDetails.PerformLayout();
             this.grpBoxPlaneTurning.ResumeLayout(false);
-            this.grpBoxLocation.ResumeLayout(false);
-            this.grpBoxLocation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).EndInit();
-            this.grpBoxTimeDetails.ResumeLayout(false);
-            this.grpBoxTimeDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -777,15 +870,6 @@ namespace Project_III_Group1_Group_Project
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnViewFlightInformation;
-        private System.Windows.Forms.PictureBox weatherPictureBox;
-        private System.Windows.Forms.Timer weatherTimer;
-        private System.Windows.Forms.ImageList weatherImageList;
-        private System.Windows.Forms.PictureBox temperaturePictureBox;
-        private System.Windows.Forms.ImageList temperatureImageList;
-        private System.Windows.Forms.PictureBox farrenheitSymbolPictureBox;
-        private System.Windows.Forms.GroupBox grpBoxAirPressure;
-        private System.Windows.Forms.TextBox txtAirPressure;
-        private System.Windows.Forms.Timer airPressureTimer;
         private System.Windows.Forms.Timer latitudeLongitudeTimer;
         private System.Windows.Forms.Label lblLatitude;
         private System.Windows.Forms.Label lblLongitude;
@@ -801,22 +885,6 @@ namespace Project_III_Group1_Group_Project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPlaneIsTurning;
         private System.Windows.Forms.Timer turningPlaneTimer;
-        private System.Windows.Forms.Timer changingLocationTimer;
-        private System.Windows.Forms.GroupBox grpBoxLocation;
-        private System.Windows.Forms.Label lblProvinceStateInfo;
-        private System.Windows.Forms.Label lblProvinceState;
-        private System.Windows.Forms.PictureBox picBoxCountry;
-        private System.Windows.Forms.Label lblFlightTimeRemaining;
-        private System.Windows.Forms.GroupBox grpBoxTimeDetails;
-        private System.Windows.Forms.Label lblCurrentDateTime;
-        private System.Windows.Forms.Label lblEstimatedTimeLeft;
-        private System.Windows.Forms.Label lblCurrentTime;
-        private System.Windows.Forms.Timer dateTimeTimer;
-        private System.Windows.Forms.Timer estimatedTimeTimer;
-        private TrackBar trackBar3;
-        private Timer SpeedTimer;
-        private Button btnAirPressure;
-        private Label lbAirPressure;
     }
 }
 

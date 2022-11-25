@@ -24,8 +24,7 @@ namespace Project_III_Group1_Group_Project
         private string currLongitude;
         private CompassBearing currBearing;
         private string currProvinceState;
-        private string currCountry;
-        private string currEstimatedArrivalTimeLeft;
+        private DateTime currEstimatedArrivalTime;
 
         public void setCurrLatitude(string currLatitude)
         {
@@ -63,23 +62,13 @@ namespace Project_III_Group1_Group_Project
             return this.currProvinceState;
         }
 
-        public void setCurrCountry(string currCountry)
+        public void setCurrEstimatedArrivalTime(DateTime time)
         {
-            this.currCountry = currCountry;
+            this.currEstimatedArrivalTime = time;
         }
-        public string getCurrCountry()
+        public DateTime getCurrEstimatedArrivalTime()
         {
-            return this.currCountry;
-        }
-
-
-        public void setCurrEstimatedArrivalTimeLeft(string time)
-        {
-            this.currEstimatedArrivalTimeLeft = time;
-        }
-        public string getCurrEstimatedArrivalTimeLeft()
-        {
-            return this.currEstimatedArrivalTimeLeft;
+            return this.currEstimatedArrivalTime;
         }
     } 
     public class GeoLocation
@@ -91,8 +80,7 @@ namespace Project_III_Group1_Group_Project
                 this.locationDataStruct.setCurrLatitude(locationData.getCurrLatitude());
                 this.locationDataStruct.setCompassBearing(locationData.getCompassBearing());
                 this.locationDataStruct.setCurrProvinceState(locationData.getCurrProvinceState());
-                this.locationDataStruct.setCurrCountry(locationData.getCurrCountry());
-                this.locationDataStruct.setCurrEstimatedArrivalTimeLeft(locationData.getCurrEstimatedArrivalTimeLeft());
+                this.locationDataStruct.setCurrEstimatedArrivalTime(locationData.getCurrEstimatedArrivalTime());
           }
 
          public string obtainNewLongitude()
@@ -109,6 +97,7 @@ namespace Project_III_Group1_Group_Project
 
                 wholeNumber = allLines[random.Next(allLines.Length)];
                 decimalPoint = random.Next(0, 1000000).ToString("D6");
+
                 return wholeNumber + "." + decimalPoint;
             }                               
          }
@@ -119,93 +108,24 @@ namespace Project_III_Group1_Group_Project
             {
                 throw new Exception("Latitudes File does not exist");
             }
-            else
-            {
-                Random random = new Random();
-                string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";
-                string[] allLines = File.ReadAllLines(filePath);
+            Random random = new Random();          
+            string decimalPoint = "", wholeNumber = "", filePath = "Resources\\latitudes.txt";           
+            string[] allLines = File.ReadAllLines(filePath);
 
-                wholeNumber = allLines[random.Next(allLines.Length)];
-                decimalPoint = random.Next(0, 1000000).ToString("D6");
-                return wholeNumber + "." + decimalPoint;
-            }                                     
+            wholeNumber= allLines[random.Next(allLines.Length)];
+            decimalPoint = random.Next(0, 1000000).ToString("D6");
+            
+            return wholeNumber + "." + decimalPoint;                    
         }
 
-        public string obtainNewEstimatedTimeUntilArrival(int planeSpeed, string currentEstimatedTime)
+        public DateTime obtainNewEstimatedTimeUntilArrival(int planeSpeed)
         {
-            TimeSpan curr = TimeSpan.Parse(currentEstimatedTime);
-            if (!File.Exists("Resources\\updatingEstimatedTime.txt"))
-            {
-                throw new Exception("Time File does not exist");
-            }
-            else
-            {
-                Random random = new Random();
-                string line = "", filePath = "Resources\\updatingEstimatedTime.txt";
-                string[] allLines = File.ReadAllLines(filePath);
-                line = allLines[random.Next(allLines.Length)];
-                switch (int.Parse(line))
-                {
-                    case 1:
-                        curr = curr.Add(TimeSpan.FromMinutes(5));
-                        
-                        break;
-                    case 2:
-                        curr = curr.Add(TimeSpan.FromMinutes(10));
-                        break;
-                    case 3:
-                        curr = curr.Add(TimeSpan.FromMinutes(15));
-                        break;
-                }
-                if (planeSpeed >= 0 && planeSpeed <= 299)
-                {
-                    curr = curr.Add(TimeSpan.FromMinutes(1));
-                }
-                else if (planeSpeed >= 300 && planeSpeed <= 599)
-                {
-                    curr = curr.Add(TimeSpan.FromMinutes(5));
-                }
-                else
-                {
-                    curr = curr.Add(TimeSpan.FromMinutes(10));
-                }
-                return curr.ToString();
-            }       
+            return new DateTime();
         }
 
-        public string obtainCurrentCountry()
+        public string obtainCurrentProvinceState()
         {
-            Random random = new Random();
-            string currCountry = "";
-
-            if(random.Next(1, 3) == 1)
-            {
-                currCountry = "CAN";
-            }
-            else
-            {
-                currCountry = "USA";
-            }
-
-            return currCountry;
-        }
-
-        public string obtainCurrentProvinceState(string currCountry)
-        {
-            Random rand = new Random();
-            string[] allLines;
-            string result = "";
-            if (currCountry == "CAN")
-            {             
-                allLines = File.ReadAllLines("Resources\\Provinces.txt");
-                result = allLines[rand.Next(allLines.Length)];
-            }
-            else
-            {
-                allLines = File.ReadAllLines("Resources\\States.txt");
-                result = allLines[rand.Next(allLines.Length)];
-            }
-            return result;
+            return "";
         }
 
 
