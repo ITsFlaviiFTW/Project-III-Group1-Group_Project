@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project_III_Group1_Group_Project
 {
-    //create an enum containing air pressure values from 0 to 100 incrementing by 25
+
     public enum AirPressureValues
     {
         Critical = 0,
