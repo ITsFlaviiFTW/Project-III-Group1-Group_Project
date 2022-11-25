@@ -1,18 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Project_III_Group1_Group_Project
 {
+    //create an enum containing air pressure values from 0 to 100 incrementing by 25
+    public enum AirPressureValues
+    {
+        Critical = 0,
+        Danger = 25,
+        Low = 50,
+        Normal = 75,
+        Stable = 100
+    }
+
     public struct MeteorologicalData
     {
+        private AirPressureValues airPressureVal;
         private string weather;
-        private int temperature;
-        private int airPressure;
+        private string temperature;
+        private string airPressure;
         private bool dayType;
 
+
+        public void setAirPressureValues(AirPressureValues airPressureValues)
+        {
+            this.airPressureVal = airPressureValues;
+        }
+
+        public AirPressureValues getAirPressureValues()
+        {
+            return this.airPressureVal;
+        }
         public void setWeather(string weather)
         {
             this.weather = weather;
@@ -23,23 +45,23 @@ namespace Project_III_Group1_Group_Project
         }
 
 
-        public void setTemperature(int temperature)
+        public void setTemperature(string temperature)
         {
             this.temperature = temperature;
         }
 
-        public int getTemperature()
+        public string getTemperature()
         {
             return this.temperature;
         }
 
 
-        public void setAirPressure(int airPressure)
+        public void setAirPressure(string airPressure)
         {
             this.airPressure = airPressure;
         }
 
-        public int getAirPressure()
+        public string getAirPressure()
         {
             return this.airPressure;
         }
@@ -59,55 +81,82 @@ namespace Project_III_Group1_Group_Project
     public class Meteorological
     {
         public MeteorologicalData meteorologicalDataStruct;
-        public Meteorological(MeteorologicalData data)
+        public Meteorological(MeteorologicalData meteorologicalData)
         {
-            this.meteorologicalDataStruct.setWeather(data.getWeather());
-            this.meteorologicalDataStruct.setTemperature(data.getTemperature());
-            this.meteorologicalDataStruct.setAirPressure(data.getAirPressure());
-            this.meteorologicalDataStruct.setDayType(data.getDayType());
+            this.meteorologicalDataStruct.setAirPressureValues(meteorologicalData.getAirPressureValues());
+            this.meteorologicalDataStruct.setWeather(meteorologicalData.getWeather());
+            this.meteorologicalDataStruct.setTemperature(meteorologicalData.getTemperature());
+            this.meteorologicalDataStruct.setAirPressure(meteorologicalData.getAirPressure());
+            this.meteorologicalDataStruct.setDayType(meteorologicalData.getDayType());
         }
-        public int AirPressure()
+        public string obtainNewAirPressure()
         {
-            //create an array for air pressure values
-            int[] airPressure = new int[5];
-            airPressure[0] = 0;
-            airPressure[1] = 25;
-            airPressure[2] = 50;
-            airPressure[3] = 75;
-            airPressure[4] = 100;
-
-
-            //create a for loop to iterate through the array
-            for (int i = 0; i < airPressure.Length; i++)
+            int airPressureNum = 0;
+            if (!File.Exists("Resources\\airpressure.txt"))
             {
-                //create if statement to determine if the air pressure is in the normal range
-                if (airPressure[i] >= 50 && airPressure[i] <= 75)
-                {
-                    Console.WriteLine("The air pressure is normal.");
-                }
-                else if (airPressure[i] >= 0 && airPressure[i] <= 25)
-                {
-                    Console.WriteLine("The air pressure is extremely low, you must do something!");
-                }
-                else if (airPressure[i] >= 26 && airPressure[i] <= 49)
-                {
-                    Console.WriteLine("The air pressure is low, change the dials and fix the issue!");
-                }
-                else if (airPressure[i] >= 76 && airPressure[i] <= 100)
-                {
-                    Console.WriteLine("The air pressure is high, reduce the pressure!");
-                }
+                throw new Exception("Air Pressure File does not exist");
             }
-            return airPressure[0];
+            string airPressure = "Resources\\airpressure.txt";
+            string[] airPressureArray = File.ReadAllLines(airPressure);
+            airPressureNum = int.Parse(airPressureArray[0]);
+            airPressureNum -= 1;
+            if (airPressureNum <= 0)
+            {
+                airPressureNum = 0;
+            }
+            File.WriteAllText(airPressure, airPressureNum.ToString());
+            return airPressureNum.ToString();
         }
+        public string buttonGoUpPressure()
+        {
+            int airPressureNum = 0;
+            if (!File.Exists("Resources\\airpressure.txt"))
+            {
+                throw new Exception("Air Pressure File does not exist");
+            }
+            string airPressure = "Resources\\airpressure.txt";
+            string[] airPressureArray = File.ReadAllLines(airPressure);
+            airPressureNum = int.Parse(airPressureArray[0]);
+            airPressureNum += 1;
+            if (airPressureNum >= 100)
+            {
+                airPressureNum = 100;
+            }
+            File.WriteAllText(airPressure, airPressureNum.ToString());
+            return airPressureNum.ToString();
+        }
+
+
+        public AirPressureValues obtainNewAirPressureMessage(int airPressureValue)
+        {
+            if (airPressureValue >= 0 && airPressureValue <= 5)
+            {
+                return AirPressureValues.Critical;
+            }
+            else if (airPressureValue > 5 && airPressureValue <= 25)
+            {
+                return AirPressureValues.Danger;
+            }
+            else if (airPressureValue > 25 && airPressureValue <= 50)
+            {
+                return AirPressureValues.Low;
+            }
+            else if (airPressureValue > 50 && airPressureValue <= 75)
+            {
+                return AirPressureValues.Normal;
+            }
+            else
+            {
+                return AirPressureValues.Stable;
+            }
+        }
+
+
 
 
         public override string ToString()
         {
             return "Weather: " + meteorologicalDataStruct.getWeather() + " Temperature: " + meteorologicalDataStruct.getTemperature() + " Air Pressure: " + meteorologicalDataStruct.getAirPressure() + " Day Type: " + meteorologicalDataStruct.getDayType();
         }
-
-
     }
 }
-
