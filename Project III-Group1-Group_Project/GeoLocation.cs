@@ -147,27 +147,31 @@ namespace Project_III_Group1_Group_Project
                 switch (int.Parse(line))
                 {
                     case 1:
-                        curr = curr.Add(TimeSpan.FromMinutes(5));
-                        
+                        curr = curr.Add(TimeSpan.FromMinutes(random.Next(1, 6)));
+                        curr = curr.Subtract(TimeSpan.FromSeconds(random.Next(1, 10)));                        
                         break;
                     case 2:
-                        curr = curr.Add(TimeSpan.FromMinutes(10));
+                        curr = curr.Subtract(TimeSpan.FromMinutes(random.Next(10, 16)));
+                        curr = curr.Add(TimeSpan.FromSeconds(random.Next(15, 21)));
                         break;
                     case 3:
-                        curr = curr.Add(TimeSpan.FromMinutes(15));
+                        curr = curr.Subtract(TimeSpan.FromMinutes(random.Next(5, 8)));
+                        curr = curr.Add(TimeSpan.FromSeconds(random.Next(20, 26)));
                         break;
                 }
                 if (planeSpeed >= 0 && planeSpeed <= 299)
                 {
-                    curr = curr.Add(TimeSpan.FromMinutes(1));
+                    curr = curr.Add(TimeSpan.FromMinutes(20));
+                    curr = curr.Add(TimeSpan.FromSeconds(30));
                 }
                 else if (planeSpeed >= 300 && planeSpeed <= 599)
                 {
-                    curr = curr.Add(TimeSpan.FromMinutes(5));
+                    curr = curr.Subtract(TimeSpan.FromSeconds(5));
                 }
                 else
                 {
-                    curr = curr.Add(TimeSpan.FromMinutes(10));
+                    curr = curr.Subtract(TimeSpan.FromMinutes(30));
+                    curr = curr.Subtract(TimeSpan.FromSeconds(30));
                 }
                 return curr.ToString();
             }       
