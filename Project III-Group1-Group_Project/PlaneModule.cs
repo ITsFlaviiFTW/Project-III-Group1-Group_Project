@@ -17,18 +17,23 @@ namespace Project_III_Group1_Group_Project
  
     public partial class Form1 : Form
     {
+        //Classes and structs
         Meteorological meteorologicalData;
         MeteorologicalData meteorologicalDataStruct;
 
         ActiveGauges activeGauges;
         GaugesData gaugesData = new GaugesData();
-        
-         
+
         GeoLocation locationData;
+        LocationData locationDataStruct = new LocationData();
+
         public Plane currentFlight { get; set; }
         PlaneData planeDataStruct = new PlaneData();
-        LocationData locationDataStruct = new LocationData();
+     
+        //Flights text file
         string filePath = "Resources\\flights.txt";
+
+        //Global random you can use
         Random random = new Random();
         int i = 1;
         int weatherimageNum = 0;
@@ -88,7 +93,6 @@ namespace Project_III_Group1_Group_Project
             airPressureTimer.Start();
         }
 
-
         private void GoBack(object sender, EventArgs e)
         {
             i--;
@@ -110,6 +114,7 @@ namespace Project_III_Group1_Group_Project
             changeImage(i);
            
         }
+
         private void changeImage(int num)
         {
             // starting image
@@ -156,7 +161,6 @@ namespace Project_III_Group1_Group_Project
 
         private void weatherTimer_Tick(object sender, EventArgs e)
         {
-
             farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
             //loop pictures into picturebox from resources folder
             string[] weatherImages = Directory.GetFiles("Resources\\weatherImages");
@@ -173,8 +177,6 @@ namespace Project_III_Group1_Group_Project
             {
                 tempimageNum = 0;
             }
-
-
         }
 
         private void temperaturePictureBox_Click(object sender, EventArgs e)
@@ -348,8 +350,7 @@ namespace Project_III_Group1_Group_Project
 
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
-            lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
-            //TimeSpan difference = TimeSpan.Parse(planeDataStruct.getDepartureTime().Replace("PM", "").Replace("AM", "")) - TimeSpan.Parse(planeDataStruct.getArrivalTime().Replace("PM", "").Replace("AM", ""));
+            lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();   
             var diffInTimes = DateTime.Parse(planeDataStruct.getDepartureTime()) - DateTime.Parse(planeDataStruct.getArrivalTime());
 
             locationDataStruct.setCurrEstimatedArrivalTimeLeft(diffInTimes.ToString().Replace("-", ""));
