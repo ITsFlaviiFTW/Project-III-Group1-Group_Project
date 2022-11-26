@@ -23,6 +23,7 @@ namespace Project_III_Group1_Group_Project
 
         ActiveGauges activeGauges;
         GaugesData gaugesData = new GaugesData();
+        Random rand = new Random();
 
         GeoLocation locationData;
         LocationData locationDataStruct = new LocationData();
@@ -388,29 +389,75 @@ namespace Project_III_Group1_Group_Project
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            aGauge1.Value = trackBar1.Value;
-        }
-
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-            aGauge2.Value = trackBar3.Value;
-        }
-
         private void SpeedTimer_Tick(object sender, EventArgs e)
         {
-            if (gaugesData.getPlaneSpeed() < 800 && gaugesData.getSetUp() == false)
+            if (gaugesData.getPlaneSpeed() < aGauge1.MaxValue && !gaugesData.getSetUpSpeed())
             {
-                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() + 20);
+                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() + (int)aGauge1.MaxValue / 40);
                 aGauge1.Value = gaugesData.getPlaneSpeed();
+                if (gaugesData.getPlaneSpeed() >= aGauge1.MaxValue)
+                {
+                    gaugesData.setSetUpSpeed(true);
+                }
+            }
+            else if (gaugesData.getSetUpSpeed())
+            {
+                
+                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() - (int)aGauge1.MaxValue / 40);
+                aGauge1.Value = gaugesData.getPlaneSpeed();
+            }
+
+            if (gaugesData.getPlaneAltitude() < aGauge2.MaxValue && !gaugesData.getSetUpAltitude())
+            {
+                gaugesData.setPlaneAltitude(gaugesData.getPlaneAltitude() + (int)aGauge2.MaxValue / 40);
+                aGauge2.Value = gaugesData.getPlaneAltitude();
             }
             else
             {
-                gaugesData.setSetUp(true);
-                gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() - 20);
-                aGauge1.Value = gaugesData.getPlaneSpeed();
+                gaugesData.setSetUpAltitude(true);
+                gaugesData.setPlaneAltitude(gaugesData.getPlaneAltitude() - (int)aGauge2.MaxValue / 40);
+                aGauge2.Value = gaugesData.getPlaneAltitude();
             }
+
+            if (gaugesData.getFuelLevel() < aGauge3.MaxValue && !gaugesData.getSetUpFuel())
+            {
+                gaugesData.setFuelLevel(gaugesData.getFuelLevel() + (int)aGauge3.MaxValue / 40);
+                aGauge3.Value = gaugesData.getFuelLevel();
+            }
+            else
+            {
+                gaugesData.setSetUpFuel(true);
+                gaugesData.setFuelLevel(gaugesData.getFuelLevel() - (int)aGauge3.MaxValue / 40);
+                aGauge3.Value = gaugesData.getFuelLevel();
+            }
+
+            if (gaugesData.getOxygenLevel() < aGauge4.MaxValue && !gaugesData.getSetUpOxygen())
+            {
+                gaugesData.setOxygenLevel(gaugesData.getOxygenLevel() + (int)aGauge4.MaxValue / 40);
+                aGauge4.Value = gaugesData.getOxygenLevel();
+            }
+            else
+            {
+                gaugesData.setSetUpOxygen(true);
+                gaugesData.setOxygenLevel(gaugesData.getOxygenLevel() - (int)aGauge4.MaxValue / 40);
+                aGauge4.Value = gaugesData.getOxygenLevel();
+            }
+
+            if (gaugesData.getSetUpSpeed() && gaugesData.getPlaneSpeed() <= 0)
+            {
+                GaugesTimer.Enabled = true;
+            }
+        }
+
+        private void GaugesTimer_Tick(object sender, EventArgs e)
+        {
+            if (StartUpTimer.Enabled == true)
+            {
+                StartUpTimer.Stop();
+            }
+            
+            gaugesData.setPlaneSpeed(rand.Next(gaugesData.getPlaneSpeed() - 30, 801));
+            aGauge1.Value = gaugesData.getPlaneSpeed();
         }
     }
 }

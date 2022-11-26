@@ -12,7 +12,10 @@ namespace Project_III_Group1_Group_Project
         private float altitude;
         private float fuelLevel;
         private float oxygenLevel;
-        private bool startUpDone;
+        private bool startUpSpeed;
+        private bool startUpAltitude;
+        private bool startUpFuel;
+        private bool startUpOxygen;
 
         public int getPlaneSpeed()
         {
@@ -54,14 +57,44 @@ namespace Project_III_Group1_Group_Project
             this.oxygenLevel = oxygenLevel;
         }
 
-        public bool getSetUp()
+        public bool getSetUpSpeed()
         {
-            return startUpDone;
+            return startUpSpeed;
         }
 
-        public void setSetUp(bool setUp)
+        public void setSetUpSpeed(bool setUp)
         {
-            this.startUpDone = setUp;
+            this.startUpSpeed = setUp;
+        }
+
+        public bool getSetUpAltitude()
+        {
+            return startUpAltitude;
+        }
+
+        public void setSetUpAltitude(bool setUp)
+        {
+            this.startUpAltitude = setUp;
+        }
+
+        public bool getSetUpFuel()
+        {
+            return startUpFuel;
+        }
+
+        public void setSetUpFuel(bool setUp)
+        {
+            this.startUpFuel = setUp;
+        }
+
+        public bool getSetUpOxygen()
+        {
+            return startUpOxygen;
+        }
+
+        public void setSetUpOxygen(bool setUp)
+        {
+            this.startUpOxygen = setUp;
         }
     }
     public class ActiveGauges
