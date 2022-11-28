@@ -109,23 +109,16 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setOxygenLevel(1);
         }
 
-        void determineSafeSpeed(bool turbulence, string weather)
+        public int determineSafeSpeed(int currentSpeed, int limitSpeed, int maxSpeed)
         {
-            
-            // Take in speed and weather
-            // Determine if the weather is good or bad
-            // Then if the weather is bad ajust accordingly 
-            // Maybe ajust by a percentage based on how bad the weather really is
-            // Reduce speed by 5% if raining, reduce by 15% if thunder, lightning and pouring rain
+            Random rand = new Random();
+            return rand.Next(currentSpeed - limitSpeed, maxSpeed);
         }
 
-        void determineSafeAltitude(string weather)
+        public int determineSafeAltitude(int currentAltitude, int limitAltitude, int maxAltitude)
         {
-            // Take in weather
-            // Determine if the weather is good or bad
-            // Then if the weather is bad ajust accordingly 
-            // Maybe ajust by a percentage based on how bad the weather really is
-            // Reduce altitude by 5% if raining, reduce by 15% if thunder, lightning and pouring rain
+            Random rand = new Random();
+            return rand.Next(currentAltitude - limitAltitude, maxAltitude);
         }
 
         void determineTurbulence(string weather, int airPressure)
@@ -137,17 +130,17 @@ namespace Project_III_Group1_Group_Project
             // Reduce speed by 15% if thunder, lightning and pouring rain as well as low pressure
         }
 
-        void determineSafeOxygenLevel(float altitude)
+        public float determineSafeOxygenLevel(float airPressure, float maxValue)
         {
-            // if the plane is too high the oxygen level will be too low 
-            // if the plane is too high reduce altitude
+            float temp = maxValue - airPressure;
+            airPressure += (temp / 2);
+            return airPressure;
         }
 
-        void dedtermineFuelEfficiency(int speed)
+        public float dedtermineFuelEfficiency(float fuelLevel, float incrementingValue)
         {
-            // if the plane speed is reduced increase fuel efficiency
-            // and like wise if the plane speed is increased reduce fuel efficiency
-            // fuel efficiency could be measured in 
+            fuelLevel += incrementingValue;
+            return fuelLevel;
         }
     }
 }

@@ -74,6 +74,7 @@ namespace Project_III_Group1_Group_Project
                 GeoLocationSetup();
                 MeteorologicalSetup();
                 StatusUpdateSetup();
+                ActiveGaugesSetup();
 
                 // starting image
                 pictureBox1.Image = Properties.Resources.plane1;
@@ -389,6 +390,17 @@ namespace Project_III_Group1_Group_Project
             locationDataStruct.setCurrEstimatedArrivalTimeLeft(diffInTimes.ToString().Replace("-", ""));
             lblEstimatedTimeLeft.Text = diffInTimes.ToString().Replace("-", "");
         }
+        private void ActiveGaugesSetup()
+        {
+            gaugesData.setPlaneSpeed(0);
+            gaugesData.setPlaneAltitude(0);
+            gaugesData.setFuelLevel(0);
+            gaugesData.setOxygenLevel(0);
+
+            activeGauges = new ActiveGauges(gaugesData);
+
+            StartUpTimer.Enabled = true;
+        }
 
         private void dateTimeTimer_Tick(object sender, EventArgs e)
         {                     
@@ -487,22 +499,25 @@ namespace Project_III_Group1_Group_Project
             {
                 StartUpTimer.Stop();
             }
-            
-            gaugesData.setPlaneSpeed(rand.Next(gaugesData.getPlaneSpeed() - 50, 801));
+
+            gaugesData.setPlaneSpeed(activeGauges.determineSafeSpeed(gaugesData.getPlaneSpeed(), 50, 801));
             aGauge1.Value = gaugesData.getPlaneSpeed();
 
-            gaugesData.setPlaneAltitude(rand.Next((int)(gaugesData.getPlaneAltitude() - 1500), 42001));
+            gaugesData.setPlaneAltitude(activeGauges.determineSafeAltitude((int)gaugesData.getPlaneAltitude(), 1500, 42001));
             aGauge2.Value = gaugesData.getPlaneAltitude();
 
             if (gaugesData.getFuelLevel() <= 20)
             {
                 FuelLevelButton.Visible = true;
             }
-            
+
             if (RefuelTimer.Enabled == false)
             {
-                gaugesData.setFuelLevel(gaugesData.getFuelLevel() - 0.5F);
-                aGauge3.Value = gaugesData.getFuelLevel();
+                if (gaugesData.getFuelLevel() > 0)
+                {
+                    gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), -0.25F));
+                    aGauge3.Value = gaugesData.getFuelLevel();
+                }
             }
 
             if (float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()) >= 100)
@@ -512,10 +527,7 @@ namespace Project_III_Group1_Group_Project
             }
             else
             {
-                float oxLvl = float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure());
-                float newNum = aGauge4.MaxValue - oxLvl;
-                oxLvl += (newNum / 2);
-                gaugesData.setOxygenLevel(oxLvl);
+                gaugesData.setOxygenLevel(activeGauges.determineSafeOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()), aGauge4.MaxValue));
                 aGauge4.Value = gaugesData.getOxygenLevel();
             }
         }
@@ -572,7 +584,7 @@ namespace Project_III_Group1_Group_Project
 
         private void RefuelTimer_Tick(object sender, EventArgs e)
         {
-            gaugesData.setFuelLevel(gaugesData.getFuelLevel() + 5);
+            gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), 5));
             aGauge3.Value = gaugesData.getFuelLevel();
 
             if (gaugesData.getFuelLevel() >= 100) 
