@@ -462,11 +462,12 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setPlaneAltitude(rand.Next((int)(gaugesData.getPlaneAltitude() - 1500), 42001));
             aGauge2.Value = gaugesData.getPlaneAltitude();
 
-            if (gaugesData.getFuelLevel() <= 0)
+            if (gaugesData.getFuelLevel() <= 20)
             {
-                gaugesData.setFuelLevel(100);
+                FuelLevelButton.Visible = true;
             }
-            else
+            
+            if (RefuelTimer.Enabled == false)
             {
                 gaugesData.setFuelLevel(gaugesData.getFuelLevel() - 0.5F);
                 aGauge3.Value = gaugesData.getFuelLevel();
@@ -534,7 +535,19 @@ namespace Project_III_Group1_Group_Project
 
         private void FuelLevelButton_Click(object sender, EventArgs e)
         {
+            RefuelTimer.Start();
+        }
 
+        private void RefuelTimer_Tick(object sender, EventArgs e)
+        {
+            gaugesData.setFuelLevel(gaugesData.getFuelLevel() + 5);
+            aGauge3.Value = gaugesData.getFuelLevel();
+
+            if (gaugesData.getFuelLevel() >= 100) 
+            {
+                FuelLevelButton.Visible = false;
+                RefuelTimer.Stop();
+            }
         }
     }
 }

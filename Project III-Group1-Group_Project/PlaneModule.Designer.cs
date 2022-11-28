@@ -83,6 +83,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
             this.FuelLevelButton = new System.Windows.Forms.Button();
+            this.RefuelTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -747,6 +748,10 @@ namespace Project_III_Group1_Group_Project
             this.FuelLevelButton.Visible = false;
             this.FuelLevelButton.Click += new System.EventHandler(this.FuelLevelButton_Click);
             // 
+            // RefuelTimer
+            // 
+            this.RefuelTimer.Tick += new System.EventHandler(this.RefuelTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -844,6 +849,7 @@ namespace Project_III_Group1_Group_Project
         private Timer GaugesTimer;
         private Timer airPressureUpTimer;
         private Button FuelLevelButton;
+        private Timer RefuelTimer;
     }
 }
 
