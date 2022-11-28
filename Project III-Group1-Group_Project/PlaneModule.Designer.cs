@@ -660,7 +660,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.BaseArcWidth = 2;
             this.aGauge4.GaugeAutoSize = false;
             this.aGauge4.Location = new System.Drawing.Point(746, 575);
-            this.aGauge4.MaxValue = 800F;
+            this.aGauge4.MaxValue = 100F;
             this.aGauge4.MinValue = 0F;
             this.aGauge4.Name = "aGauge4";
             this.aGauge4.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
@@ -675,7 +675,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.ScaleLinesMajorColor = System.Drawing.Color.Black;
             this.aGauge4.ScaleLinesMajorInnerRadius = 70;
             this.aGauge4.ScaleLinesMajorOuterRadius = 80;
-            this.aGauge4.ScaleLinesMajorStepValue = 100F;
+            this.aGauge4.ScaleLinesMajorStepValue = 20F;
             this.aGauge4.ScaleLinesMajorWidth = 2;
             this.aGauge4.ScaleLinesMinorColor = System.Drawing.Color.Gray;
             this.aGauge4.ScaleLinesMinorInnerRadius = 75;

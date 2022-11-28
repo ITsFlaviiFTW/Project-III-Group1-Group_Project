@@ -443,7 +443,7 @@ namespace Project_III_Group1_Group_Project
                 aGauge4.Value = gaugesData.getOxygenLevel();
             }
 
-            if (gaugesData.getSetUpSpeed() && gaugesData.getPlaneSpeed() <= 0)
+            if (gaugesData.getSetUpOxygen() && gaugesData.getOxygenLevel() <= 0)
             {
                 GaugesTimer.Enabled = true;
             }
@@ -451,13 +451,40 @@ namespace Project_III_Group1_Group_Project
 
         private void GaugesTimer_Tick(object sender, EventArgs e)
         {
-            if (StartUpTimer.Enabled == true)
+            if (StartUpTimer.Enabled)
             {
                 StartUpTimer.Stop();
             }
             
-            gaugesData.setPlaneSpeed(rand.Next(gaugesData.getPlaneSpeed() - 30, 801));
+            gaugesData.setPlaneSpeed(rand.Next(gaugesData.getPlaneSpeed() - 50, 801));
             aGauge1.Value = gaugesData.getPlaneSpeed();
+
+            gaugesData.setPlaneAltitude(rand.Next((int)(gaugesData.getPlaneAltitude() - 1500), 42001));
+            aGauge2.Value = gaugesData.getPlaneAltitude();
+
+            if (gaugesData.getFuelLevel() <= 0)
+            {
+                gaugesData.setFuelLevel(100);
+            }
+            else
+            {
+                gaugesData.setFuelLevel(gaugesData.getFuelLevel() - 0.5F);
+                aGauge3.Value = gaugesData.getFuelLevel();
+            }
+
+            if (float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()) >= 100)
+            {
+                gaugesData.setOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()));
+                aGauge4.Value = gaugesData.getOxygenLevel();
+            }
+            else
+            {
+                float oxLvl = float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure());
+                float newNum = aGauge4.MaxValue - oxLvl;
+                oxLvl += (newNum / 2);
+                gaugesData.setOxygenLevel(oxLvl);
+                aGauge4.Value = gaugesData.getOxygenLevel();
+            }
         }
 
         private void btnAirPressure_Click(object sender, EventArgs e)
