@@ -73,6 +73,16 @@ namespace Project_III_Group1_Group_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plan_good {
+            get {
+                object obj = ResourceManager.GetObject("plan_good", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plane1 {
             get {
                 object obj = ResourceManager.GetObject("plane1", resourceCulture);
@@ -86,6 +96,46 @@ namespace Project_III_Group1_Group_Project.Properties {
         internal static System.Drawing.Bitmap plane1_Bad_CPdoor {
             get {
                 object obj = ResourceManager.GetObject("plane1-Bad-CPdoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plane1_Bad_door1 {
+            get {
+                object obj = ResourceManager.GetObject("plane1-Bad-door1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plane1_Bad_door2 {
+            get {
+                object obj = ResourceManager.GetObject("plane1-Bad-door2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plane1_Bad_door3 {
+            get {
+                object obj = ResourceManager.GetObject("plane1-Bad-door3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plane1_Bad_door4 {
+            get {
+                object obj = ResourceManager.GetObject("plane1-Bad-door4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

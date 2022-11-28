@@ -76,46 +76,25 @@ namespace Project_III_Group1_Group_Project
             this.StatusUpdatesData.setAutoPilot(data.getAutoPilot());
 
         }
-        public void fileOpen(string[] args)
-        {
-
-            if (File.Exists("Resources\\doors.txt"))
-            {
-                // Read a text file line by line.  
-                // all of the file will contain is the door status? maybe something better 
-                string[] lines = File.ReadAllLines("Resources\\doors");
-                foreach (string line in lines)
-                    Console.WriteLine(line);
-            }
-
-            Console.ReadKey();
-        }
-
-        public bool obtainDoorStatus()
+        public string obtainDoorStatus()
         {
             //create an array for door numbers values
             // good for traversing the pictures? or better to have 4 doors and cycle?
-            bool[] doorNumber = new bool[4];
-            doorNumber[0] = false;
-            doorNumber[1] = false;
-            doorNumber[2] = false;
-            doorNumber[3] = false;
 
+            string wholeNumber = "";
 
-            for (int i = 0; i < doorNumber.Length; i++)
+            if (File.Exists("Resources\\doors.txt"))
             {
-                if (doorNumber[i] == false)
-                {
-                    Console.WriteLine("Door Unlocked.");
+                // Read a text file line by line.
+                // all of the file will contain is the door status? maybe something better 
+                Random random = new Random();
+                string[] lines = File.ReadAllLines("Resources\\doors.txt");
+                wholeNumber = lines[random.Next(lines.Length)];
 
-                }
-                else if (doorNumber[i] == true)
-                {
-                    Console.WriteLine("Doors locked");
-                }
             }
-            return doorNumber[0];
+            return wholeNumber;
         }
+    
         public bool obtainCPDoorStatus()
         {
             Random random = new Random();

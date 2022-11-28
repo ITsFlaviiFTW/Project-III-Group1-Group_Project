@@ -78,12 +78,12 @@ namespace Project_III_Group1_Group_Project
             this.StartUpTimer = new System.Windows.Forms.Timer(this.components);
             this.GaugesTimer = new System.Windows.Forms.Timer(this.components);
             this.airPressureUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.FuelLevelButton = new System.Windows.Forms.Button();
+            this.RefuelTimer = new System.Windows.Forms.Timer(this.components);
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
-            this.FuelLevelButton = new System.Windows.Forms.Button();
-            this.RefuelTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,7 +103,7 @@ namespace Project_III_Group1_Group_Project
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(237, 66);
             this.button2.TabIndex = 7;
-            this.button2.Text = "GoBack";
+            this.button2.Text = "Lock Doors";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.GoBack);
             // 
@@ -114,8 +114,9 @@ namespace Project_III_Group1_Group_Project
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(237, 73);
             this.button1.TabIndex = 9;
-            this.button1.Text = "GoNext";
+            this.button1.Text = "Auto Pilot";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.GoNext);
             // 
             // btnViewFlightInformation
@@ -198,7 +199,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_CPdoor;
+            this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_door4;
             this.pictureBox1.Location = new System.Drawing.Point(336, 142);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
@@ -557,6 +558,21 @@ namespace Project_III_Group1_Group_Project
             // 
             this.airPressureUpTimer.Tick += new System.EventHandler(this.airPressureUpTimer_Tick);
             // 
+            // FuelLevelButton
+            // 
+            this.FuelLevelButton.Location = new System.Drawing.Point(770, 652);
+            this.FuelLevelButton.Name = "FuelLevelButton";
+            this.FuelLevelButton.Size = new System.Drawing.Size(75, 23);
+            this.FuelLevelButton.TabIndex = 21;
+            this.FuelLevelButton.Text = "Refuel";
+            this.FuelLevelButton.UseVisualStyleBackColor = true;
+            this.FuelLevelButton.Visible = false;
+            this.FuelLevelButton.Click += new System.EventHandler(this.FuelLevelButton_Click);
+            // 
+            // RefuelTimer
+            // 
+            this.RefuelTimer.Tick += new System.EventHandler(this.RefuelTimer_Tick);
+            // 
             // aGauge1
             // 
             this.aGauge1.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -736,21 +752,6 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
-            // 
-            // FuelLevelButton
-            // 
-            this.FuelLevelButton.Location = new System.Drawing.Point(770, 652);
-            this.FuelLevelButton.Name = "FuelLevelButton";
-            this.FuelLevelButton.Size = new System.Drawing.Size(75, 23);
-            this.FuelLevelButton.TabIndex = 21;
-            this.FuelLevelButton.Text = "Refuel";
-            this.FuelLevelButton.UseVisualStyleBackColor = true;
-            this.FuelLevelButton.Visible = false;
-            this.FuelLevelButton.Click += new System.EventHandler(this.FuelLevelButton_Click);
-            // 
-            // RefuelTimer
-            // 
-            this.RefuelTimer.Tick += new System.EventHandler(this.RefuelTimer_Tick);
             // 
             // Form1
             // 
