@@ -103,51 +103,35 @@ namespace Project_III_Group1_Group_Project
 
         public ActiveGauges(GaugesData gaugesData)
         {
-            gaugesData.setPlaneSpeed(1);
-            gaugesData.setPlaneAltitude(1); 
-            gaugesData.setFuelLevel(1);
-            gaugesData.setOxygenLevel(1);
+            this.gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed());
+            this.gaugesData.setPlaneAltitude(gaugesData.getPlaneAltitude()); 
+            this.gaugesData.setFuelLevel(gaugesData.getFuelLevel());
+            this.gaugesData.setOxygenLevel(gaugesData.getOxygenLevel());
         }
 
-        void determineSafeSpeed(bool turbulence, string weather)
+        public int determineSafeSpeed(int currentSpeed, int limitSpeed, int maxSpeed)
         {
-            
-            // Take in speed and weather
-            // Determine if the weather is good or bad
-            // Then if the weather is bad ajust accordingly 
-            // Maybe ajust by a percentage based on how bad the weather really is
-            // Reduce speed by 5% if raining, reduce by 15% if thunder, lightning and pouring rain
+            Random rand = new Random();
+            return rand.Next(currentSpeed - limitSpeed, maxSpeed);
         }
 
-        void determineSafeAltitude(string weather)
+        public int determineSafeAltitude(int currentAltitude, int limitAltitude, int maxAltitude)
         {
-            // Take in weather
-            // Determine if the weather is good or bad
-            // Then if the weather is bad ajust accordingly 
-            // Maybe ajust by a percentage based on how bad the weather really is
-            // Reduce altitude by 5% if raining, reduce by 15% if thunder, lightning and pouring rain
+            Random rand = new Random();
+            return rand.Next(currentAltitude - limitAltitude, maxAltitude);
         }
 
-        void determineTurbulence(string weather, int airPressure)
+        public float determineSafeOxygenLevel(float airPressure, float maxValue)
         {
-            // Take in air pressure and weather
-            // Determine if the weather is good or bad and if the pressure is high or low
-            // Then if the weather is bad and if air pressure is low
-            // Ajust by a percentage based on how bad the weather really is and if air pressure is low
-            // Reduce speed by 15% if thunder, lightning and pouring rain as well as low pressure
+            float temp = maxValue - airPressure;
+            airPressure += (temp / 2);
+            return airPressure;
         }
 
-        void determineSafeOxygenLevel(float altitude)
+        public float dedtermineFuelEfficiency(float fuelLevel, float incrementingValue)
         {
-            // if the plane is too high the oxygen level will be too low 
-            // if the plane is too high reduce altitude
-        }
-
-        void dedtermineFuelEfficiency(int speed)
-        {
-            // if the plane speed is reduced increase fuel efficiency
-            // and like wise if the plane speed is increased reduce fuel efficiency
-            // fuel efficiency could be measured in 
+            fuelLevel += incrementingValue;
+            return fuelLevel;
         }
     }
 }

@@ -545,7 +545,6 @@ namespace Project_III_Group1_Group_Project
             // 
             // StartUpTimer
             // 
-            this.StartUpTimer.Enabled = true;
             this.StartUpTimer.Interval = 10;
             this.StartUpTimer.Tick += new System.EventHandler(this.SpeedTimer_Tick);
             // 
