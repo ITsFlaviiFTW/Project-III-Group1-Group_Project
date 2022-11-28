@@ -459,6 +459,51 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setPlaneSpeed(rand.Next(gaugesData.getPlaneSpeed() - 30, 801));
             aGauge1.Value = gaugesData.getPlaneSpeed();
         }
+
+        private void btnAirPressure_Click(object sender, EventArgs e)
+        {
+            if (airPressureTimer.Enabled)
+            {
+                airPressureTimer.Stop();
+            }
+            airPressureUpTimer.Start();
+        }
+
+        private void airPressureUpTimer_Tick(object sender, EventArgs e)
+        {
+            meteorologicalData.meteorologicalDataStruct.setAirPressure(meteorologicalData.buttonGoUpPressure());
+            meteorologicalData.meteorologicalDataStruct.setAirPressureValues(meteorologicalData.obtainNewAirPressureMessage(int.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure())));
+            txtAirPressure.Text = meteorologicalData.meteorologicalDataStruct.getAirPressure().ToString();
+
+            if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Stable || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Normal)
+            {
+                txtAirPressure.BackColor = Color.Green;
+                lbAirPressure.Text = "Air Pressure: Stable";
+                btnAirPressure.Enabled = false;
+                btnAirPressure.Visible = false;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Low)
+            {
+                txtAirPressure.BackColor = Color.Yellow;
+                lbAirPressure.Text = "Air Pressure: Low";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
+            }
+            else if (meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Danger || meteorologicalData.meteorologicalDataStruct.getAirPressureValues() == AirPressureValues.Critical)
+            {
+                txtAirPressure.BackColor = Color.Red;
+                lbAirPressure.Text = "Air Pressure: Critical";
+                btnAirPressure.Enabled = true;
+                btnAirPressure.Visible = true;
+            }
+
+
+            if (int.Parse(txtAirPressure.Text) >= 100)
+            {
+                airPressureUpTimer.Stop();
+                airPressureTimer.Start();
+            }
+        }
     }
 }
 
