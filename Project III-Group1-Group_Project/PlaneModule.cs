@@ -69,6 +69,18 @@ namespace Project_III_Group1_Group_Project
                 //Sets up everything regarding GeoLocation
                 GeoLocationSetup();
                 MeteorologicalSetup();
+
+
+
+
+
+
+
+
+
+
+
+
                 ActiveGaugesSetup();
             }
            
