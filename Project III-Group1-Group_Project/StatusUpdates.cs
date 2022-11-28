@@ -11,6 +11,7 @@ using Project_III_Group1_Group_Project.Properties;
 namespace Project_III_Group1_Group_Project
 {
 
+ 
     public struct StatusUpdatesData
 
     {
@@ -76,46 +77,26 @@ namespace Project_III_Group1_Group_Project
             this.StatusUpdatesData.setAutoPilot(data.getAutoPilot());
 
         }
-        public void fileOpen(string[] args)
+
+        public string obtainDoorStatus()
         {
+            //create an array for door numbers values
+            // good for traversing the pictures? or better to have 4 doors and cycle?
+
+            string wholeNumber = "";
 
             if (File.Exists("Resources\\doors.txt"))
             {
                 // Read a text file line by line.  
                 // all of the file will contain is the door status? maybe something better 
-                string[] lines = File.ReadAllLines("Resources\\doors");
-                foreach (string line in lines)
-                    Console.WriteLine(line);
-            }
+                Random random = new Random();
+                string[] lines = File.ReadAllLines("Resources\\doors.txt");
+                wholeNumber = lines[random.Next(lines.Length)];
 
-            Console.ReadKey();
+            }
+            return wholeNumber;
         }
 
-        public bool obtainDoorStatus()
-        {
-            //create an array for door numbers values
-            // good for traversing the pictures? or better to have 4 doors and cycle?
-            bool[] doorNumber = new bool[4];
-            doorNumber[0] = false;
-            doorNumber[1] = false;
-            doorNumber[2] = false;
-            doorNumber[3] = false;
-
-
-            for (int i = 0; i < doorNumber.Length; i++)
-            {
-                if (doorNumber[i] == false)
-                {
-                    Console.WriteLine("Door Unlocked.");
-
-                }
-                else if (doorNumber[i] == true)
-                {
-                    Console.WriteLine("Doors locked");
-                }
-            }
-            return doorNumber[0];
-        }
         public bool obtainCPDoorStatus()
         {
             Random random = new Random();
@@ -171,14 +152,7 @@ namespace Project_III_Group1_Group_Project
             // cant autopilot if the weather is bad 
             else if (StatusUpdatesData.getCockpitDoor() == true) // && MeteorologicalData.getWeater == good)
             {
-                if (random.Next(1, 2) == 1)
-                {
-                    autoPilot = false;
-                }
-                else
-                {
                     autoPilot = true;
-                }
             }
 
             return autoPilot;

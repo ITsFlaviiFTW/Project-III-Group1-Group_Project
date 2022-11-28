@@ -100,7 +100,7 @@ namespace Project_III_Group1_Group_Project
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(178, 54);
             this.button2.TabIndex = 7;
-            this.button2.Text = "GoBack";
+            this.button2.Text = "LockDoors";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.GoBack);
             // 
@@ -110,8 +110,10 @@ namespace Project_III_Group1_Group_Project
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 59);
             this.button1.TabIndex = 9;
-            this.button1.Text = "GoNext";
+            this.button1.Text = "AutoPilot";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.VisibleChanged += new System.EventHandler(this.GoBack);
             this.button1.Click += new System.EventHandler(this.GoNext);
             // 
             // btnViewFlightInformation
@@ -191,7 +193,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_CPdoor;
+            this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plan_good;
             this.pictureBox1.Location = new System.Drawing.Point(252, 115);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(573, 373);

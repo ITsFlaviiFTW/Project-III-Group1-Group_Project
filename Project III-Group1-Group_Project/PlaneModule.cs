@@ -9,7 +9,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml.Linq;
 
 namespace Project_III_Group1_Group_Project
 {
@@ -28,6 +28,10 @@ namespace Project_III_Group1_Group_Project
         GeoLocation locationData;
         LocationData locationDataStruct = new LocationData();
 
+        StatusUpdates statusUpdateData;
+        StatusUpdatesData statusUpdatesDataStruct = new StatusUpdatesData();
+        
+
         public Plane currentFlight { get; set; }
         PlaneData planeDataStruct = new PlaneData();
      
@@ -43,7 +47,7 @@ namespace Project_III_Group1_Group_Project
         public Form1()
         {
             InitializeComponent();
-            changeImage(i);
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -70,6 +74,11 @@ namespace Project_III_Group1_Group_Project
                 //Sets up everything regarding GeoLocation
                 GeoLocationSetup();
                 MeteorologicalSetup();
+                StatusUpdateSetup();
+
+                // starting image
+                pictureBox1.Image = Properties.Resources.plane1;
+                
             }
            
             catch (Exception)
@@ -94,41 +103,56 @@ namespace Project_III_Group1_Group_Project
             airPressureTimer.Start();
         }
 
-        private void GoBack(object sender, EventArgs e)
+        private void GoBack(object sender, EventArgs e) // lock door button
         {
-            i--;
-            if (i < 1)
-            {
-                i = 2;
-            }
-            changeImage(i);
+            
+            statusUpdatesDataStruct.setOutDoor(false);
+
+            pictureBox1.Image = Properties.Resources.plan_good;
+            
+            // want a delay here 
+            button1.Enabled = true;
+            button1.Visible = true;
 
         }
 
-        private void GoNext(object sender, EventArgs e)
+        private void GoNext(object sender, EventArgs e) // auto pilot button that pop us 
         {
-            i++;
-            if (i > 2)
+
+            // want to set autopilot to true keep doorslocked 
+            if (statusUpdateData.obtainAutoPilotstatus() == true)
             {
-                i = 1;
+                // lbAutoPilot.Text = "Auto Pilot Engaged";
             }
-            changeImage(i);
-           
+            else if (statusUpdateData.obtainAutoPilotstatus() == false)
+            {
+                // lbAutoPilot.Text = "Doors Must Be Locked";
+            }
+
+            // press again to turn off // cp door status can change after Autopilot is off // disapear if the doors are unlocked 
+
         }
 
-        private void changeImage(int num)
+        private void changeImage()
         {
-            // starting image
-            pictureBox1.Image = Properties.Resources.plane1;
+            
             // check doors to traverse images
-                        
-            switch (num)
-            {
-                case 1:
-                    pictureBox1.Image = Properties.Resources.plane1_Bad_CPdoor;
+            string doorNum = statusUpdateData.obtainDoorStatus();
+      
+                     
+            switch (doorNum)
+            {               
+                case "0":
+                   pictureBox1.Image = Properties.Resources.plane1_Bad_CPdoor;
                     break;
-                case 2:
-                    pictureBox1.Image = Properties.Resources.plane1;
+                case "1":
+                    pictureBox1.Image = Properties.Resources.plane1_Bad_door1;
+                    break;
+                case "2":
+                    pictureBox1.Image = Properties.Resources.plane1_Bad_door2;
+                    break;
+                case "3":
+                    pictureBox1.Image = Properties.Resources.plane1_Bad_door3;
                     break;
             }
 
@@ -318,6 +342,17 @@ namespace Project_III_Group1_Group_Project
                 picBoxCountry.ImageLocation = "Resources\\usaFlag.png";
                 lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
             }
+        }
+
+        private void StatusUpdateSetup()
+        {
+            statusUpdatesDataStruct.setOutDoor(false);
+            statusUpdatesDataStruct.setInFlight(false);
+            statusUpdatesDataStruct.setLandingGear(false);
+            statusUpdatesDataStruct.setAutoPilot(false);
+            statusUpdatesDataStruct.setCockpitDoor(false);
+
+            statusUpdateData = new StatusUpdates(statusUpdatesDataStruct);
         }
 
         private void GeoLocationSetup()
