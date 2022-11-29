@@ -482,8 +482,11 @@ namespace Project_III_Group1_Group_Project
             else
             {
                 gaugesData.setSetUpFuel(true);
-                gaugesData.setFuelLevel(gaugesData.getFuelLevel() - (int)aGauge3.MaxValue / 40);
-                aGauge3.Value = gaugesData.getFuelLevel();
+                if (gaugesData.getFuelLevel() >= 0)
+                {
+                    gaugesData.setFuelLevel(gaugesData.getFuelLevel() - (int)aGauge3.MaxValue / 40);
+                    aGauge3.Value = gaugesData.getFuelLevel();
+                }
             }
 
             if (gaugesData.getOxygenLevel() < aGauge4.MaxValue && !gaugesData.getSetUpOxygen())
@@ -500,22 +503,32 @@ namespace Project_III_Group1_Group_Project
 
             if (gaugesData.getSetUpOxygen() && gaugesData.getOxygenLevel() <= 0)
             {
-                GaugesTimer.Enabled = true;
+                FuelLevelButton.Visible = true;
             }
         }
 
         private void GaugesTimer_Tick(object sender, EventArgs e)
         {
-            if (StartUpTimer.Enabled)
+            if (gaugesData.getFirstRefuel())
             {
-                StartUpTimer.Stop();
+                gaugesData.setPlaneSpeed(activeGauges.determineSafeSpeed(gaugesData.getPlaneSpeed(), 50, 801));
+                aGauge1.Value = gaugesData.getPlaneSpeed();
+
+                gaugesData.setPlaneAltitude(activeGauges.determineSafeAltitude((int)gaugesData.getPlaneAltitude(), 1500, 42001));
+                aGauge2.Value = gaugesData.getPlaneAltitude();
+
+                if (float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()) >= 100)
+                {
+                    gaugesData.setOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()));
+                    aGauge4.Value = gaugesData.getOxygenLevel();
+                }
+                else
+                {
+                    gaugesData.setOxygenLevel(activeGauges.determineSafeOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()), aGauge4.MaxValue));
+                    aGauge4.Value = gaugesData.getOxygenLevel();
+                }
             }
-
-            gaugesData.setPlaneSpeed(activeGauges.determineSafeSpeed(gaugesData.getPlaneSpeed(), 50, 801));
-            aGauge1.Value = gaugesData.getPlaneSpeed();
-
-            gaugesData.setPlaneAltitude(activeGauges.determineSafeAltitude((int)gaugesData.getPlaneAltitude(), 1500, 42001));
-            aGauge2.Value = gaugesData.getPlaneAltitude();
+            
 
             if (gaugesData.getFuelLevel() <= 20)
             {
@@ -529,17 +542,6 @@ namespace Project_III_Group1_Group_Project
                     gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), -0.25F));
                     aGauge3.Value = gaugesData.getFuelLevel();
                 }
-            }
-
-            if (float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()) >= 100)
-            {
-                gaugesData.setOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()));
-                aGauge4.Value = gaugesData.getOxygenLevel();
-            }
-            else
-            {
-                gaugesData.setOxygenLevel(activeGauges.determineSafeOxygenLevel(float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()), aGauge4.MaxValue));
-                aGauge4.Value = gaugesData.getOxygenLevel();
             }
         }
 
@@ -591,6 +593,7 @@ namespace Project_III_Group1_Group_Project
         private void FuelLevelButton_Click(object sender, EventArgs e)
         {
             RefuelTimer.Start();
+            StartUpTimer.Stop();
         }
 
         private void RefuelTimer_Tick(object sender, EventArgs e)
@@ -598,10 +601,16 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), 5));
             aGauge3.Value = gaugesData.getFuelLevel();
 
+            if (!gaugesData.getFirstRefuel())
+            {
+                gaugesData.setFirstRefuel(true);
+            }
+
             if (gaugesData.getFuelLevel() >= 100) 
             {
                 FuelLevelButton.Visible = false;
                 RefuelTimer.Stop();
+                btnStartPlane.Visible = true;
             }
         }
 
@@ -630,10 +639,7 @@ namespace Project_III_Group1_Group_Project
 
         private void btnStartPlane_Click(object sender, EventArgs e)
         {
-            if(FuelLevelButton.Visible == false)
-            {
-              
-            }
+            GaugesTimer.Enabled = true;
         }
     }
 }

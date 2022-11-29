@@ -16,6 +16,7 @@ namespace Project_III_Group1_Group_Project
         private bool startUpAltitude;
         private bool startUpFuel;
         private bool startUpOxygen;
+        private bool firstRefuel;
 
         public int getPlaneSpeed()
         {
@@ -95,6 +96,16 @@ namespace Project_III_Group1_Group_Project
         public void setSetUpOxygen(bool setUp)
         {
             this.startUpOxygen = setUp;
+        }
+
+        public bool getFirstRefuel()
+        {
+            return firstRefuel;
+        }
+        
+        public void setFirstRefuel(bool firstRefuel)
+        {
+            this.firstRefuel = firstRefuel;
         }
     }
     public class ActiveGauges
