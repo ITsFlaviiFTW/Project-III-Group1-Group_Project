@@ -121,11 +121,8 @@ namespace Project_III_Group1_Group_Project
             pictureBox1.Image = Properties.Resources.plan_good;
 
             // want a delay here 
-            AutoPilot.Enabled = true;
-            AutoPilot.Visible = true;
-            lbAutoPilot.Visible = true;
             lbDoor.Text = "Doors Locked";
-            
+            AutoPilot.Enabled = true;
         }
 
         private void GoNext(object sender, EventArgs e) // auto pilot button that pop us 
@@ -643,8 +640,12 @@ namespace Project_III_Group1_Group_Project
 
         private void btnStartPlane_Click(object sender, EventArgs e)
         {   
-            if (AutoPilot.Visible == true)
+            if (lbDoor.Text == "Doors Locked")
             {
+                AutoPilot.Enabled = true;
+                AutoPilot.Visible = true;
+                lbAutoPilot.Visible = true;
+                
                 btnStartPlane.Enabled = false;
                 lbDoor.Text = "";
                 GaugesTimer.Enabled = true;
