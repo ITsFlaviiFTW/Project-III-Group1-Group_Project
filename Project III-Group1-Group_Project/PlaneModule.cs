@@ -601,12 +601,7 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), 5));
             aGauge3.Value = gaugesData.getFuelLevel();
 
-            if (!gaugesData.getFirstRefuel())
-            {
-                gaugesData.setFirstRefuel(true);
-            }
-
-            if (gaugesData.getFuelLevel() >= 100) 
+            if (gaugesData.getFuelLevel() >= 100 && gaugesData.getFirstRefuel()) 
             {
                 FuelLevelButton.Visible = false;
                 RefuelTimer.Stop();
@@ -615,6 +610,11 @@ namespace Project_III_Group1_Group_Project
                 changeImage();
                 LockDoors.Visible = true;
                 lbDoor.Visible = true;
+            }
+
+            if (!gaugesData.getFirstRefuel())
+            {
+                gaugesData.setFirstRefuel(true);
             }
         }
 
@@ -642,11 +642,10 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnStartPlane_Click(object sender, EventArgs e)
-        {
-            
+        {   
             if (AutoPilot.Visible == true)
             {
-                
+                btnStartPlane.Enabled = false;
                 lbDoor.Text = "";
                 GaugesTimer.Enabled = true;
                 airPressureTimer.Start();
@@ -655,7 +654,6 @@ namespace Project_III_Group1_Group_Project
                 changingLocationTimer.Start();
                 dateTimeTimer.Start();
                 estimatedTimeTimer.Start();
-                btnStartPlane.Visible = false;
             }
             else
             {
