@@ -639,33 +639,42 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnStartPlane_Click(object sender, EventArgs e)
-        {   
+        {        
             if (lbDoor.Text == "Doors Locked")
             {
-                AutoPilot.Enabled = true;
-                AutoPilot.Visible = true;
-                lbAutoPilot.Visible = true;
-                btnRight45.Enabled = true;
-                btnRight90.Enabled = true;
-                btnLeft90.Enabled = true;
-                btnLeft45.Enabled = true;
-                btnStartPlane.Enabled = false;
-                lbDoor.Text = "Doors Locked";
-                GaugesTimer.Enabled = true;
-                airPressureTimer.Start();
-                //Starting needed timers
-                latitudeLongitudeTimer.Start();
-                changingLocationTimer.Start();
-                dateTimeTimer.Start();
-                estimatedTimeTimer.Start();
+                planeTakingOffTimer.Start();
+                lblPlaneTakingOff.Text = "Plane is currently taking off...";
             }
             else
             {
                 lbDoor.Text = "Doors must be locked";
-            }
+            }         
+        }
 
+        private void planeTakingOffTimer_Tick(object sender, EventArgs e)
+        {
+            //Enabling Buttons
+            AutoPilot.Enabled = true;
+            AutoPilot.Visible = true;
+            lbAutoPilot.Visible = true;
+            btnRight45.Enabled = true;
+            btnRight90.Enabled = true;
+            btnLeft90.Enabled = true;
+            btnLeft45.Enabled = true;
+            btnStartPlane.Enabled = false;
 
-            
+            //Setting labels
+            lblPlaneTakingOff.Text = "";
+            lbDoor.Text = "Doors Locked";
+
+            //Starting all program timers
+            GaugesTimer.Enabled = true;
+            airPressureTimer.Start();          
+            latitudeLongitudeTimer.Start();
+            changingLocationTimer.Start();
+            dateTimeTimer.Start();
+            estimatedTimeTimer.Start();
+            planeTakingOffTimer.Stop();
         }
     }
 }

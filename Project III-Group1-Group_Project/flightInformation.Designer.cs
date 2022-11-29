@@ -133,6 +133,7 @@
             // 
             this.txtFlightArrivalTime.Location = new System.Drawing.Point(164, 282);
             this.txtFlightArrivalTime.Name = "txtFlightArrivalTime";
+            this.txtFlightArrivalTime.ReadOnly = true;
             this.txtFlightArrivalTime.Size = new System.Drawing.Size(100, 20);
             this.txtFlightArrivalTime.TabIndex = 10;
             // 
@@ -140,6 +141,7 @@
             // 
             this.txtFlightDepatureTime.Location = new System.Drawing.Point(164, 249);
             this.txtFlightDepatureTime.Name = "txtFlightDepatureTime";
+            this.txtFlightDepatureTime.ReadOnly = true;
             this.txtFlightDepatureTime.Size = new System.Drawing.Size(100, 20);
             this.txtFlightDepatureTime.TabIndex = 11;
             // 
@@ -154,6 +156,7 @@
             // 
             this.txtFlightStartingLocation.Location = new System.Drawing.Point(164, 176);
             this.txtFlightStartingLocation.Name = "txtFlightStartingLocation";
+            this.txtFlightStartingLocation.ReadOnly = true;
             this.txtFlightStartingLocation.Size = new System.Drawing.Size(100, 20);
             this.txtFlightStartingLocation.TabIndex = 13;
             // 
@@ -233,7 +236,6 @@
             this.Controls.Add(this.btnSubmitFlightEdits);
             this.Name = "flightInformation";
             this.Text = "flightInformation";
-            
             this.Load += new System.EventHandler(this.flightInformation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

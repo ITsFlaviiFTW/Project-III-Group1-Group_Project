@@ -93,6 +93,10 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
+            this.planeTakingOffTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblPlaneTakingOff = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,10 +107,13 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).BeginInit();
             this.grpBoxTimeDetails.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // LockDoors
             // 
+            this.LockDoors.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LockDoors.Location = new System.Drawing.Point(863, 383);
             this.LockDoors.Name = "LockDoors";
             this.LockDoors.Size = new System.Drawing.Size(178, 54);
@@ -118,6 +125,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // AutoPilot
             // 
+            this.AutoPilot.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoPilot.Location = new System.Drawing.Point(863, 162);
             this.AutoPilot.Name = "AutoPilot";
             this.AutoPilot.Size = new System.Drawing.Size(178, 59);
@@ -129,6 +137,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnViewFlightInformation
             // 
+            this.btnViewFlightInformation.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewFlightInformation.Location = new System.Drawing.Point(3, 2);
             this.btnViewFlightInformation.Name = "btnViewFlightInformation";
             this.btnViewFlightInformation.Size = new System.Drawing.Size(122, 59);
@@ -185,7 +194,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // temperaturePictureBox
             // 
-            this.temperaturePictureBox.Location = new System.Drawing.Point(1014, 690);
+            this.temperaturePictureBox.Location = new System.Drawing.Point(52, 130);
             this.temperaturePictureBox.Name = "temperaturePictureBox";
             this.temperaturePictureBox.Size = new System.Drawing.Size(54, 44);
             this.temperaturePictureBox.TabIndex = 13;
@@ -195,7 +204,7 @@ namespace Project_III_Group1_Group_Project
             // weatherPictureBox
             // 
             this.weatherPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.weatherPictureBox.Location = new System.Drawing.Point(968, 575);
+            this.weatherPictureBox.Location = new System.Drawing.Point(6, 19);
             this.weatherPictureBox.Name = "weatherPictureBox";
             this.weatherPictureBox.Size = new System.Drawing.Size(100, 100);
             this.weatherPictureBox.TabIndex = 12;
@@ -215,7 +224,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // farrenheitSymbolPictureBox
             // 
-            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(968, 686);
+            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(6, 135);
             this.farrenheitSymbolPictureBox.Name = "farrenheitSymbolPictureBox";
             this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(30, 30);
             this.farrenheitSymbolPictureBox.TabIndex = 14;
@@ -227,6 +236,7 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxAirPressure.Controls.Add(this.btnAirPressure);
             this.grpBoxAirPressure.Controls.Add(this.lbAirPressure);
             this.grpBoxAirPressure.Controls.Add(this.txtAirPressure);
+            this.grpBoxAirPressure.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxAirPressure.Location = new System.Drawing.Point(17, 383);
             this.grpBoxAirPressure.Name = "grpBoxAirPressure";
             this.grpBoxAirPressure.Size = new System.Drawing.Size(152, 136);
@@ -250,7 +260,7 @@ namespace Project_III_Group1_Group_Project
             this.lbAirPressure.AutoSize = true;
             this.lbAirPressure.Location = new System.Drawing.Point(7, 64);
             this.lbAirPressure.Name = "lbAirPressure";
-            this.lbAirPressure.Size = new System.Drawing.Size(99, 13);
+            this.lbAirPressure.Size = new System.Drawing.Size(97, 12);
             this.lbAirPressure.TabIndex = 1;
             this.lbAirPressure.Text = "Air Pressure: Stable";
             // 
@@ -427,6 +437,7 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxLocation.Controls.Add(this.picBoxCountry);
             this.grpBoxLocation.Controls.Add(this.lblProvinceStateInfo);
             this.grpBoxLocation.Controls.Add(this.lblProvinceState);
+            this.grpBoxLocation.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBoxLocation.Location = new System.Drawing.Point(146, 2);
             this.grpBoxLocation.Name = "grpBoxLocation";
             this.grpBoxLocation.Size = new System.Drawing.Size(394, 100);
@@ -478,7 +489,8 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxTimeDetails.Controls.Add(this.lblEstimatedTimeLeft);
             this.grpBoxTimeDetails.Controls.Add(this.lblCurrentTime);
             this.grpBoxTimeDetails.Controls.Add(this.lblFlightTimeRemaining);
-            this.grpBoxTimeDetails.Location = new System.Drawing.Point(553, 9);
+            this.grpBoxTimeDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxTimeDetails.Location = new System.Drawing.Point(546, 2);
             this.grpBoxTimeDetails.Name = "grpBoxTimeDetails";
             this.grpBoxTimeDetails.Size = new System.Drawing.Size(335, 100);
             this.grpBoxTimeDetails.TabIndex = 20;
@@ -490,7 +502,7 @@ namespace Project_III_Group1_Group_Project
             this.lblCurrentDateTime.AutoSize = true;
             this.lblCurrentDateTime.Location = new System.Drawing.Point(175, 39);
             this.lblCurrentDateTime.Name = "lblCurrentDateTime";
-            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 13);
+            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 12);
             this.lblCurrentDateTime.TabIndex = 22;
             // 
             // lblEstimatedTimeLeft
@@ -498,7 +510,7 @@ namespace Project_III_Group1_Group_Project
             this.lblEstimatedTimeLeft.AutoSize = true;
             this.lblEstimatedTimeLeft.Location = new System.Drawing.Point(175, 17);
             this.lblEstimatedTimeLeft.Name = "lblEstimatedTimeLeft";
-            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 13);
+            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 12);
             this.lblEstimatedTimeLeft.TabIndex = 21;
             // 
             // lblCurrentTime
@@ -536,7 +548,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // FuelLevelButton
             // 
-            this.FuelLevelButton.Location = new System.Drawing.Point(651, 545);
+            this.FuelLevelButton.Location = new System.Drawing.Point(646, 19);
             this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuelLevelButton.Name = "FuelLevelButton";
             this.FuelLevelButton.Size = new System.Drawing.Size(62, 27);
@@ -553,9 +565,10 @@ namespace Project_III_Group1_Group_Project
             // lbAutoPilot
             // 
             this.lbAutoPilot.AutoSize = true;
+            this.lbAutoPilot.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAutoPilot.Location = new System.Drawing.Point(898, 230);
             this.lbAutoPilot.Name = "lbAutoPilot";
-            this.lbAutoPilot.Size = new System.Drawing.Size(112, 13);
+            this.lbAutoPilot.Size = new System.Drawing.Size(106, 12);
             this.lbAutoPilot.TabIndex = 22;
             this.lbAutoPilot.Text = "Auto Pilot Disengeged";
             this.lbAutoPilot.Visible = false;
@@ -563,9 +576,10 @@ namespace Project_III_Group1_Group_Project
             // lbDoor
             // 
             this.lbDoor.AutoSize = true;
+            this.lbDoor.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDoor.Location = new System.Drawing.Point(917, 447);
             this.lbDoor.Name = "lbDoor";
-            this.lbDoor.Size = new System.Drawing.Size(84, 13);
+            this.lbDoor.Size = new System.Drawing.Size(80, 12);
             this.lbDoor.TabIndex = 23;
             this.lbDoor.Text = "Doors Unlocked";
             this.lbDoor.Visible = false;
@@ -578,42 +592,43 @@ namespace Project_III_Group1_Group_Project
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 559);
+            this.label2.Location = new System.Drawing.Point(90, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(32, 12);
             this.label2.TabIndex = 24;
             this.label2.Text = "Speed";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(347, 559);
+            this.label3.Location = new System.Drawing.Point(353, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(43, 12);
             this.label3.TabIndex = 25;
             this.label3.Text = "Altitude";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(593, 559);
+            this.label4.Location = new System.Drawing.Point(595, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.Size = new System.Drawing.Size(25, 12);
             this.label4.TabIndex = 26;
             this.label4.Text = "Fuel";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(816, 559);
+            this.label5.Location = new System.Drawing.Point(781, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.Size = new System.Drawing.Size(66, 12);
             this.label5.TabIndex = 27;
             this.label5.Text = "Oxygen Level";
             // 
             // btnStartPlane
             // 
-            this.btnStartPlane.Location = new System.Drawing.Point(949, 43);
+            this.btnStartPlane.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartPlane.Location = new System.Drawing.Point(920, 41);
             this.btnStartPlane.Name = "btnStartPlane";
             this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
             this.btnStartPlane.TabIndex = 28;
@@ -625,11 +640,11 @@ namespace Project_III_Group1_Group_Project
             // lblDefaultMessage
             // 
             this.lblDefaultMessage.AutoSize = true;
-            this.lblDefaultMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefaultMessage.Font = new System.Drawing.Font("Cambria", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefaultMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblDefaultMessage.Location = new System.Drawing.Point(906, 5);
+            this.lblDefaultMessage.Location = new System.Drawing.Point(887, 9);
             this.lblDefaultMessage.Name = "lblDefaultMessage";
-            this.lblDefaultMessage.Size = new System.Drawing.Size(226, 29);
+            this.lblDefaultMessage.Size = new System.Drawing.Size(219, 28);
             this.lblDefaultMessage.TabIndex = 29;
             this.lblDefaultMessage.Text = "Refuel plane to start";
             // 
@@ -643,7 +658,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.Center = new System.Drawing.Point(105, 100);
             this.aGauge1.GaugeAutoSize = false;
-            this.aGauge1.Location = new System.Drawing.Point(17, 575);
+            this.aGauge1.Location = new System.Drawing.Point(6, 48);
             this.aGauge1.MaxValue = 800F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -688,7 +703,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.BaseArcWidth = 2;
             this.aGauge2.Center = new System.Drawing.Point(108, 110);
             this.aGauge2.GaugeAutoSize = false;
-            this.aGauge2.Location = new System.Drawing.Point(264, 575);
+            this.aGauge2.Location = new System.Drawing.Point(263, 48);
             this.aGauge2.Margin = new System.Windows.Forms.Padding(1);
             this.aGauge2.MaxValue = 42000F;
             this.aGauge2.MinValue = 0F;
@@ -734,7 +749,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3.BaseArcWidth = 2;
             this.aGauge3.Center = new System.Drawing.Point(103, 100);
             this.aGauge3.GaugeAutoSize = false;
-            this.aGauge3.Location = new System.Drawing.Point(508, 575);
+            this.aGauge3.Location = new System.Drawing.Point(503, 47);
             this.aGauge3.MaxValue = 100F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
@@ -778,7 +793,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.BaseArcSweep = 270;
             this.aGauge4.BaseArcWidth = 2;
             this.aGauge4.GaugeAutoSize = false;
-            this.aGauge4.Location = new System.Drawing.Point(746, 575);
+            this.aGauge4.Location = new System.Drawing.Point(714, 48);
             this.aGauge4.MaxValue = 100F;
             this.aGauge4.MinValue = 0F;
             this.aGauge4.Name = "aGauge4";
@@ -813,24 +828,66 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
             // 
+            // planeTakingOffTimer
+            // 
+            this.planeTakingOffTimer.Interval = 8000;
+            this.planeTakingOffTimer.Tick += new System.EventHandler(this.planeTakingOffTimer_Tick);
+            // 
+            // lblPlaneTakingOff
+            // 
+            this.lblPlaneTakingOff.AutoSize = true;
+            this.lblPlaneTakingOff.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneTakingOff.ForeColor = System.Drawing.Color.Red;
+            this.lblPlaneTakingOff.Location = new System.Drawing.Point(946, 105);
+            this.lblPlaneTakingOff.Name = "lblPlaneTakingOff";
+            this.lblPlaneTakingOff.Size = new System.Drawing.Size(0, 12);
+            this.lblPlaneTakingOff.TabIndex = 30;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.weatherPictureBox);
+            this.groupBox1.Controls.Add(this.farrenheitSymbolPictureBox);
+            this.groupBox1.Controls.Add(this.temperaturePictureBox);
+            this.groupBox1.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(951, 525);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(125, 180);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Weather Details";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.aGauge1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.aGauge3);
+            this.groupBox2.Controls.Add(this.aGauge2);
+            this.groupBox2.Controls.Add(this.aGauge4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.FuelLevelButton);
+            this.groupBox2.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(17, 525);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(928, 250);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gauges";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 801);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblPlaneTakingOff);
             this.Controls.Add(this.lblDefaultMessage);
             this.Controls.Add(this.btnStartPlane);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbDoor);
             this.Controls.Add(this.lbAutoPilot);
-            this.Controls.Add(this.FuelLevelButton);
             this.Controls.Add(this.grpBoxAirPressure);
-            this.Controls.Add(this.farrenheitSymbolPictureBox);
-            this.Controls.Add(this.temperaturePictureBox);
-            this.Controls.Add(this.weatherPictureBox);
             this.Controls.Add(this.grpBoxTimeDetails);
             this.Controls.Add(this.grpBoxLocation);
             this.Controls.Add(this.grpBoxPlaneTurning);
@@ -839,10 +896,6 @@ namespace Project_III_Group1_Group_Project
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AutoPilot);
             this.Controls.Add(this.LockDoors);
-            this.Controls.Add(this.aGauge1);
-            this.Controls.Add(this.aGauge2);
-            this.Controls.Add(this.aGauge3);
-            this.Controls.Add(this.aGauge4);
             this.Name = "Form1";
             this.Text = "PlaneModule";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -860,6 +913,9 @@ namespace Project_III_Group1_Group_Project
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCountry)).EndInit();
             this.grpBoxTimeDetails.ResumeLayout(false);
             this.grpBoxTimeDetails.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -927,6 +983,10 @@ namespace Project_III_Group1_Group_Project
         private Label label5;
         private Button btnStartPlane;
         private Label lblDefaultMessage;
+        private Timer planeTakingOffTimer;
+        private Label lblPlaneTakingOff;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }
 
