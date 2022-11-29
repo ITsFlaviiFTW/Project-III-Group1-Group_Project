@@ -33,8 +33,8 @@ namespace Project_III_Group1_Group_Project
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LockDoors = new System.Windows.Forms.Button();
+            this.AutoPilot = new System.Windows.Forms.Button();
             this.btnViewFlightInformation = new System.Windows.Forms.Button();
             this.weatherTimer = new System.Windows.Forms.Timer(this.components);
             this.weatherImageList = new System.Windows.Forms.ImageList(this.components);
@@ -86,6 +86,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4 = new System.Windows.Forms.AGauge();
             this.lbAutoPilot = new System.Windows.Forms.Label();
             this.lbDoor = new System.Windows.Forms.Label();
+            this.AutoPilotTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,26 +99,26 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxTimeDetails.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
+            // LockDoors
             // 
-            this.button2.Location = new System.Drawing.Point(863, 383);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 54);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Lock Doors";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.GoBack);
+            this.LockDoors.Location = new System.Drawing.Point(863, 383);
+            this.LockDoors.Name = "LockDoors";
+            this.LockDoors.Size = new System.Drawing.Size(178, 54);
+            this.LockDoors.TabIndex = 7;
+            this.LockDoors.Text = "Lock Doors";
+            this.LockDoors.UseVisualStyleBackColor = true;
+            this.LockDoors.Click += new System.EventHandler(this.GoBack);
             // 
-            // button1
+            // AutoPilot
             // 
-            this.button1.Location = new System.Drawing.Point(863, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 59);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Auto Pilot";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.GoNext);
+            this.AutoPilot.Location = new System.Drawing.Point(863, 162);
+            this.AutoPilot.Name = "AutoPilot";
+            this.AutoPilot.Size = new System.Drawing.Size(178, 59);
+            this.AutoPilot.TabIndex = 9;
+            this.AutoPilot.Text = "Auto Pilot";
+            this.AutoPilot.UseVisualStyleBackColor = true;
+            this.AutoPilot.Visible = false;
+            this.AutoPilot.Click += new System.EventHandler(this.GoNext);
             // 
             // btnViewFlightInformation
             // 
@@ -734,6 +735,11 @@ namespace Project_III_Group1_Group_Project
             this.lbDoor.TabIndex = 23;
             this.lbDoor.Text = "Doors Unlocked";
             // 
+            // AutoPilotTimer
+            // 
+            this.AutoPilotTimer.Interval = 10000;
+            this.AutoPilotTimer.Tick += new System.EventHandler(this.AutoPilotTimerTick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -752,8 +758,8 @@ namespace Project_III_Group1_Group_Project
             this.Controls.Add(this.grpBoxCoordinateDetails);
             this.Controls.Add(this.btnViewFlightInformation);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.AutoPilot);
+            this.Controls.Add(this.LockDoors);
             this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.aGauge3);
@@ -787,8 +793,8 @@ namespace Project_III_Group1_Group_Project
         private System.Windows.Forms.AGauge aGauge2;
         private System.Windows.Forms.AGauge aGauge3;
         private System.Windows.Forms.AGauge aGauge4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LockDoors;
+        private System.Windows.Forms.Button AutoPilot;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnViewFlightInformation;
         private System.Windows.Forms.PictureBox weatherPictureBox;
@@ -836,6 +842,7 @@ namespace Project_III_Group1_Group_Project
         private Timer RefuelTimer;
         private Label lbAutoPilot;
         private Label lbDoor;
+        private Timer AutoPilotTimer;
     }
 }
 

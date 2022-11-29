@@ -120,11 +120,11 @@ namespace Project_III_Group1_Group_Project
             pictureBox1.Image = Properties.Resources.plan_good;
 
             // want a delay here 
-            button1.Enabled = true;
-            button1.Visible = true;
+            AutoPilot.Enabled = true;
+            AutoPilot.Visible = true;
             lbAutoPilot.Visible = true;
             lbDoor.Text = "Doors Locked";
-
+            
         }
 
         private void GoNext(object sender, EventArgs e) // auto pilot button that pop us 
@@ -135,8 +135,10 @@ namespace Project_III_Group1_Group_Project
             statusUpdatesData.StatusUpdatesData.setLandingGear(true);
             statusUpdatesData.StatusUpdatesData.setInFlight(true);
             statusUpdatesData.StatusUpdatesData.setOutDoor(true);
+            pictureBox1.Image = Properties.Resources.plan_good;
+            AutoPilotTimer.Start();
 
-        
+            
             if (statusUpdatesData.obtainAutoPilotstatus() == true)
             {
                  lbAutoPilot.Text = "Auto Pilot Engaged";
@@ -600,6 +602,29 @@ namespace Project_III_Group1_Group_Project
                 FuelLevelButton.Visible = false;
                 RefuelTimer.Stop();
             }
+        }
+
+        private void AutoPilotTimerTick(object sender, EventArgs e)
+        {
+            if (statusUpdatesDataStruct.getCockpitDoor() == false)
+            {
+                if (pictureBox1.Image != Properties.Resources.plane1_Bad_CPdoor)
+                {
+                    AutoPilot.Enabled = false;
+                    lbAutoPilot.Text = "Lock Doors";
+                    lbDoor.Text = "Doors Unlocked";
+                }
+
+                if (statusUpdatesDataStruct.getAutoPilot() == false)
+                {
+                    lbAutoPilot.Text = "Auto Pilot Disengaged";
+                    // lbAutoPilot.BackColor = Color.Red;
+                    AutoPilot.Visible = true;
+                    pictureBox1.Image = Properties.Resources.plane1_Bad_CPdoor;
+                    AutoPilotTimer.Stop();
+                }
+            }
+            
         }
     }
 }
