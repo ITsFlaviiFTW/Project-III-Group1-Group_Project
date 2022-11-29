@@ -80,13 +80,17 @@ namespace Project_III_Group1_Group_Project
             this.airPressureUpTimer = new System.Windows.Forms.Timer(this.components);
             this.FuelLevelButton = new System.Windows.Forms.Button();
             this.RefuelTimer = new System.Windows.Forms.Timer(this.components);
+            this.lbAutoPilot = new System.Windows.Forms.Label();
+            this.lbDoor = new System.Windows.Forms.Label();
+            this.AutoPilotTimer = new System.Windows.Forms.Timer(this.components);
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
-            this.lbAutoPilot = new System.Windows.Forms.Label();
-            this.lbDoor = new System.Windows.Forms.Label();
-            this.AutoPilotTimer = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -178,7 +182,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // temperaturePictureBox
             // 
-            this.temperaturePictureBox.Location = new System.Drawing.Point(1008, 690);
+            this.temperaturePictureBox.Location = new System.Drawing.Point(1014, 690);
             this.temperaturePictureBox.Name = "temperaturePictureBox";
             this.temperaturePictureBox.Size = new System.Drawing.Size(54, 44);
             this.temperaturePictureBox.TabIndex = 13;
@@ -188,7 +192,7 @@ namespace Project_III_Group1_Group_Project
             // weatherPictureBox
             // 
             this.weatherPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.weatherPictureBox.Location = new System.Drawing.Point(962, 575);
+            this.weatherPictureBox.Location = new System.Drawing.Point(968, 575);
             this.weatherPictureBox.Name = "weatherPictureBox";
             this.weatherPictureBox.Size = new System.Drawing.Size(100, 100);
             this.weatherPictureBox.TabIndex = 12;
@@ -208,7 +212,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // farrenheitSymbolPictureBox
             // 
-            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(962, 686);
+            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(968, 686);
             this.farrenheitSymbolPictureBox.Name = "farrenheitSymbolPictureBox";
             this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(30, 30);
             this.farrenheitSymbolPictureBox.TabIndex = 14;
@@ -525,10 +529,10 @@ namespace Project_III_Group1_Group_Project
             // 
             // FuelLevelButton
             // 
-            this.FuelLevelButton.Location = new System.Drawing.Point(578, 530);
+            this.FuelLevelButton.Location = new System.Drawing.Point(651, 545);
             this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuelLevelButton.Name = "FuelLevelButton";
-            this.FuelLevelButton.Size = new System.Drawing.Size(56, 19);
+            this.FuelLevelButton.Size = new System.Drawing.Size(62, 27);
             this.FuelLevelButton.TabIndex = 21;
             this.FuelLevelButton.Text = "Refuel";
             this.FuelLevelButton.UseVisualStyleBackColor = true;
@@ -539,6 +543,30 @@ namespace Project_III_Group1_Group_Project
             // 
             this.RefuelTimer.Tick += new System.EventHandler(this.RefuelTimer_Tick);
             // 
+            // lbAutoPilot
+            // 
+            this.lbAutoPilot.AutoSize = true;
+            this.lbAutoPilot.Location = new System.Drawing.Point(898, 230);
+            this.lbAutoPilot.Name = "lbAutoPilot";
+            this.lbAutoPilot.Size = new System.Drawing.Size(112, 13);
+            this.lbAutoPilot.TabIndex = 22;
+            this.lbAutoPilot.Text = "Auto Pilot Disengeged";
+            this.lbAutoPilot.Visible = false;
+            // 
+            // lbDoor
+            // 
+            this.lbDoor.AutoSize = true;
+            this.lbDoor.Location = new System.Drawing.Point(917, 447);
+            this.lbDoor.Name = "lbDoor";
+            this.lbDoor.Size = new System.Drawing.Size(84, 13);
+            this.lbDoor.TabIndex = 23;
+            this.lbDoor.Text = "Doors Unlocked";
+            // 
+            // AutoPilotTimer
+            // 
+            this.AutoPilotTimer.Interval = 10000;
+            this.AutoPilotTimer.Tick += new System.EventHandler(this.AutoPilotTimerTick);
+            // 
             // aGauge1
             // 
             this.aGauge1.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -547,8 +575,9 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.BaseArcStart = 135;
             this.aGauge1.BaseArcSweep = 270;
             this.aGauge1.BaseArcWidth = 2;
+            this.aGauge1.Center = new System.Drawing.Point(105, 100);
             this.aGauge1.GaugeAutoSize = false;
-            this.aGauge1.Location = new System.Drawing.Point(7, 575);
+            this.aGauge1.Location = new System.Drawing.Point(17, 575);
             this.aGauge1.MaxValue = 800F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -577,7 +606,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.ScaleNumbersRotation = 0;
             this.aGauge1.ScaleNumbersStartScaleLine = 0;
             this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(204, 188);
+            this.aGauge1.Size = new System.Drawing.Size(220, 188);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Text = "aGauge1";
             this.aGauge1.Value = 0F;
@@ -591,8 +620,9 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.BaseArcStart = 135;
             this.aGauge2.BaseArcSweep = 270;
             this.aGauge2.BaseArcWidth = 2;
+            this.aGauge2.Center = new System.Drawing.Point(108, 110);
             this.aGauge2.GaugeAutoSize = false;
-            this.aGauge2.Location = new System.Drawing.Point(252, 575);
+            this.aGauge2.Location = new System.Drawing.Point(264, 575);
             this.aGauge2.Margin = new System.Windows.Forms.Padding(1);
             this.aGauge2.MaxValue = 42000F;
             this.aGauge2.MinValue = 0F;
@@ -622,7 +652,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.ScaleNumbersRotation = 0;
             this.aGauge2.ScaleNumbersStartScaleLine = 0;
             this.aGauge2.ScaleNumbersStepScaleLines = 1;
-            this.aGauge2.Size = new System.Drawing.Size(206, 188);
+            this.aGauge2.Size = new System.Drawing.Size(218, 188);
             this.aGauge2.TabIndex = 1;
             this.aGauge2.Text = "aGauge2";
             this.aGauge2.Value = 0F;
@@ -636,8 +666,9 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3.BaseArcStart = 135;
             this.aGauge3.BaseArcSweep = 270;
             this.aGauge3.BaseArcWidth = 2;
+            this.aGauge3.Center = new System.Drawing.Point(103, 100);
             this.aGauge3.GaugeAutoSize = false;
-            this.aGauge3.Location = new System.Drawing.Point(501, 575);
+            this.aGauge3.Location = new System.Drawing.Point(508, 575);
             this.aGauge3.MaxValue = 100F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
@@ -710,41 +741,57 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.ScaleNumbersRotation = 0;
             this.aGauge4.ScaleNumbersStartScaleLine = 0;
             this.aGauge4.ScaleNumbersStepScaleLines = 1;
-            this.aGauge4.Size = new System.Drawing.Size(198, 188);
+            this.aGauge4.Size = new System.Drawing.Size(205, 188);
             this.aGauge4.TabIndex = 1;
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
             // 
-            // lbAutoPilot
+            // label2
             // 
-            this.lbAutoPilot.AutoSize = true;
-            this.lbAutoPilot.Location = new System.Drawing.Point(898, 230);
-            this.lbAutoPilot.Name = "lbAutoPilot";
-            this.lbAutoPilot.Size = new System.Drawing.Size(112, 13);
-            this.lbAutoPilot.TabIndex = 22;
-            this.lbAutoPilot.Text = "Auto Pilot Disengeged";
-            this.lbAutoPilot.Visible = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(106, 559);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Speed";
             // 
-            // lbDoor
+            // label3
             // 
-            this.lbDoor.AutoSize = true;
-            this.lbDoor.Location = new System.Drawing.Point(917, 447);
-            this.lbDoor.Name = "lbDoor";
-            this.lbDoor.Size = new System.Drawing.Size(84, 13);
-            this.lbDoor.TabIndex = 23;
-            this.lbDoor.Text = "Doors Unlocked";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 559);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Altitude";
             // 
-            // AutoPilotTimer
+            // label4
             // 
-            this.AutoPilotTimer.Interval = 10000;
-            this.AutoPilotTimer.Tick += new System.EventHandler(this.AutoPilotTimerTick);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(593, 559);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Fuel";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(816, 559);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Oxygen Level";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 801);
+            this.ClientSize = new System.Drawing.Size(1134, 801);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbDoor);
             this.Controls.Add(this.lbAutoPilot);
             this.Controls.Add(this.FuelLevelButton);
@@ -766,7 +813,6 @@ namespace Project_III_Group1_Group_Project
             this.Controls.Add(this.aGauge4);
             this.Name = "Form1";
             this.Text = "PlaneModule";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).EndInit();
@@ -843,6 +889,10 @@ namespace Project_III_Group1_Group_Project
         private Label lbAutoPilot;
         private Label lbDoor;
         private Timer AutoPilotTimer;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
 
