@@ -91,6 +91,7 @@ namespace Project_III_Group1_Group_Project
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnStartPlane = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -783,11 +784,23 @@ namespace Project_III_Group1_Group_Project
             this.label5.TabIndex = 27;
             this.label5.Text = "Oxygen Level";
             // 
+            // btnStartPlane
+            // 
+            this.btnStartPlane.Location = new System.Drawing.Point(968, 50);
+            this.btnStartPlane.Name = "btnStartPlane";
+            this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
+            this.btnStartPlane.TabIndex = 28;
+            this.btnStartPlane.Text = "Start Plane";
+            this.btnStartPlane.UseVisualStyleBackColor = true;
+            this.btnStartPlane.Visible = false;
+            this.btnStartPlane.Click += new System.EventHandler(this.btnStartPlane_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 801);
+            this.Controls.Add(this.btnStartPlane);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -893,6 +906,7 @@ namespace Project_III_Group1_Group_Project
         private Label label3;
         private Label label4;
         private Label label5;
+        private Button btnStartPlane;
     }
 }
 

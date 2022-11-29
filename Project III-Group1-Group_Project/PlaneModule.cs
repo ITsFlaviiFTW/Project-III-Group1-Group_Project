@@ -57,7 +57,6 @@ namespace Project_III_Group1_Group_Project
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
                
-
                 planeDataStruct.setPlaneName(flightToUse[0].Trim());
                 planeDataStruct.setPilotFirstName(flightToUse[1].Trim());
                 planeDataStruct.setPilotLastName(flightToUse[2].Trim());
@@ -67,17 +66,19 @@ namespace Project_III_Group1_Group_Project
                 planeDataStruct.setDepartureTime(flightToUse[6].Trim());
                 planeDataStruct.setArrivialTime(flightToUse[7].Trim());
 
+                // starting image
+                pictureBox1.Image = Properties.Resources.plane1;
+
                 //Assign objects with created structs
                 currentFlight = new Plane(planeDataStruct);
 
                 //Sets up everything regarding GeoLocation
+               
+                ActiveGaugesSetup();
                 GeoLocationSetup();
                 MeteorologicalSetup();
                 StatusUpdateSetup();
-                ActiveGaugesSetup();
 
-                // starting image
-                pictureBox1.Image = Properties.Resources.plane1;
             }
            
             catch (Exception)
@@ -625,6 +626,14 @@ namespace Project_III_Group1_Group_Project
                 }
             }
             
+        }
+
+        private void btnStartPlane_Click(object sender, EventArgs e)
+        {
+            if(FuelLevelButton.Visible == false)
+            {
+              
+            }
         }
     }
 }
