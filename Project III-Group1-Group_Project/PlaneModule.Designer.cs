@@ -371,6 +371,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnRight90
             // 
+            this.btnRight90.Enabled = false;
             this.btnRight90.Location = new System.Drawing.Point(106, 64);
             this.btnRight90.Name = "btnRight90";
             this.btnRight90.Size = new System.Drawing.Size(91, 34);
@@ -381,6 +382,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnLeft90
             // 
+            this.btnLeft90.Enabled = false;
             this.btnLeft90.Location = new System.Drawing.Point(10, 64);
             this.btnLeft90.Name = "btnLeft90";
             this.btnLeft90.Size = new System.Drawing.Size(91, 34);
@@ -391,6 +393,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnLeft45
             // 
+            this.btnLeft45.Enabled = false;
             this.btnLeft45.Location = new System.Drawing.Point(10, 24);
             this.btnLeft45.Name = "btnLeft45";
             this.btnLeft45.Size = new System.Drawing.Size(91, 34);
@@ -401,6 +404,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnRight45
             // 
+            this.btnRight45.Enabled = false;
             this.btnRight45.Location = new System.Drawing.Point(106, 24);
             this.btnRight45.Name = "btnRight45";
             this.btnRight45.Size = new System.Drawing.Size(91, 34);

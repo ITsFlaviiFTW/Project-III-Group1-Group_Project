@@ -645,9 +645,12 @@ namespace Project_III_Group1_Group_Project
                 AutoPilot.Enabled = true;
                 AutoPilot.Visible = true;
                 lbAutoPilot.Visible = true;
-                
+                btnRight45.Enabled = true;
+                btnRight90.Enabled = true;
+                btnLeft90.Enabled = true;
+                btnLeft45.Enabled = true;
                 btnStartPlane.Enabled = false;
-                lbDoor.Text = "";
+                lbDoor.Text = "Doors Locked";
                 GaugesTimer.Enabled = true;
                 airPressureTimer.Start();
                 //Starting needed timers
