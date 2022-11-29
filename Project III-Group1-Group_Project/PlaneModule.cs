@@ -122,6 +122,8 @@ namespace Project_III_Group1_Group_Project
             // want a delay here 
             button1.Enabled = true;
             button1.Visible = true;
+            lbAutoPilot.Visible = true;
+            lbDoor.Text = "Doors Locked";
 
         }
 
@@ -129,13 +131,19 @@ namespace Project_III_Group1_Group_Project
         {
 
             // want to set autopilot to true keep doorslocked 
+            statusUpdatesData.StatusUpdatesData.setCockpitDoor(true);
+            statusUpdatesData.StatusUpdatesData.setLandingGear(true);
+            statusUpdatesData.StatusUpdatesData.setInFlight(true);
+            statusUpdatesData.StatusUpdatesData.setOutDoor(true);
+
+        
             if (statusUpdatesData.obtainAutoPilotstatus() == true)
             {
-                // lbAutoPilot.Text = "Auto Pilot Engaged";
+                 lbAutoPilot.Text = "Auto Pilot Engaged";
             }
             else if (statusUpdatesData.obtainAutoPilotstatus() == false)
             {
-                // lbAutoPilot.Text = "Doors Must Be Locked";
+                 lbAutoPilot.Text = "Doors Must Be Locked";
             }
 
             // press again to turn off // cp door status can change after Autopilot is off // disapear if the doors are unlocked 
@@ -152,7 +160,7 @@ namespace Project_III_Group1_Group_Project
             switch (doorNum)
             {
                 case "0":
-                    pictureBox1.Image = Properties.Resources.plane1_Bad_CPdoor;
+                    pictureBox1.Image = Properties.Resources.plane1_Bad_door4;
                     break;
                 case "1":
                     pictureBox1.Image = Properties.Resources.plane1_Bad_door1;

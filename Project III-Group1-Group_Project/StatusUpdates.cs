@@ -142,22 +142,15 @@ namespace Project_III_Group1_Group_Project
 
             bool autoPilot = false;
             // cant auto pilot if not inflight
-            if (StatusUpdatesData.getInFlight() == false)
-                autoPilot = false;
+            //if (StatusUpdatesData.getInFlight() == false)
+            //    autoPilot = false;
             // cant auto pilot if the cockpitdoor is open
             if (StatusUpdatesData.getCockpitDoor() == false)
                 autoPilot = false;
             // cant autopilot if the weather is bad 
             else if (StatusUpdatesData.getCockpitDoor() == true) // && MeteorologicalData.getWeater == good)
             {
-                if (random.Next(1, 2) == 1)
-                {
-                    autoPilot = false;
-                }
-                else
-                {
                     autoPilot = true;
-                }
             }
 
             return autoPilot;
@@ -177,7 +170,7 @@ namespace Project_III_Group1_Group_Project
         }
         public override string ToString()
         {
-            return "Door: " + StatusUpdatesData.getOutDoor() + " InFlight: " + StatusUpdatesData.getInFlight() + " Landing Gear: " + StatusUpdatesData.getLandingGear() + " CockPit Door: "
+            return "Door: " + StatusUpdatesData.getOutDoor() + " CockPit Door: "
                 + StatusUpdatesData.getCockpitDoor() + "Auto Pilot: " + StatusUpdatesData.getAutoPilot();
         }
     }
