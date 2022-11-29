@@ -83,15 +83,16 @@ namespace Project_III_Group1_Group_Project
             this.lbAutoPilot = new System.Windows.Forms.Label();
             this.lbDoor = new System.Windows.Forms.Label();
             this.AutoPilotTimer = new System.Windows.Forms.Timer(this.components);
-            this.aGauge1 = new System.Windows.Forms.AGauge();
-            this.aGauge2 = new System.Windows.Forms.AGauge();
-            this.aGauge3 = new System.Windows.Forms.AGauge();
-            this.aGauge4 = new System.Windows.Forms.AGauge();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnStartPlane = new System.Windows.Forms.Button();
+            this.lblDefaultMessage = new System.Windows.Forms.Label();
+            this.aGauge1 = new System.Windows.Forms.AGauge();
+            this.aGauge2 = new System.Windows.Forms.AGauge();
+            this.aGauge3 = new System.Windows.Forms.AGauge();
+            this.aGauge4 = new System.Windows.Forms.AGauge();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +113,7 @@ namespace Project_III_Group1_Group_Project
             this.LockDoors.TabIndex = 7;
             this.LockDoors.Text = "Lock Doors";
             this.LockDoors.UseVisualStyleBackColor = true;
+            this.LockDoors.Visible = false;
             this.LockDoors.Click += new System.EventHandler(this.GoBack);
             // 
             // AutoPilot
@@ -421,7 +423,7 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxLocation.Controls.Add(this.picBoxCountry);
             this.grpBoxLocation.Controls.Add(this.lblProvinceStateInfo);
             this.grpBoxLocation.Controls.Add(this.lblProvinceState);
-            this.grpBoxLocation.Location = new System.Drawing.Point(199, 9);
+            this.grpBoxLocation.Location = new System.Drawing.Point(146, 2);
             this.grpBoxLocation.Name = "grpBoxLocation";
             this.grpBoxLocation.Size = new System.Drawing.Size(394, 100);
             this.grpBoxLocation.TabIndex = 18;
@@ -472,7 +474,7 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxTimeDetails.Controls.Add(this.lblEstimatedTimeLeft);
             this.grpBoxTimeDetails.Controls.Add(this.lblCurrentTime);
             this.grpBoxTimeDetails.Controls.Add(this.lblFlightTimeRemaining);
-            this.grpBoxTimeDetails.Location = new System.Drawing.Point(616, 9);
+            this.grpBoxTimeDetails.Location = new System.Drawing.Point(553, 9);
             this.grpBoxTimeDetails.Name = "grpBoxTimeDetails";
             this.grpBoxTimeDetails.Size = new System.Drawing.Size(335, 100);
             this.grpBoxTimeDetails.TabIndex = 20;
@@ -562,11 +564,70 @@ namespace Project_III_Group1_Group_Project
             this.lbDoor.Size = new System.Drawing.Size(84, 13);
             this.lbDoor.TabIndex = 23;
             this.lbDoor.Text = "Doors Unlocked";
+            this.lbDoor.Visible = false;
             // 
             // AutoPilotTimer
             // 
             this.AutoPilotTimer.Interval = 10000;
             this.AutoPilotTimer.Tick += new System.EventHandler(this.AutoPilotTimerTick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(106, 559);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Speed";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 559);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Altitude";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(593, 559);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Fuel";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(816, 559);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Oxygen Level";
+            // 
+            // btnStartPlane
+            // 
+            this.btnStartPlane.Location = new System.Drawing.Point(949, 43);
+            this.btnStartPlane.Name = "btnStartPlane";
+            this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
+            this.btnStartPlane.TabIndex = 28;
+            this.btnStartPlane.Text = "Start Plane";
+            this.btnStartPlane.UseVisualStyleBackColor = true;
+            this.btnStartPlane.Visible = false;
+            this.btnStartPlane.Click += new System.EventHandler(this.btnStartPlane_Click);
+            // 
+            // lblDefaultMessage
+            // 
+            this.lblDefaultMessage.AutoSize = true;
+            this.lblDefaultMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefaultMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblDefaultMessage.Location = new System.Drawing.Point(906, 5);
+            this.lblDefaultMessage.Name = "lblDefaultMessage";
+            this.lblDefaultMessage.Size = new System.Drawing.Size(226, 29);
+            this.lblDefaultMessage.TabIndex = 29;
+            this.lblDefaultMessage.Text = "Refuel plane to start";
             // 
             // aGauge1
             // 
@@ -748,58 +809,12 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 559);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Speed";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(347, 559);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Altitude";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(593, 559);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Fuel";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(816, 559);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Oxygen Level";
-            // 
-            // btnStartPlane
-            // 
-            this.btnStartPlane.Location = new System.Drawing.Point(968, 50);
-            this.btnStartPlane.Name = "btnStartPlane";
-            this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
-            this.btnStartPlane.TabIndex = 28;
-            this.btnStartPlane.Text = "Start Plane";
-            this.btnStartPlane.UseVisualStyleBackColor = true;
-            this.btnStartPlane.Visible = false;
-            this.btnStartPlane.Click += new System.EventHandler(this.btnStartPlane_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 801);
+            this.Controls.Add(this.lblDefaultMessage);
             this.Controls.Add(this.btnStartPlane);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -907,6 +922,7 @@ namespace Project_III_Group1_Group_Project
         private Label label4;
         private Label label5;
         private Button btnStartPlane;
+        private Label lblDefaultMessage;
     }
 }
 

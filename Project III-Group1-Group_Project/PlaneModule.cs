@@ -100,7 +100,7 @@ namespace Project_III_Group1_Group_Project
             temperaturePictureBox.ImageLocation = meteorologicalDataStruct.getTemperature();
             farrenheitSymbolPictureBox.Image = Image.FromFile("Resources\\farrenheit-resized.png");
             meteorologicalData = new Meteorological(meteorologicalDataStruct);
-            airPressureTimer.Start();
+            //airPressureTimer.Start();
         }
 
         private void StatusUpdateSetup()
@@ -388,10 +388,10 @@ namespace Project_III_Group1_Group_Project
             locationData = new GeoLocation(locationDataStruct);
 
             //Starting needed timers
-            latitudeLongitudeTimer.Start();
-            changingLocationTimer.Start();
-            dateTimeTimer.Start();
-            estimatedTimeTimer.Start();
+            //latitudeLongitudeTimer.Start();
+            //changingLocationTimer.Start();
+            //dateTimeTimer.Start();
+            //estimatedTimeTimer.Start();
 
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
@@ -611,6 +611,10 @@ namespace Project_III_Group1_Group_Project
                 FuelLevelButton.Visible = false;
                 RefuelTimer.Stop();
                 btnStartPlane.Visible = true;
+                lblDefaultMessage.Text = "";
+                changeImage();
+                LockDoors.Visible = true;
+                lbDoor.Visible = true;
             }
         }
 
@@ -639,7 +643,27 @@ namespace Project_III_Group1_Group_Project
 
         private void btnStartPlane_Click(object sender, EventArgs e)
         {
-            GaugesTimer.Enabled = true;
+            
+            if (AutoPilot.Visible == true)
+            {
+                
+                lbDoor.Text = "";
+                GaugesTimer.Enabled = true;
+                airPressureTimer.Start();
+                //Starting needed timers
+                latitudeLongitudeTimer.Start();
+                changingLocationTimer.Start();
+                dateTimeTimer.Start();
+                estimatedTimeTimer.Start();
+                btnStartPlane.Visible = false;
+            }
+            else
+            {
+                lbDoor.Text = "Doors must be locked";
+            }
+
+
+            
         }
     }
 }
