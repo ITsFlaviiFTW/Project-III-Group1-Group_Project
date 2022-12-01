@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,19 +127,24 @@ namespace Project_III_Group1_Group_Project
             return rand.Next(currentSpeed - limitSpeed, maxSpeed);
         }
 
-        public int determineSafeAltitude(int currentAltitude, int limitAltitude, int maxAltitude)
+        public int determineSafeAltitude()
         {
-            Random rand = new Random();
-            return rand.Next(currentAltitude - limitAltitude, maxAltitude);
-        }
+            
+            string filePath = "Resources\\altitudeFile.txt";
+            
+            if (!File.Exists(filePath))
+            {
+                throw new Exception("Altitude file does not exist");
+            }
+            else
+            {
+                Random random = new Random();
+                string wholeNumber = "";
+                string[] allLines = File.ReadAllLines(filePath);
 
-        void determineTurbulence(string weather, int airPressure)
-        {
-            // Take in air pressure and weather
-            // Determine if the weather is good or bad and if the pressure is high or low
-            // Then if the weather is bad and if air pressure is low
-            // Ajust by a percentage based on how bad the weather really is and if air pressure is low
-            // Reduce speed by 15% if thunder, lightning and pouring rain as well as low pressure
+                wholeNumber = allLines[random.Next(allLines.Length)];
+                return Convert.ToInt32(wholeNumber);
+            }
         }
 
         public float determineSafeOxygenLevel(float airPressure, float maxValue)

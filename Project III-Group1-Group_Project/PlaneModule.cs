@@ -528,7 +528,7 @@ namespace Project_III_Group1_Group_Project
                 gaugesData.setPlaneSpeed(activeGauges.determineSafeSpeed(gaugesData.getPlaneSpeed(), 50, 801));
                 aGauge1.Value = gaugesData.getPlaneSpeed();
 
-                gaugesData.setPlaneAltitude(activeGauges.determineSafeAltitude((int)gaugesData.getPlaneAltitude(), 1500, 42001));
+                gaugesData.setPlaneAltitude(activeGauges.determineSafeAltitude());
                 aGauge2.Value = gaugesData.getPlaneAltitude();
 
                 if (float.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure()) >= 100)
@@ -622,8 +622,8 @@ namespace Project_III_Group1_Group_Project
 
             if (gaugesData.getFuelLevel() >= 100 && gaugesData.getFirstRefuel()) 
             {
-                gaugesData.setFirstRefuel(false);
                 FuelLevelButton.Visible = false;
+                gaugesData.setFirstRefuel(false);
                 RefuelTimer.Stop();
                 btnStartPlane.Visible = true;
                 lblDefaultMessage.Text = "Lock doors to start";

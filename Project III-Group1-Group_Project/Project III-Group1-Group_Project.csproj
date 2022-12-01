@@ -108,6 +108,9 @@
     <Content Include="Resources\airpressure.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\altitudeFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\doors.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
