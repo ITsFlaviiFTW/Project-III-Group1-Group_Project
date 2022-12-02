@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace Project_III_Group1_Group_Project
 {
 
- 
+
     public partial class Form1 : Form
     {
         //Classes and structs
@@ -43,11 +43,12 @@ namespace Project_III_Group1_Group_Project
         int weatherimageNum = 0;
         int tempimageNum = 0;
         bool startingUpSequence = true;
+        flightInformation frm = new flightInformation();
 
         public Form1()
         {
             InitializeComponent();
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Project_III_Group1_Group_Project
                 // pre-existing flight information here
                 string[] flights = File.ReadAllLines(filePath);
                 string[] flightToUse = flights[random.Next(flights.Length)].Split(',');
-               
+
                 planeDataStruct.setPlaneName(flightToUse[0].Trim());
                 planeDataStruct.setPilotFirstName(flightToUse[1].Trim());
                 planeDataStruct.setPilotLastName(flightToUse[2].Trim());
@@ -74,19 +75,19 @@ namespace Project_III_Group1_Group_Project
                 currentFlight = new Plane(planeDataStruct);
 
                 //Sets up everything regarding GeoLocation
-               
+
                 ActiveGaugesSetup();
                 GeoLocationSetup();
                 MeteorologicalSetup();
                 StatusUpdateSetup();
-               
+
             }
-           
+
             catch (Exception)
             {
                 DialogResult res = MessageBox.Show("There was an error getting your flight information, now closing the program", "Flight Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(1);
-                                        
+
             }
         }
 
@@ -117,7 +118,7 @@ namespace Project_III_Group1_Group_Project
 
         private void GoBack(object sender, EventArgs e) // lock doors button
         {
-            
+
             LockDoors.Enabled = false;
             if (startingUpSequence)
             {
@@ -134,7 +135,7 @@ namespace Project_III_Group1_Group_Project
             lbDoor.Text = "Doors Locked";
             lbDoor.ForeColor = Color.Green;
             AutoPilot.Enabled = true;
-          
+
         }
 
         private void GoNext(object sender, EventArgs e) // auto pilot button that pop us 
@@ -150,10 +151,10 @@ namespace Project_III_Group1_Group_Project
 
             AutoPilotTimer.Start();
 
-            
+
             if (statusUpdatesData.obtainAutoPilotstatus() == true)
             {
-                 lbAutoPilot.Text = "Auto Pilot Engaged";
+                lbAutoPilot.Text = "Auto Pilot Engaged";
                 btnLeft45.Enabled = false;
                 btnLeft90.Enabled = false;
                 btnRight45.Enabled = false;
@@ -162,7 +163,7 @@ namespace Project_III_Group1_Group_Project
             }
             else if (statusUpdatesData.obtainAutoPilotstatus() == false)
             {
-                 lbAutoPilot.Text = "Doors Must Be Locked";
+                lbAutoPilot.Text = "Doors Must Be Locked";
             }
 
             // press again to turn off // cp door status can change after Autopilot is off // disapear if the doors are unlocked 
@@ -209,8 +210,7 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnViewFlightInformation_Click(object sender, EventArgs e)
-        {
-            flightInformation frm = new flightInformation();
+        {        
             frm.currentFlight = currentFlight;
             frm.Show();
         }
@@ -252,7 +252,7 @@ namespace Project_III_Group1_Group_Project
 
         private void airPressureTimer_Tick(object sender, EventArgs e)
         {
-            
+
             txtAirPressure.Enabled = true;
             meteorologicalData.meteorologicalDataStruct.setAirPressure(meteorologicalData.obtainNewAirPressure());
             meteorologicalData.meteorologicalDataStruct.setAirPressureValues(meteorologicalData.obtainNewAirPressureMessage(int.Parse(meteorologicalData.meteorologicalDataStruct.getAirPressure())));
@@ -262,7 +262,7 @@ namespace Project_III_Group1_Group_Project
             {
                 txtAirPressure.BackColor = Color.Green;
                 lbAirPressure.ForeColor = Color.Green;
-                lbAirPressure.Text = "Air Pressure: Stable";            
+                lbAirPressure.Text = "Air Pressure: Stable";
                 btnAirPressure.Enabled = false;
                 btnAirPressure.Visible = false;
             }
@@ -408,13 +408,13 @@ namespace Project_III_Group1_Group_Project
 
             //Setting default GUI information
             lblCompassBearing.Text = locationData.locationDataStruct.getCompassBearing().ToString();
-            lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();   
+            lblProvinceStateInfo.Text = locationData.locationDataStruct.getCurrProvinceState().ToString();
             var diffInTimes = DateTime.Parse(planeDataStruct.getDepartureTime()) - DateTime.Parse(planeDataStruct.getArrivalTime());
 
             locationDataStruct.setCurrEstimatedArrivalTimeLeft(diffInTimes.ToString().Replace("-", ""));
             lblEstimatedTimeLeft.Text = diffInTimes.ToString().Replace("-", "");
             startingTime = DateTime.Parse(currentFlight.planeData.getDepartureTime());
-            lblCurrentDateTime.Text = startingTime.ToString();
+            lblCurrentDateTime.Text = startingTime.Subtract(new TimeSpan(0, 2, 0)).ToString();
         }
         private void ActiveGaugesSetup()
         {
@@ -431,7 +431,7 @@ namespace Project_III_Group1_Group_Project
 
         private void dateTimeTimer_Tick(object sender, EventArgs e)
         {
-            lblCurrentDateTime.Text = startingTime.ToString();
+            lblCurrentDateTime.Text = startingTime.Subtract(new TimeSpan(0, 2, 0)).ToString();
             startingTime = startingTime.AddSeconds(1);
         }
 
@@ -474,7 +474,7 @@ namespace Project_III_Group1_Group_Project
             }
             else if (gaugesData.getSetUpSpeed())
             {
-                
+
                 gaugesData.setPlaneSpeed(gaugesData.getPlaneSpeed() - (int)aGauge1.MaxValue / 40);
                 aGauge1.Value = gaugesData.getPlaneSpeed();
             }
@@ -545,7 +545,7 @@ namespace Project_III_Group1_Group_Project
                     aGauge4.Value = gaugesData.getOxygenLevel();
                 }
             }
-            
+
 
             if (gaugesData.getFuelLevel() <= 20)
             {
@@ -553,18 +553,18 @@ namespace Project_III_Group1_Group_Project
                 lblPlaneRefuel.Text = "Fuel Level: Critical";
                 lblPlaneRefuel.ForeColor = Color.Red;
             }
-            if(gaugesData.getFuelLevel() > 20)
+            if (gaugesData.getFuelLevel() > 20)
             {
                 FuelLevelButton.Enabled = false;
-                
+
 
             }
-            if(gaugesData.getFuelLevel() >= 50 && gaugesData.getFuelLevel() <= 100)
+            if (gaugesData.getFuelLevel() >= 50 && gaugesData.getFuelLevel() <= 100)
             {
                 lblPlaneRefuel.Text = "Fuel Level: Stable";
                 lblPlaneRefuel.ForeColor = Color.Green;
             }
-            else if(gaugesData.getFuelLevel() >= 21 && gaugesData.getFuelLevel() <= 49)
+            else if (gaugesData.getFuelLevel() >= 21 && gaugesData.getFuelLevel() <= 49)
             {
                 lblPlaneRefuel.Text = "Fuel Level: Low";
                 lblPlaneRefuel.ForeColor = Color.Orange;
@@ -645,9 +645,9 @@ namespace Project_III_Group1_Group_Project
             gaugesData.setFuelLevel(activeGauges.dedtermineFuelEfficiency(gaugesData.getFuelLevel(), 5));
             aGauge3.Value = gaugesData.getFuelLevel();
 
-           
 
-            if (gaugesData.getFuelLevel() >= 100 && gaugesData.getFirstRefuel()) 
+
+            if (gaugesData.getFuelLevel() >= 100 && gaugesData.getFirstRefuel())
             {
                 FuelLevelButton.Enabled = false;
                 gaugesData.setFirstRefuel(false);
@@ -660,17 +660,17 @@ namespace Project_III_Group1_Group_Project
                 changeImage();
                 LockDoors.Visible = true;
                 lbDoor.Visible = true;
-                
-                
+
+
             }
             else if ((gaugesData.getFuelLevel() >= 100 && !gaugesData.getFirstRefuel()))
             {
-              
+
                 FuelLevelButton.Enabled = false;
-            
+
                 RefuelTimer.Stop();
             }
-           
+
         }
 
         private void AutoPilotTimerTick(object sender, EventArgs e)
@@ -687,7 +687,7 @@ namespace Project_III_Group1_Group_Project
 
                 if (statusUpdatesDataStruct.getAutoPilot() == false)
                 {
-                    lbAutoPilot.Text = "Auto Pilot Disengaged";               
+                    lbAutoPilot.Text = "Auto Pilot Disengaged";
                     pictureBox1.Image = Properties.Resources.plane1_Bad_CPdoor;
                     lbAutoPilot.ForeColor = Color.Black;
                     LockDoors.Enabled = true;
@@ -699,11 +699,11 @@ namespace Project_III_Group1_Group_Project
                     AutoPilotTimer.Stop();
                 }
             }
-            
+
         }
 
         private void btnStartPlane_Click(object sender, EventArgs e)
-        {        
+        {
             if (lbDoor.Text == "Doors Locked")
             {
                 planeTakingOffTimer.Start();
@@ -715,8 +715,8 @@ namespace Project_III_Group1_Group_Project
             {
                 lblDefaultMessage.Text = "Lock doors to start";
                 lbDoor.Text = "Doors must be locked";
-               
-            }         
+
+            }
         }
 
         private void planeTakingOffTimer_Tick(object sender, EventArgs e)
@@ -744,16 +744,17 @@ namespace Project_III_Group1_Group_Project
             //Starting all program timers
             GaugesTimer.Enabled = true;
             weatherTimer.Start();
-        
-            airPressureTimer.Start();          
+
+            airPressureTimer.Start();
             latitudeLongitudeTimer.Start();
             changingLocationTimer.Start();
-            dateTimeTimer.Start();
+            //dateTimeTimer.Start();
             estimatedTimeTimer.Start();
             planeTakingOffTimer.Stop();
-        }
 
-       
+            
+
+        }
     }
 }
 

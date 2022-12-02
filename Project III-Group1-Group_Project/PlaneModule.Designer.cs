@@ -553,6 +553,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // dateTimeTimer
             // 
+            this.dateTimeTimer.Enabled = true;
             this.dateTimeTimer.Interval = 1000;
             this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
             // 

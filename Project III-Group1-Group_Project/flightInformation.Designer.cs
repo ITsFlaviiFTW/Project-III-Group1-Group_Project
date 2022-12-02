@@ -141,7 +141,6 @@
             // 
             this.txtFlightDepatureTime.Location = new System.Drawing.Point(164, 249);
             this.txtFlightDepatureTime.Name = "txtFlightDepatureTime";
-            this.txtFlightDepatureTime.ReadOnly = true;
             this.txtFlightDepatureTime.Size = new System.Drawing.Size(100, 20);
             this.txtFlightDepatureTime.TabIndex = 11;
             // 
