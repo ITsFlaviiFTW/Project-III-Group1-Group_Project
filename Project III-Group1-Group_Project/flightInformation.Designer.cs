@@ -164,6 +164,7 @@
             // 
             this.txtPlaneCapacity.Location = new System.Drawing.Point(164, 139);
             this.txtPlaneCapacity.Name = "txtPlaneCapacity";
+            this.txtPlaneCapacity.ReadOnly = true;
             this.txtPlaneCapacity.Size = new System.Drawing.Size(100, 20);
             this.txtPlaneCapacity.TabIndex = 14;
             // 

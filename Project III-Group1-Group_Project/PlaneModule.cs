@@ -33,7 +33,7 @@ namespace Project_III_Group1_Group_Project
 
         public Plane currentFlight { get; set; }
         PlaneData planeDataStruct = new PlaneData();
-     
+        DateTime startingTime;
         //Flights text file
         string filePath = "Resources\\flights.txt";
 
@@ -79,7 +79,7 @@ namespace Project_III_Group1_Group_Project
                 GeoLocationSetup();
                 MeteorologicalSetup();
                 StatusUpdateSetup();
-
+               
             }
            
             catch (Exception)
@@ -413,6 +413,8 @@ namespace Project_III_Group1_Group_Project
 
             locationDataStruct.setCurrEstimatedArrivalTimeLeft(diffInTimes.ToString().Replace("-", ""));
             lblEstimatedTimeLeft.Text = diffInTimes.ToString().Replace("-", "");
+            startingTime = DateTime.Parse(currentFlight.planeData.getDepartureTime());
+            lblCurrentDateTime.Text = startingTime.ToString();
         }
         private void ActiveGaugesSetup()
         {
@@ -428,8 +430,9 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void dateTimeTimer_Tick(object sender, EventArgs e)
-        {                     
-            lblCurrentDateTime.Text = DateTime.Now.ToString();            
+        {
+            lblCurrentDateTime.Text = startingTime.ToString();
+            startingTime = startingTime.AddSeconds(1);
         }
 
         private void estimatedTimeTimer_Tick(object sender, EventArgs e)

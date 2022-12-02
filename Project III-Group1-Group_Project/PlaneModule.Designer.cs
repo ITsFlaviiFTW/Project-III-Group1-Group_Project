@@ -54,9 +54,9 @@ namespace Project_III_Group1_Group_Project
             this.txtLatitude = new System.Windows.Forms.TextBox();
             this.txtLongitude = new System.Windows.Forms.TextBox();
             this.grpBoxCoordinateDetails = new System.Windows.Forms.GroupBox();
-            this.lblPlaneIsTurning = new System.Windows.Forms.Label();
             this.lblCompassBearing = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblPlaneIsTurning = new System.Windows.Forms.Label();
             this.grpBoxPlaneTurning = new System.Windows.Forms.GroupBox();
             this.btnRight90 = new System.Windows.Forms.Button();
             this.btnLeft90 = new System.Windows.Forms.Button();
@@ -92,6 +92,10 @@ namespace Project_III_Group1_Group_Project
             this.planeTakingOffTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.aGauge1 = new System.Windows.Forms.AGauge();
+            this.aGauge3 = new System.Windows.Forms.AGauge();
+            this.aGauge2 = new System.Windows.Forms.AGauge();
+            this.aGauge4 = new System.Windows.Forms.AGauge();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblPlaneRefuel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -100,10 +104,6 @@ namespace Project_III_Group1_Group_Project
             this.lblUnlockedDoor = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblNotMonitored = new System.Windows.Forms.Label();
-            this.aGauge1 = new System.Windows.Forms.AGauge();
-            this.aGauge3 = new System.Windows.Forms.AGauge();
-            this.aGauge2 = new System.Windows.Forms.AGauge();
-            this.aGauge4 = new System.Windows.Forms.AGauge();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -352,16 +352,6 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxCoordinateDetails.TabStop = false;
             this.grpBoxCoordinateDetails.Text = "Coordinate Details";
             // 
-            // lblPlaneIsTurning
-            // 
-            this.lblPlaneIsTurning.AutoSize = true;
-            this.lblPlaneIsTurning.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Red;
-            this.lblPlaneIsTurning.Location = new System.Drawing.Point(10, 309);
-            this.lblPlaneIsTurning.Name = "lblPlaneIsTurning";
-            this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 19);
-            this.lblPlaneIsTurning.TabIndex = 19;
-            // 
             // lblCompassBearing
             // 
             this.lblCompassBearing.AutoSize = true;
@@ -382,6 +372,16 @@ namespace Project_III_Group1_Group_Project
             this.label1.Size = new System.Drawing.Size(170, 16);
             this.label1.TabIndex = 16;
             this.label1.Text = "Current Compass Bearing: ";
+            // 
+            // lblPlaneIsTurning
+            // 
+            this.lblPlaneIsTurning.AutoSize = true;
+            this.lblPlaneIsTurning.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Red;
+            this.lblPlaneIsTurning.Location = new System.Drawing.Point(10, 309);
+            this.lblPlaneIsTurning.Name = "lblPlaneIsTurning";
+            this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 19);
+            this.lblPlaneIsTurning.TabIndex = 19;
             // 
             // grpBoxPlaneTurning
             // 
@@ -553,11 +553,12 @@ namespace Project_III_Group1_Group_Project
             // 
             // dateTimeTimer
             // 
+            this.dateTimeTimer.Interval = 1000;
             this.dateTimeTimer.Tick += new System.EventHandler(this.dateTimeTimer_Tick);
             // 
             // estimatedTimeTimer
             // 
-            this.estimatedTimeTimer.Interval = 10000;
+            this.estimatedTimeTimer.Interval = 17000;
             this.estimatedTimeTimer.Tick += new System.EventHandler(this.estimatedTimeTimer_Tick);
             // 
             // StartUpTimer
@@ -716,84 +717,6 @@ namespace Project_III_Group1_Group_Project
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gauges";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnStartPlane);
-            this.groupBox3.Controls.Add(this.lblDefaultMessage);
-            this.groupBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(872, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(292, 152);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Plane Info";
-            // 
-            // lblPlaneRefuel
-            // 
-            this.lblPlaneRefuel.AutoSize = true;
-            this.lblPlaneRefuel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneRefuel.Location = new System.Drawing.Point(888, 321);
-            this.lblPlaneRefuel.Name = "lblPlaneRefuel";
-            this.lblPlaneRefuel.Size = new System.Drawing.Size(0, 19);
-            this.lblPlaneRefuel.TabIndex = 24;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(248, 485);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 23);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(399, 485);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 23);
-            this.pictureBox3.TabIndex = 26;
-            this.pictureBox3.TabStop = false;
-            // 
-            // lblGreenTriangle
-            // 
-            this.lblGreenTriangle.AutoSize = true;
-            this.lblGreenTriangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGreenTriangle.Location = new System.Drawing.Point(285, 487);
-            this.lblGreenTriangle.Name = "lblGreenTriangle";
-            this.lblGreenTriangle.Size = new System.Drawing.Size(108, 18);
-            this.lblGreenTriangle.TabIndex = 27;
-            this.lblGreenTriangle.Text = "= Locked Door";
-            // 
-            // lblUnlockedDoor
-            // 
-            this.lblUnlockedDoor.AutoSize = true;
-            this.lblUnlockedDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnlockedDoor.Location = new System.Drawing.Point(436, 487);
-            this.lblUnlockedDoor.Name = "lblUnlockedDoor";
-            this.lblUnlockedDoor.Size = new System.Drawing.Size(122, 18);
-            this.lblUnlockedDoor.TabIndex = 28;
-            this.lblUnlockedDoor.Text = "= Unlocked Door";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(564, 485);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(31, 23);
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
-            // 
-            // lblNotMonitored
-            // 
-            this.lblNotMonitored.AutoSize = true;
-            this.lblNotMonitored.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotMonitored.Location = new System.Drawing.Point(601, 487);
-            this.lblNotMonitored.Name = "lblNotMonitored";
-            this.lblNotMonitored.Size = new System.Drawing.Size(190, 18);
-            this.lblNotMonitored.TabIndex = 30;
-            this.lblNotMonitored.Text = "= Door not being monitored";
             // 
             // aGauge1
             // 
@@ -974,6 +897,84 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnStartPlane);
+            this.groupBox3.Controls.Add(this.lblDefaultMessage);
+            this.groupBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(872, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(292, 152);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Plane Info";
+            // 
+            // lblPlaneRefuel
+            // 
+            this.lblPlaneRefuel.AutoSize = true;
+            this.lblPlaneRefuel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneRefuel.Location = new System.Drawing.Point(888, 321);
+            this.lblPlaneRefuel.Name = "lblPlaneRefuel";
+            this.lblPlaneRefuel.Size = new System.Drawing.Size(0, 19);
+            this.lblPlaneRefuel.TabIndex = 24;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(248, 485);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(399, 485);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblGreenTriangle
+            // 
+            this.lblGreenTriangle.AutoSize = true;
+            this.lblGreenTriangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreenTriangle.Location = new System.Drawing.Point(285, 487);
+            this.lblGreenTriangle.Name = "lblGreenTriangle";
+            this.lblGreenTriangle.Size = new System.Drawing.Size(108, 18);
+            this.lblGreenTriangle.TabIndex = 27;
+            this.lblGreenTriangle.Text = "= Locked Door";
+            // 
+            // lblUnlockedDoor
+            // 
+            this.lblUnlockedDoor.AutoSize = true;
+            this.lblUnlockedDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnlockedDoor.Location = new System.Drawing.Point(436, 487);
+            this.lblUnlockedDoor.Name = "lblUnlockedDoor";
+            this.lblUnlockedDoor.Size = new System.Drawing.Size(122, 18);
+            this.lblUnlockedDoor.TabIndex = 28;
+            this.lblUnlockedDoor.Text = "= Unlocked Door";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(564, 485);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblNotMonitored
+            // 
+            this.lblNotMonitored.AutoSize = true;
+            this.lblNotMonitored.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotMonitored.Location = new System.Drawing.Point(601, 487);
+            this.lblNotMonitored.Name = "lblNotMonitored";
+            this.lblNotMonitored.Size = new System.Drawing.Size(190, 18);
+            this.lblNotMonitored.TabIndex = 30;
+            this.lblNotMonitored.Text = "= Door not being monitored";
             // 
             // Form1
             // 

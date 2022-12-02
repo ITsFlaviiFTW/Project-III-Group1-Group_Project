@@ -129,7 +129,9 @@
     <None Include="Resources\plane1-Bad-door4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="Resources\lockedDoor.jpg" />
+    <Content Include="Resources\lockedDoor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\tempImages\0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -160,7 +162,9 @@
     <Content Include="Resources\tempImages\9.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\unlockedDoor.jpg" />
+    <Content Include="Resources\unlockedDoor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\updatingEstimatedTime.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
