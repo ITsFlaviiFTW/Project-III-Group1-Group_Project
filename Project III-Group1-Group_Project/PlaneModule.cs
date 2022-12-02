@@ -546,7 +546,25 @@ namespace Project_III_Group1_Group_Project
 
             if (gaugesData.getFuelLevel() <= 20)
             {
-                FuelLevelButton.Visible = true;
+                FuelLevelButton.Enabled = true;
+                lblPlaneRefuel.Text = "Fuel Level: Critical";
+                lblPlaneRefuel.ForeColor = Color.Red;
+            }
+            if(gaugesData.getFuelLevel() > 20)
+            {
+                FuelLevelButton.Enabled = false;
+                
+
+            }
+            if(gaugesData.getFuelLevel() >= 50 && gaugesData.getFuelLevel() <= 100)
+            {
+                lblPlaneRefuel.Text = "Fuel Level: Stable";
+                lblPlaneRefuel.ForeColor = Color.Green;
+            }
+            else if(gaugesData.getFuelLevel() >= 21 && gaugesData.getFuelLevel() <= 49)
+            {
+                lblPlaneRefuel.Text = "Fuel Level: Low";
+                lblPlaneRefuel.ForeColor = Color.Orange;
             }
 
             if (RefuelTimer.Enabled == false)
@@ -609,6 +627,12 @@ namespace Project_III_Group1_Group_Project
 
         private void FuelLevelButton_Click(object sender, EventArgs e)
         {
+            if (gaugesData.getFirstRefuel())
+            {
+                FuelLevelButton.Enabled = false;
+            }
+
+
             RefuelTimer.Start();
             StartUpTimer.Stop();
         }
@@ -622,22 +646,28 @@ namespace Project_III_Group1_Group_Project
 
             if (gaugesData.getFuelLevel() >= 100 && gaugesData.getFirstRefuel()) 
             {
-                FuelLevelButton.Visible = false;
+                FuelLevelButton.Enabled = false;
                 gaugesData.setFirstRefuel(false);
                 RefuelTimer.Stop();
                 btnStartPlane.Visible = true;
                 lblDefaultMessage.Text = "Lock doors to start";
+                lblPlaneRefuel.Text = "Fuel Level: Stable";
+                lblPlaneRefuel.ForeColor = Color.Green;
                 lbDoor.ForeColor = Color.Red;
                 changeImage();
                 LockDoors.Visible = true;
                 lbDoor.Visible = true;
+                
+                
             }
             else if ((gaugesData.getFuelLevel() >= 100 && !gaugesData.getFirstRefuel()))
             {
-                FuelLevelButton.Visible = false;
+              
+                FuelLevelButton.Enabled = false;
+            
                 RefuelTimer.Stop();
             }
-            
+           
         }
 
         private void AutoPilotTimerTick(object sender, EventArgs e)
@@ -675,6 +705,7 @@ namespace Project_III_Group1_Group_Project
             {
                 planeTakingOffTimer.Start();
                 lblDefaultMessage.Text = "Plane is currently taking off...";
+                lblDefaultMessage.ForeColor = Color.Orange;
                 btnStartPlane.Enabled = false;
             }
             else
@@ -696,9 +727,14 @@ namespace Project_III_Group1_Group_Project
             btnLeft90.Enabled = true;
             btnLeft45.Enabled = true;
             btnStartPlane.Enabled = false;
-          
+
+            btnLeft45.ForeColor = Color.Green;
+            btnLeft90.ForeColor = Color.Green;
+            btnRight45.ForeColor = Color.Green;
+            btnRight90.ForeColor = Color.Green;
 
             //Setting labels
+            lblDefaultMessage.ForeColor = Color.Green;
             lblDefaultMessage.Text = "Plane in motion";
             lbDoor.Text = "Doors Locked";
 
@@ -713,6 +749,8 @@ namespace Project_III_Group1_Group_Project
             estimatedTimeTimer.Start();
             planeTakingOffTimer.Stop();
         }
+
+       
     }
 }
 

@@ -92,11 +92,18 @@ namespace Project_III_Group1_Group_Project
             this.planeTakingOffTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblPlaneRefuel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblGreenTriangle = new System.Windows.Forms.Label();
+            this.lblUnlockedDoor = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblNotMonitored = new System.Windows.Forms.Label();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,15 +117,17 @@ namespace Project_III_Group1_Group_Project
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // LockDoors
             // 
-            this.LockDoors.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LockDoors.Location = new System.Drawing.Point(1151, 460);
-            this.LockDoors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LockDoors.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LockDoors.Location = new System.Drawing.Point(863, 369);
             this.LockDoors.Name = "LockDoors";
-            this.LockDoors.Size = new System.Drawing.Size(237, 72);
+            this.LockDoors.Size = new System.Drawing.Size(178, 58);
             this.LockDoors.TabIndex = 7;
             this.LockDoors.Text = "Lock Doors";
             this.LockDoors.UseVisualStyleBackColor = true;
@@ -127,11 +136,10 @@ namespace Project_III_Group1_Group_Project
             // 
             // AutoPilot
             // 
-            this.AutoPilot.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoPilot.Location = new System.Drawing.Point(1151, 199);
-            this.AutoPilot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AutoPilot.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoPilot.Location = new System.Drawing.Point(863, 162);
             this.AutoPilot.Name = "AutoPilot";
-            this.AutoPilot.Size = new System.Drawing.Size(237, 73);
+            this.AutoPilot.Size = new System.Drawing.Size(178, 59);
             this.AutoPilot.TabIndex = 9;
             this.AutoPilot.Text = "Auto Pilot";
             this.AutoPilot.UseVisualStyleBackColor = true;
@@ -140,11 +148,10 @@ namespace Project_III_Group1_Group_Project
             // 
             // btnViewFlightInformation
             // 
-            this.btnViewFlightInformation.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewFlightInformation.Location = new System.Drawing.Point(4, 20);
-            this.btnViewFlightInformation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewFlightInformation.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFlightInformation.Location = new System.Drawing.Point(3, 24);
             this.btnViewFlightInformation.Name = "btnViewFlightInformation";
-            this.btnViewFlightInformation.Size = new System.Drawing.Size(163, 73);
+            this.btnViewFlightInformation.Size = new System.Drawing.Size(122, 59);
             this.btnViewFlightInformation.TabIndex = 11;
             this.btnViewFlightInformation.Text = "View current flight information";
             this.btnViewFlightInformation.UseVisualStyleBackColor = true;
@@ -197,10 +204,9 @@ namespace Project_III_Group1_Group_Project
             // 
             // temperaturePictureBox
             // 
-            this.temperaturePictureBox.Location = new System.Drawing.Point(69, 160);
-            this.temperaturePictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.temperaturePictureBox.Location = new System.Drawing.Point(52, 130);
             this.temperaturePictureBox.Name = "temperaturePictureBox";
-            this.temperaturePictureBox.Size = new System.Drawing.Size(72, 54);
+            this.temperaturePictureBox.Size = new System.Drawing.Size(54, 44);
             this.temperaturePictureBox.TabIndex = 13;
             this.temperaturePictureBox.TabStop = false;
             this.temperaturePictureBox.Click += new System.EventHandler(this.temperaturePictureBox_Click);
@@ -208,10 +214,9 @@ namespace Project_III_Group1_Group_Project
             // weatherPictureBox
             // 
             this.weatherPictureBox.BackColor = System.Drawing.SystemColors.Control;
-            this.weatherPictureBox.Location = new System.Drawing.Point(8, 23);
-            this.weatherPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.weatherPictureBox.Location = new System.Drawing.Point(6, 19);
             this.weatherPictureBox.Name = "weatherPictureBox";
-            this.weatherPictureBox.Size = new System.Drawing.Size(133, 123);
+            this.weatherPictureBox.Size = new System.Drawing.Size(100, 100);
             this.weatherPictureBox.TabIndex = 12;
             this.weatherPictureBox.TabStop = false;
             this.weatherPictureBox.Click += new System.EventHandler(this.weatherPictureBox_Click);
@@ -219,10 +224,9 @@ namespace Project_III_Group1_Group_Project
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_door4;
-            this.pictureBox1.Location = new System.Drawing.Point(336, 142);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 106);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(764, 459);
+            this.pictureBox1.Size = new System.Drawing.Size(573, 373);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -230,10 +234,9 @@ namespace Project_III_Group1_Group_Project
             // 
             // farrenheitSymbolPictureBox
             // 
-            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(8, 166);
-            this.farrenheitSymbolPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.farrenheitSymbolPictureBox.Location = new System.Drawing.Point(6, 135);
             this.farrenheitSymbolPictureBox.Name = "farrenheitSymbolPictureBox";
-            this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(40, 37);
+            this.farrenheitSymbolPictureBox.Size = new System.Drawing.Size(30, 30);
             this.farrenheitSymbolPictureBox.TabIndex = 14;
             this.farrenheitSymbolPictureBox.TabStop = false;
             this.farrenheitSymbolPictureBox.Click += new System.EventHandler(this.farrenheitSymbolPictureBox_Click);
@@ -243,24 +246,22 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxAirPressure.Controls.Add(this.btnAirPressure);
             this.grpBoxAirPressure.Controls.Add(this.lbAirPressure);
             this.grpBoxAirPressure.Controls.Add(this.txtAirPressure);
-            this.grpBoxAirPressure.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxAirPressure.Location = new System.Drawing.Point(23, 471);
-            this.grpBoxAirPressure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpBoxAirPressure.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxAirPressure.Location = new System.Drawing.Point(4, 361);
             this.grpBoxAirPressure.Name = "grpBoxAirPressure";
-            this.grpBoxAirPressure.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpBoxAirPressure.Size = new System.Drawing.Size(203, 167);
+            this.grpBoxAirPressure.Size = new System.Drawing.Size(152, 136);
             this.grpBoxAirPressure.TabIndex = 15;
             this.grpBoxAirPressure.TabStop = false;
             this.grpBoxAirPressure.Text = "Air Pressure";
             // 
             // btnAirPressure
             // 
-            this.btnAirPressure.Location = new System.Drawing.Point(44, 117);
-            this.btnAirPressure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAirPressure.ForeColor = System.Drawing.Color.Green;
+            this.btnAirPressure.Location = new System.Drawing.Point(25, 83);
             this.btnAirPressure.Name = "btnAirPressure";
-            this.btnAirPressure.Size = new System.Drawing.Size(117, 28);
+            this.btnAirPressure.Size = new System.Drawing.Size(102, 35);
             this.btnAirPressure.TabIndex = 2;
-            this.btnAirPressure.Text = "Depressurize";
+            this.btnAirPressure.Text = "Pressurize";
             this.btnAirPressure.UseVisualStyleBackColor = true;
             this.btnAirPressure.Visible = false;
             this.btnAirPressure.Click += new System.EventHandler(this.btnAirPressure_Click);
@@ -270,21 +271,19 @@ namespace Project_III_Group1_Group_Project
             this.lbAirPressure.AutoSize = true;
             this.lbAirPressure.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAirPressure.ForeColor = System.Drawing.Color.Green;
-            this.lbAirPressure.Location = new System.Drawing.Point(9, 79);
-            this.lbAirPressure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAirPressure.Location = new System.Drawing.Point(7, 64);
             this.lbAirPressure.Name = "lbAirPressure";
-            this.lbAirPressure.Size = new System.Drawing.Size(151, 20);
+            this.lbAirPressure.Size = new System.Drawing.Size(128, 16);
             this.lbAirPressure.TabIndex = 1;
             this.lbAirPressure.Text = "Air Pressure: Stable";
             // 
             // txtAirPressure
             // 
             this.txtAirPressure.BackColor = System.Drawing.Color.Green;
-            this.txtAirPressure.Location = new System.Drawing.Point(29, 23);
-            this.txtAirPressure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAirPressure.Location = new System.Drawing.Point(22, 19);
             this.txtAirPressure.Name = "txtAirPressure";
             this.txtAirPressure.ReadOnly = true;
-            this.txtAirPressure.Size = new System.Drawing.Size(59, 24);
+            this.txtAirPressure.Size = new System.Drawing.Size(45, 25);
             this.txtAirPressure.TabIndex = 0;
             this.txtAirPressure.Text = "100";
             // 
@@ -300,60 +299,55 @@ namespace Project_III_Group1_Group_Project
             // lblLatitude
             // 
             this.lblLatitude.AutoSize = true;
-            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLatitude.Location = new System.Drawing.Point(9, 27);
-            this.lblLatitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatitude.Location = new System.Drawing.Point(7, 22);
             this.lblLatitude.Name = "lblLatitude";
-            this.lblLatitude.Size = new System.Drawing.Size(66, 16);
+            this.lblLatitude.Size = new System.Drawing.Size(58, 15);
             this.lblLatitude.TabIndex = 12;
             this.lblLatitude.Text = "Latitude: ";
             // 
             // lblLongitude
             // 
             this.lblLongitude.AutoSize = true;
-            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLongitude.Location = new System.Drawing.Point(9, 63);
-            this.lblLongitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongitude.Location = new System.Drawing.Point(7, 46);
             this.lblLongitude.Name = "lblLongitude";
-            this.lblLongitude.Size = new System.Drawing.Size(76, 16);
+            this.lblLongitude.Size = new System.Drawing.Size(68, 15);
             this.lblLongitude.TabIndex = 13;
             this.lblLongitude.Text = "Longitude: ";
             // 
             // txtLatitude
             // 
-            this.txtLatitude.Location = new System.Drawing.Point(85, 23);
-            this.txtLatitude.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLatitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLatitude.Location = new System.Drawing.Point(87, 17);
             this.txtLatitude.Name = "txtLatitude";
             this.txtLatitude.ReadOnly = true;
-            this.txtLatitude.Size = new System.Drawing.Size(88, 24);
+            this.txtLatitude.Size = new System.Drawing.Size(77, 23);
             this.txtLatitude.TabIndex = 14;
             this.txtLatitude.Text = "0.000000";
             // 
             // txtLongitude
             // 
-            this.txtLongitude.Location = new System.Drawing.Point(85, 63);
-            this.txtLongitude.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLongitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLongitude.Location = new System.Drawing.Point(87, 46);
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.ReadOnly = true;
-            this.txtLongitude.Size = new System.Drawing.Size(88, 24);
+            this.txtLongitude.Size = new System.Drawing.Size(77, 23);
             this.txtLongitude.TabIndex = 15;
             this.txtLongitude.Text = "0.000000";
             // 
             // grpBoxCoordinateDetails
             // 
-            this.grpBoxCoordinateDetails.Controls.Add(this.lblPlaneIsTurning);
             this.grpBoxCoordinateDetails.Controls.Add(this.lblCompassBearing);
             this.grpBoxCoordinateDetails.Controls.Add(this.label1);
             this.grpBoxCoordinateDetails.Controls.Add(this.txtLatitude);
             this.grpBoxCoordinateDetails.Controls.Add(this.txtLongitude);
             this.grpBoxCoordinateDetails.Controls.Add(this.lblLatitude);
             this.grpBoxCoordinateDetails.Controls.Add(this.lblLongitude);
-            this.grpBoxCoordinateDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(4, 123);
-            this.grpBoxCoordinateDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpBoxCoordinateDetails.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxCoordinateDetails.Location = new System.Drawing.Point(3, 100);
             this.grpBoxCoordinateDetails.Name = "grpBoxCoordinateDetails";
-            this.grpBoxCoordinateDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpBoxCoordinateDetails.Size = new System.Drawing.Size(277, 176);
+            this.grpBoxCoordinateDetails.Size = new System.Drawing.Size(208, 99);
             this.grpBoxCoordinateDetails.TabIndex = 16;
             this.grpBoxCoordinateDetails.TabStop = false;
             this.grpBoxCoordinateDetails.Text = "Coordinate Details";
@@ -363,20 +357,19 @@ namespace Project_III_Group1_Group_Project
             this.lblPlaneIsTurning.AutoSize = true;
             this.lblPlaneIsTurning.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Red;
-            this.lblPlaneIsTurning.Location = new System.Drawing.Point(9, 148);
-            this.lblPlaneIsTurning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlaneIsTurning.Location = new System.Drawing.Point(10, 309);
             this.lblPlaneIsTurning.Name = "lblPlaneIsTurning";
-            this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 23);
+            this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 19);
             this.lblPlaneIsTurning.TabIndex = 19;
             // 
             // lblCompassBearing
             // 
             this.lblCompassBearing.AutoSize = true;
             this.lblCompassBearing.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompassBearing.Location = new System.Drawing.Point(233, 101);
-            this.lblCompassBearing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCompassBearing.ForeColor = System.Drawing.Color.Green;
+            this.lblCompassBearing.Location = new System.Drawing.Point(176, 72);
             this.lblCompassBearing.Name = "lblCompassBearing";
-            this.lblCompassBearing.Size = new System.Drawing.Size(0, 20);
+            this.lblCompassBearing.Size = new System.Drawing.Size(0, 16);
             this.lblCompassBearing.TabIndex = 18;
             // 
             // label1
@@ -384,10 +377,9 @@ namespace Project_III_Group1_Group_Project
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(9, 101);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 20);
+            this.label1.Size = new System.Drawing.Size(170, 16);
             this.label1.TabIndex = 16;
             this.label1.Text = "Current Compass Bearing: ";
             // 
@@ -397,12 +389,10 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxPlaneTurning.Controls.Add(this.btnLeft90);
             this.grpBoxPlaneTurning.Controls.Add(this.btnLeft45);
             this.grpBoxPlaneTurning.Controls.Add(this.btnRight45);
-            this.grpBoxPlaneTurning.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(4, 321);
-            this.grpBoxPlaneTurning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpBoxPlaneTurning.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxPlaneTurning.Location = new System.Drawing.Point(4, 205);
             this.grpBoxPlaneTurning.Name = "grpBoxPlaneTurning";
-            this.grpBoxPlaneTurning.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpBoxPlaneTurning.Size = new System.Drawing.Size(277, 130);
+            this.grpBoxPlaneTurning.Size = new System.Drawing.Size(208, 101);
             this.grpBoxPlaneTurning.TabIndex = 17;
             this.grpBoxPlaneTurning.TabStop = false;
             this.grpBoxPlaneTurning.Text = "Plane Turning Control Panel";
@@ -410,10 +400,11 @@ namespace Project_III_Group1_Group_Project
             // btnRight90
             // 
             this.btnRight90.Enabled = false;
-            this.btnRight90.Location = new System.Drawing.Point(141, 79);
-            this.btnRight90.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRight90.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRight90.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRight90.Location = new System.Drawing.Point(106, 64);
             this.btnRight90.Name = "btnRight90";
-            this.btnRight90.Size = new System.Drawing.Size(121, 42);
+            this.btnRight90.Size = new System.Drawing.Size(91, 34);
             this.btnRight90.TabIndex = 21;
             this.btnRight90.Text = "Turn Right 90°";
             this.btnRight90.UseVisualStyleBackColor = true;
@@ -422,10 +413,11 @@ namespace Project_III_Group1_Group_Project
             // btnLeft90
             // 
             this.btnLeft90.Enabled = false;
-            this.btnLeft90.Location = new System.Drawing.Point(13, 79);
-            this.btnLeft90.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeft90.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeft90.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLeft90.Location = new System.Drawing.Point(10, 64);
             this.btnLeft90.Name = "btnLeft90";
-            this.btnLeft90.Size = new System.Drawing.Size(121, 42);
+            this.btnLeft90.Size = new System.Drawing.Size(91, 34);
             this.btnLeft90.TabIndex = 20;
             this.btnLeft90.Text = "Turn Left 90°";
             this.btnLeft90.UseVisualStyleBackColor = true;
@@ -434,10 +426,11 @@ namespace Project_III_Group1_Group_Project
             // btnLeft45
             // 
             this.btnLeft45.Enabled = false;
-            this.btnLeft45.Location = new System.Drawing.Point(13, 30);
-            this.btnLeft45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeft45.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeft45.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLeft45.Location = new System.Drawing.Point(10, 24);
             this.btnLeft45.Name = "btnLeft45";
-            this.btnLeft45.Size = new System.Drawing.Size(121, 42);
+            this.btnLeft45.Size = new System.Drawing.Size(91, 34);
             this.btnLeft45.TabIndex = 18;
             this.btnLeft45.Text = "Turn Left 45°";
             this.btnLeft45.UseVisualStyleBackColor = true;
@@ -446,10 +439,11 @@ namespace Project_III_Group1_Group_Project
             // btnRight45
             // 
             this.btnRight45.Enabled = false;
-            this.btnRight45.Location = new System.Drawing.Point(141, 30);
-            this.btnRight45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRight45.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRight45.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRight45.Location = new System.Drawing.Point(106, 24);
             this.btnRight45.Name = "btnRight45";
-            this.btnRight45.Size = new System.Drawing.Size(121, 42);
+            this.btnRight45.Size = new System.Drawing.Size(91, 34);
             this.btnRight45.TabIndex = 19;
             this.btnRight45.Text = "Turn Right 45°";
             this.btnRight45.UseVisualStyleBackColor = true;
@@ -469,22 +463,19 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxLocation.Controls.Add(this.picBoxCountry);
             this.grpBoxLocation.Controls.Add(this.lblProvinceStateInfo);
             this.grpBoxLocation.Controls.Add(this.lblProvinceState);
-            this.grpBoxLocation.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxLocation.Location = new System.Drawing.Point(175, 2);
-            this.grpBoxLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpBoxLocation.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxLocation.Location = new System.Drawing.Point(131, 2);
             this.grpBoxLocation.Name = "grpBoxLocation";
-            this.grpBoxLocation.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpBoxLocation.Size = new System.Drawing.Size(525, 123);
+            this.grpBoxLocation.Size = new System.Drawing.Size(394, 100);
             this.grpBoxLocation.TabIndex = 18;
             this.grpBoxLocation.TabStop = false;
             this.grpBoxLocation.Text = "Location Details";
             // 
             // picBoxCountry
             // 
-            this.picBoxCountry.Location = new System.Drawing.Point(11, 39);
-            this.picBoxCountry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBoxCountry.Location = new System.Drawing.Point(8, 32);
             this.picBoxCountry.Name = "picBoxCountry";
-            this.picBoxCountry.Size = new System.Drawing.Size(153, 76);
+            this.picBoxCountry.Size = new System.Drawing.Size(115, 62);
             this.picBoxCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxCountry.TabIndex = 22;
             this.picBoxCountry.TabStop = false;
@@ -492,32 +483,29 @@ namespace Project_III_Group1_Group_Project
             // lblProvinceStateInfo
             // 
             this.lblProvinceStateInfo.AutoSize = true;
-            this.lblProvinceStateInfo.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProvinceStateInfo.Location = new System.Drawing.Point(164, 21);
-            this.lblProvinceStateInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProvinceStateInfo.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceStateInfo.Location = new System.Drawing.Point(143, 17);
             this.lblProvinceStateInfo.Name = "lblProvinceStateInfo";
-            this.lblProvinceStateInfo.Size = new System.Drawing.Size(0, 16);
+            this.lblProvinceStateInfo.Size = new System.Drawing.Size(0, 15);
             this.lblProvinceStateInfo.TabIndex = 21;
             // 
             // lblProvinceState
             // 
             this.lblProvinceState.AutoSize = true;
-            this.lblProvinceState.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProvinceState.Location = new System.Drawing.Point(8, 20);
-            this.lblProvinceState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProvinceState.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceState.Location = new System.Drawing.Point(6, 16);
             this.lblProvinceState.Name = "lblProvinceState";
-            this.lblProvinceState.Size = new System.Drawing.Size(144, 16);
+            this.lblProvinceState.Size = new System.Drawing.Size(131, 15);
             this.lblProvinceState.TabIndex = 20;
             this.lblProvinceState.Text = "Currently Flying over: ";
             // 
             // lblFlightTimeRemaining
             // 
             this.lblFlightTimeRemaining.AutoSize = true;
-            this.lblFlightTimeRemaining.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFlightTimeRemaining.Location = new System.Drawing.Point(8, 20);
-            this.lblFlightTimeRemaining.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFlightTimeRemaining.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightTimeRemaining.Location = new System.Drawing.Point(6, 17);
             this.lblFlightTimeRemaining.Name = "lblFlightTimeRemaining";
-            this.lblFlightTimeRemaining.Size = new System.Drawing.Size(218, 16);
+            this.lblFlightTimeRemaining.Size = new System.Drawing.Size(197, 15);
             this.lblFlightTimeRemaining.TabIndex = 19;
             this.lblFlightTimeRemaining.Text = "Estimated Flight Time Remaining: ";
             // 
@@ -527,12 +515,10 @@ namespace Project_III_Group1_Group_Project
             this.grpBoxTimeDetails.Controls.Add(this.lblEstimatedTimeLeft);
             this.grpBoxTimeDetails.Controls.Add(this.lblCurrentTime);
             this.grpBoxTimeDetails.Controls.Add(this.lblFlightTimeRemaining);
-            this.grpBoxTimeDetails.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxTimeDetails.Location = new System.Drawing.Point(708, 2);
-            this.grpBoxTimeDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpBoxTimeDetails.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxTimeDetails.Location = new System.Drawing.Point(531, 2);
             this.grpBoxTimeDetails.Name = "grpBoxTimeDetails";
-            this.grpBoxTimeDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grpBoxTimeDetails.Size = new System.Drawing.Size(447, 123);
+            this.grpBoxTimeDetails.Size = new System.Drawing.Size(335, 100);
             this.grpBoxTimeDetails.TabIndex = 20;
             this.grpBoxTimeDetails.TabStop = false;
             this.grpBoxTimeDetails.Text = "Time Details";
@@ -540,29 +526,28 @@ namespace Project_III_Group1_Group_Project
             // lblCurrentDateTime
             // 
             this.lblCurrentDateTime.AutoSize = true;
-            this.lblCurrentDateTime.Location = new System.Drawing.Point(233, 48);
-            this.lblCurrentDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCurrentDateTime.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentDateTime.Location = new System.Drawing.Point(175, 39);
             this.lblCurrentDateTime.Name = "lblCurrentDateTime";
-            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 16);
+            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 15);
             this.lblCurrentDateTime.TabIndex = 22;
             // 
             // lblEstimatedTimeLeft
             // 
             this.lblEstimatedTimeLeft.AutoSize = true;
-            this.lblEstimatedTimeLeft.Location = new System.Drawing.Point(233, 21);
-            this.lblEstimatedTimeLeft.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEstimatedTimeLeft.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstimatedTimeLeft.Location = new System.Drawing.Point(209, 17);
             this.lblEstimatedTimeLeft.Name = "lblEstimatedTimeLeft";
-            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 16);
+            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 15);
             this.lblEstimatedTimeLeft.TabIndex = 21;
             // 
             // lblCurrentTime
             // 
             this.lblCurrentTime.AutoSize = true;
-            this.lblCurrentTime.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentTime.Location = new System.Drawing.Point(8, 46);
-            this.lblCurrentTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCurrentTime.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentTime.Location = new System.Drawing.Point(6, 37);
             this.lblCurrentTime.Name = "lblCurrentTime";
-            this.lblCurrentTime.Size = new System.Drawing.Size(96, 16);
+            this.lblCurrentTime.Size = new System.Drawing.Size(86, 15);
             this.lblCurrentTime.TabIndex = 20;
             this.lblCurrentTime.Text = "Current Time: ";
             // 
@@ -591,10 +576,11 @@ namespace Project_III_Group1_Group_Project
             // 
             // FuelLevelButton
             // 
-            this.FuelLevelButton.Location = new System.Drawing.Point(1151, 351);
-            this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FuelLevelButton.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FuelLevelButton.Location = new System.Drawing.Point(863, 261);
+            this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuelLevelButton.Name = "FuelLevelButton";
-            this.FuelLevelButton.Size = new System.Drawing.Size(237, 72);
+            this.FuelLevelButton.Size = new System.Drawing.Size(178, 58);
             this.FuelLevelButton.TabIndex = 21;
             this.FuelLevelButton.Text = "Refuel";
             this.FuelLevelButton.UseVisualStyleBackColor = true;
@@ -609,10 +595,9 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbAutoPilot.AutoSize = true;
             this.lbAutoPilot.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAutoPilot.Location = new System.Drawing.Point(1172, 289);
-            this.lbAutoPilot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAutoPilot.Location = new System.Drawing.Point(868, 220);
             this.lbAutoPilot.Name = "lbAutoPilot";
-            this.lbAutoPilot.Size = new System.Drawing.Size(199, 23);
+            this.lbAutoPilot.Size = new System.Drawing.Size(161, 19);
             this.lbAutoPilot.TabIndex = 22;
             this.lbAutoPilot.Text = "Auto Pilot Disengeged";
             this.lbAutoPilot.Visible = false;
@@ -621,10 +606,9 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbDoor.AutoSize = true;
             this.lbDoor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDoor.Location = new System.Drawing.Point(1196, 550);
-            this.lbDoor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDoor.Location = new System.Drawing.Point(888, 430);
             this.lbDoor.Name = "lbDoor";
-            this.lbDoor.Size = new System.Drawing.Size(146, 23);
+            this.lbDoor.Size = new System.Drawing.Size(120, 19);
             this.lbDoor.TabIndex = 23;
             this.lbDoor.Text = "Doors Unlocked";
             this.lbDoor.Visible = false;
@@ -637,51 +621,50 @@ namespace Project_III_Group1_Group_Project
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(68, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(107, 19);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Speed";
+            this.label2.Text = "Speed (Knots)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(427, 43);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(284, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 16);
+            this.label3.Size = new System.Drawing.Size(105, 19);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Altitude";
+            this.label3.Text = "Altitude (feet)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(727, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(482, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 16);
+            this.label4.Size = new System.Drawing.Size(152, 19);
             this.label4.TabIndex = 26;
-            this.label4.Text = "Fuel";
+            this.label4.Text = "% of Fuel Remaining";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(969, 42);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(689, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 16);
+            this.label5.Size = new System.Drawing.Size(173, 19);
             this.label5.TabIndex = 27;
-            this.label5.Text = "Oxygen Level";
+            this.label5.Text = "% of Oxygen Remaining";
             // 
             // btnStartPlane
             // 
             this.btnStartPlane.Enabled = false;
-            this.btnStartPlane.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartPlane.Location = new System.Drawing.Point(69, 87);
-            this.btnStartPlane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStartPlane.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartPlane.Location = new System.Drawing.Point(52, 71);
             this.btnStartPlane.Name = "btnStartPlane";
-            this.btnStartPlane.Size = new System.Drawing.Size(177, 73);
+            this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
             this.btnStartPlane.TabIndex = 28;
             this.btnStartPlane.Text = "Start Plane";
             this.btnStartPlane.UseVisualStyleBackColor = true;
@@ -692,10 +675,9 @@ namespace Project_III_Group1_Group_Project
             this.lblDefaultMessage.AutoSize = true;
             this.lblDefaultMessage.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefaultMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblDefaultMessage.Location = new System.Drawing.Point(20, 42);
-            this.lblDefaultMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDefaultMessage.Location = new System.Drawing.Point(15, 34);
             this.lblDefaultMessage.Name = "lblDefaultMessage";
-            this.lblDefaultMessage.Size = new System.Drawing.Size(272, 32);
+            this.lblDefaultMessage.Size = new System.Drawing.Size(216, 25);
             this.lblDefaultMessage.TabIndex = 29;
             this.lblDefaultMessage.Text = "Please refuel the plane";
             // 
@@ -709,12 +691,10 @@ namespace Project_III_Group1_Group_Project
             this.groupBox1.Controls.Add(this.weatherPictureBox);
             this.groupBox1.Controls.Add(this.farrenheitSymbolPictureBox);
             this.groupBox1.Controls.Add(this.temperaturePictureBox);
-            this.groupBox1.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1268, 646);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(924, 514);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(167, 222);
+            this.groupBox1.Size = new System.Drawing.Size(125, 180);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weather Details";
@@ -729,15 +709,91 @@ namespace Project_III_Group1_Group_Project
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(23, 646);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(4, 503);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1237, 308);
+            this.groupBox2.Size = new System.Drawing.Size(891, 250);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gauges";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnStartPlane);
+            this.groupBox3.Controls.Add(this.lblDefaultMessage);
+            this.groupBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(872, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(292, 152);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Plane Info";
+            // 
+            // lblPlaneRefuel
+            // 
+            this.lblPlaneRefuel.AutoSize = true;
+            this.lblPlaneRefuel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneRefuel.Location = new System.Drawing.Point(888, 321);
+            this.lblPlaneRefuel.Name = "lblPlaneRefuel";
+            this.lblPlaneRefuel.Size = new System.Drawing.Size(0, 19);
+            this.lblPlaneRefuel.TabIndex = 24;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(248, 485);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(399, 485);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblGreenTriangle
+            // 
+            this.lblGreenTriangle.AutoSize = true;
+            this.lblGreenTriangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreenTriangle.Location = new System.Drawing.Point(285, 487);
+            this.lblGreenTriangle.Name = "lblGreenTriangle";
+            this.lblGreenTriangle.Size = new System.Drawing.Size(108, 18);
+            this.lblGreenTriangle.TabIndex = 27;
+            this.lblGreenTriangle.Text = "= Locked Door";
+            // 
+            // lblUnlockedDoor
+            // 
+            this.lblUnlockedDoor.AutoSize = true;
+            this.lblUnlockedDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnlockedDoor.Location = new System.Drawing.Point(436, 487);
+            this.lblUnlockedDoor.Name = "lblUnlockedDoor";
+            this.lblUnlockedDoor.Size = new System.Drawing.Size(122, 18);
+            this.lblUnlockedDoor.TabIndex = 28;
+            this.lblUnlockedDoor.Text = "= Unlocked Door";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(564, 485);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(31, 23);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblNotMonitored
+            // 
+            this.lblNotMonitored.AutoSize = true;
+            this.lblNotMonitored.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotMonitored.Location = new System.Drawing.Point(601, 487);
+            this.lblNotMonitored.Name = "lblNotMonitored";
+            this.lblNotMonitored.Size = new System.Drawing.Size(190, 18);
+            this.lblNotMonitored.TabIndex = 30;
+            this.lblNotMonitored.Text = "= Door not being monitored";
             // 
             // aGauge1
             // 
@@ -748,9 +804,8 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.BaseArcSweep = 270;
             this.aGauge1.BaseArcWidth = 2;
             this.aGauge1.Center = new System.Drawing.Point(105, 100);
-            this.aGauge1.GaugeAutoSize = false;
-            this.aGauge1.Location = new System.Drawing.Point(8, 59);
-            this.aGauge1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aGauge1.GaugeAutoSize = true;
+            this.aGauge1.Location = new System.Drawing.Point(6, 48);
             this.aGauge1.MaxValue = 800F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -779,7 +834,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge1.ScaleNumbersRotation = 0;
             this.aGauge1.ScaleNumbersStartScaleLine = 0;
             this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(293, 231);
+            this.aGauge1.Size = new System.Drawing.Size(220, 188);
             this.aGauge1.TabIndex = 1;
             this.aGauge1.Text = "aGauge1";
             this.aGauge1.Value = 0F;
@@ -794,9 +849,8 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3.BaseArcSweep = 270;
             this.aGauge3.BaseArcWidth = 2;
             this.aGauge3.Center = new System.Drawing.Point(103, 100);
-            this.aGauge3.GaugeAutoSize = false;
-            this.aGauge3.Location = new System.Drawing.Point(603, 59);
-            this.aGauge3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aGauge3.GaugeAutoSize = true;
+            this.aGauge3.Location = new System.Drawing.Point(452, 48);
             this.aGauge3.MaxValue = 100F;
             this.aGauge3.MinValue = 0F;
             this.aGauge3.Name = "aGauge3";
@@ -825,7 +879,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge3.ScaleNumbersRotation = 0;
             this.aGauge3.ScaleNumbersStartScaleLine = 0;
             this.aGauge3.ScaleNumbersStepScaleLines = 1;
-            this.aGauge3.Size = new System.Drawing.Size(273, 231);
+            this.aGauge3.Size = new System.Drawing.Size(205, 188);
             this.aGauge3.TabIndex = 1;
             this.aGauge3.Text = "aGauge3";
             this.aGauge3.Value = 0F;
@@ -840,8 +894,8 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.BaseArcSweep = 270;
             this.aGauge2.BaseArcWidth = 2;
             this.aGauge2.Center = new System.Drawing.Point(108, 110);
-            this.aGauge2.GaugeAutoSize = false;
-            this.aGauge2.Location = new System.Drawing.Point(307, 59);
+            this.aGauge2.GaugeAutoSize = true;
+            this.aGauge2.Location = new System.Drawing.Point(230, 48);
             this.aGauge2.Margin = new System.Windows.Forms.Padding(1);
             this.aGauge2.MaxValue = 42000F;
             this.aGauge2.MinValue = 0F;
@@ -871,7 +925,7 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2.ScaleNumbersRotation = 0;
             this.aGauge2.ScaleNumbersStartScaleLine = 0;
             this.aGauge2.ScaleNumbersStepScaleLines = 1;
-            this.aGauge2.Size = new System.Drawing.Size(291, 231);
+            this.aGauge2.Size = new System.Drawing.Size(218, 188);
             this.aGauge2.TabIndex = 1;
             this.aGauge2.Text = "aGauge2";
             this.aGauge2.Value = 0F;
@@ -885,9 +939,8 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.BaseArcStart = 135;
             this.aGauge4.BaseArcSweep = 270;
             this.aGauge4.BaseArcWidth = 2;
-            this.aGauge4.GaugeAutoSize = false;
-            this.aGauge4.Location = new System.Drawing.Point(884, 60);
-            this.aGauge4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aGauge4.GaugeAutoSize = true;
+            this.aGauge4.Location = new System.Drawing.Point(663, 49);
             this.aGauge4.MaxValue = 100F;
             this.aGauge4.MinValue = 0F;
             this.aGauge4.Name = "aGauge4";
@@ -916,31 +969,25 @@ namespace Project_III_Group1_Group_Project
             this.aGauge4.ScaleNumbersRotation = 0;
             this.aGauge4.ScaleNumbersStartScaleLine = 0;
             this.aGauge4.ScaleNumbersStepScaleLines = 1;
-            this.aGauge4.Size = new System.Drawing.Size(288, 230);
+            this.aGauge4.Size = new System.Drawing.Size(220, 187);
             this.aGauge4.TabIndex = 1;
             this.aGauge4.Text = "aGauge4";
             this.aGauge4.Value = 0F;
             this.aGauge4.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge4_ValueInRangeChanged);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnStartPlane);
-            this.groupBox3.Controls.Add(this.lblDefaultMessage);
-            this.groupBox3.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(1163, 5);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(380, 187);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Plane Info";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1545, 986);
+            this.ClientSize = new System.Drawing.Size(1169, 801);
+            this.Controls.Add(this.lblPlaneIsTurning);
+            this.Controls.Add(this.lblNotMonitored);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.lblUnlockedDoor);
+            this.Controls.Add(this.lblGreenTriangle);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblPlaneRefuel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -956,7 +1003,6 @@ namespace Project_III_Group1_Group_Project
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AutoPilot);
             this.Controls.Add(this.LockDoors);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "PlaneModule";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -979,6 +1025,9 @@ namespace Project_III_Group1_Group_Project
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1050,6 +1099,13 @@ namespace Project_III_Group1_Group_Project
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
+        private Label lblPlaneRefuel;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private Label lblGreenTriangle;
+        private Label lblUnlockedDoor;
+        private PictureBox pictureBox4;
+        private Label lblNotMonitored;
     }
 }
 
