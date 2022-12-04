@@ -97,6 +97,9 @@ namespace Project_III_Group1_Group_Project
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge4 = new System.Windows.Forms.AGauge();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblPercentageLeft = new System.Windows.Forms.Label();
+            this.lblPlaneTakeoff = new System.Windows.Forms.Label();
+            this.planeProgressBar = new System.Windows.Forms.ProgressBar();
             this.lblPlaneRefuel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -104,6 +107,7 @@ namespace Project_III_Group1_Group_Project
             this.lblUnlockedDoor = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblNotMonitored = new System.Windows.Forms.Label();
+            this.progressBarTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,7 +129,7 @@ namespace Project_III_Group1_Group_Project
             // LockDoors
             // 
             this.LockDoors.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LockDoors.Location = new System.Drawing.Point(863, 369);
+            this.LockDoors.Location = new System.Drawing.Point(861, 411);
             this.LockDoors.Name = "LockDoors";
             this.LockDoors.Size = new System.Drawing.Size(178, 58);
             this.LockDoors.TabIndex = 7;
@@ -137,7 +141,7 @@ namespace Project_III_Group1_Group_Project
             // AutoPilot
             // 
             this.AutoPilot.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoPilot.Location = new System.Drawing.Point(863, 162);
+            this.AutoPilot.Location = new System.Drawing.Point(861, 204);
             this.AutoPilot.Name = "AutoPilot";
             this.AutoPilot.Size = new System.Drawing.Size(178, 59);
             this.AutoPilot.TabIndex = 9;
@@ -579,7 +583,7 @@ namespace Project_III_Group1_Group_Project
             // FuelLevelButton
             // 
             this.FuelLevelButton.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FuelLevelButton.Location = new System.Drawing.Point(863, 261);
+            this.FuelLevelButton.Location = new System.Drawing.Point(861, 303);
             this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuelLevelButton.Name = "FuelLevelButton";
             this.FuelLevelButton.Size = new System.Drawing.Size(178, 58);
@@ -597,7 +601,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbAutoPilot.AutoSize = true;
             this.lbAutoPilot.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAutoPilot.Location = new System.Drawing.Point(868, 220);
+            this.lbAutoPilot.Location = new System.Drawing.Point(866, 262);
             this.lbAutoPilot.Name = "lbAutoPilot";
             this.lbAutoPilot.Size = new System.Drawing.Size(161, 19);
             this.lbAutoPilot.TabIndex = 22;
@@ -608,7 +612,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbDoor.AutoSize = true;
             this.lbDoor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDoor.Location = new System.Drawing.Point(888, 430);
+            this.lbDoor.Location = new System.Drawing.Point(886, 472);
             this.lbDoor.Name = "lbDoor";
             this.lbDoor.Size = new System.Drawing.Size(120, 19);
             this.lbDoor.TabIndex = 23;
@@ -685,7 +689,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // planeTakingOffTimer
             // 
-            this.planeTakingOffTimer.Interval = 8000;
+            this.planeTakingOffTimer.Interval = 11000;
             this.planeTakingOffTimer.Tick += new System.EventHandler(this.planeTakingOffTimer_Tick);
             // 
             // groupBox1
@@ -901,21 +905,55 @@ namespace Project_III_Group1_Group_Project
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblPercentageLeft);
+            this.groupBox3.Controls.Add(this.lblPlaneTakeoff);
+            this.groupBox3.Controls.Add(this.planeProgressBar);
             this.groupBox3.Controls.Add(this.btnStartPlane);
             this.groupBox3.Controls.Add(this.lblDefaultMessage);
             this.groupBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(872, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(292, 152);
+            this.groupBox3.Size = new System.Drawing.Size(292, 194);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Plane Info";
+            // 
+            // lblPercentageLeft
+            // 
+            this.lblPercentageLeft.AutoSize = true;
+            this.lblPercentageLeft.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentageLeft.ForeColor = System.Drawing.Color.Black;
+            this.lblPercentageLeft.Location = new System.Drawing.Point(165, 140);
+            this.lblPercentageLeft.Name = "lblPercentageLeft";
+            this.lblPercentageLeft.Size = new System.Drawing.Size(0, 17);
+            this.lblPercentageLeft.TabIndex = 33;
+            this.lblPercentageLeft.Visible = false;
+            // 
+            // lblPlaneTakeoff
+            // 
+            this.lblPlaneTakeoff.AutoSize = true;
+            this.lblPlaneTakeoff.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneTakeoff.ForeColor = System.Drawing.Color.Green;
+            this.lblPlaneTakeoff.Location = new System.Drawing.Point(6, 135);
+            this.lblPlaneTakeoff.Name = "lblPlaneTakeoff";
+            this.lblPlaneTakeoff.Size = new System.Drawing.Size(159, 17);
+            this.lblPlaneTakeoff.TabIndex = 32;
+            this.lblPlaneTakeoff.Text = "Plane Takeoff Progress: ";
+            this.lblPlaneTakeoff.Visible = false;
+            // 
+            // planeProgressBar
+            // 
+            this.planeProgressBar.Location = new System.Drawing.Point(6, 161);
+            this.planeProgressBar.Name = "planeProgressBar";
+            this.planeProgressBar.Size = new System.Drawing.Size(100, 23);
+            this.planeProgressBar.TabIndex = 33;
+            this.planeProgressBar.Visible = false;
             // 
             // lblPlaneRefuel
             // 
             this.lblPlaneRefuel.AutoSize = true;
             this.lblPlaneRefuel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneRefuel.Location = new System.Drawing.Point(888, 321);
+            this.lblPlaneRefuel.Location = new System.Drawing.Point(886, 363);
             this.lblPlaneRefuel.Name = "lblPlaneRefuel";
             this.lblPlaneRefuel.Size = new System.Drawing.Size(0, 19);
             this.lblPlaneRefuel.TabIndex = 24;
@@ -976,6 +1014,10 @@ namespace Project_III_Group1_Group_Project
             this.lblNotMonitored.Size = new System.Drawing.Size(190, 18);
             this.lblNotMonitored.TabIndex = 30;
             this.lblNotMonitored.Text = "= Door not being monitored";
+            // 
+            // progressBarTimer
+            // 
+            this.progressBarTimer.Tick += new System.EventHandler(this.progressBarTimer_Tick);
             // 
             // Form1
             // 
@@ -1108,6 +1150,10 @@ namespace Project_III_Group1_Group_Project
         private Label lblUnlockedDoor;
         private PictureBox pictureBox4;
         private Label lblNotMonitored;
+        private Label lblPlaneTakeoff;
+        private ProgressBar planeProgressBar;
+        private Timer progressBarTimer;
+        private Label lblPercentageLeft;
     }
 }
 

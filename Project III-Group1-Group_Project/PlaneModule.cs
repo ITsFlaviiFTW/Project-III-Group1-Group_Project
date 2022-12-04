@@ -40,10 +40,11 @@ namespace Project_III_Group1_Group_Project
         //Global random you can use
         Random random = new Random();
         int i = 1;
+        int counter = 0;
         int weatherimageNum = 0;
         int tempimageNum = 0;
         bool startingUpSequence = true;
-        flightInformation frm = new flightInformation();
+        
 
         public Form1()
         {
@@ -210,7 +211,8 @@ namespace Project_III_Group1_Group_Project
         }
 
         private void btnViewFlightInformation_Click(object sender, EventArgs e)
-        {        
+        {
+            flightInformation frm = new flightInformation();
             frm.currentFlight = currentFlight;
             frm.Show();
         }
@@ -707,7 +709,12 @@ namespace Project_III_Group1_Group_Project
             if (lbDoor.Text == "Doors Locked")
             {
                 planeTakingOffTimer.Start();
+                progressBarTimer.Start();
+                lblPercentageLeft.Visible = true;
+                lblPercentageLeft.Text = "0%";
                 lblDefaultMessage.Text = "Plane is currently taking off...";
+                lblPlaneTakeoff.Visible = true;
+                planeProgressBar.Visible = true;
                 lblDefaultMessage.ForeColor = Color.Orange;
                 btnStartPlane.Enabled = false;
             }
@@ -754,6 +761,23 @@ namespace Project_III_Group1_Group_Project
 
             
 
+        }
+
+        private void progressBarTimer_Tick(object sender, EventArgs e)
+        {
+            counter++;
+            if (counter <= 100)
+            {
+                planeProgressBar.Value += 1;
+                lblPercentageLeft.Text = planeProgressBar.Value.ToString() + "%";
+            }
+            if (counter == 101)
+            {
+                lblPlaneTakeoff.Visible = false;
+                planeProgressBar.Visible = false;
+                lblPercentageLeft.Visible = false;
+                progressBarTimer.Stop();
+            }
         }
     }
 }
