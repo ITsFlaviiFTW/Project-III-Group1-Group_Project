@@ -108,6 +108,8 @@ namespace Project_III_Group1_Group_Project
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblNotMonitored = new System.Windows.Forms.Label();
             this.progressBarTimer = new System.Windows.Forms.Timer(this.components);
+            this.autopilotProgressBar = new System.Windows.Forms.ProgressBar();
+            this.autoPilotBarTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.temperaturePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -129,7 +131,7 @@ namespace Project_III_Group1_Group_Project
             // LockDoors
             // 
             this.LockDoors.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LockDoors.Location = new System.Drawing.Point(861, 411);
+            this.LockDoors.Location = new System.Drawing.Point(868, 371);
             this.LockDoors.Name = "LockDoors";
             this.LockDoors.Size = new System.Drawing.Size(178, 58);
             this.LockDoors.TabIndex = 7;
@@ -141,7 +143,7 @@ namespace Project_III_Group1_Group_Project
             // AutoPilot
             // 
             this.AutoPilot.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoPilot.Location = new System.Drawing.Point(861, 204);
+            this.AutoPilot.Location = new System.Drawing.Point(868, 185);
             this.AutoPilot.Name = "AutoPilot";
             this.AutoPilot.Size = new System.Drawing.Size(178, 59);
             this.AutoPilot.TabIndex = 9;
@@ -228,9 +230,9 @@ namespace Project_III_Group1_Group_Project
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Project_III_Group1_Group_Project.Properties.Resources.plane1_Bad_door4;
-            this.pictureBox1.Location = new System.Drawing.Point(248, 106);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 108);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(573, 373);
+            this.pictureBox1.Size = new System.Drawing.Size(573, 371);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -303,20 +305,20 @@ namespace Project_III_Group1_Group_Project
             // lblLatitude
             // 
             this.lblLatitude.AutoSize = true;
-            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatitude.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLatitude.Location = new System.Drawing.Point(7, 22);
             this.lblLatitude.Name = "lblLatitude";
-            this.lblLatitude.Size = new System.Drawing.Size(58, 15);
+            this.lblLatitude.Size = new System.Drawing.Size(67, 17);
             this.lblLatitude.TabIndex = 12;
             this.lblLatitude.Text = "Latitude: ";
             // 
             // lblLongitude
             // 
             this.lblLongitude.AutoSize = true;
-            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongitude.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLongitude.Location = new System.Drawing.Point(7, 46);
             this.lblLongitude.Name = "lblLongitude";
-            this.lblLongitude.Size = new System.Drawing.Size(68, 15);
+            this.lblLongitude.Size = new System.Drawing.Size(78, 17);
             this.lblLongitude.TabIndex = 13;
             this.lblLongitude.Text = "Longitude: ";
             // 
@@ -381,7 +383,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lblPlaneIsTurning.AutoSize = true;
             this.lblPlaneIsTurning.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Red;
+            this.lblPlaneIsTurning.ForeColor = System.Drawing.Color.Orange;
             this.lblPlaneIsTurning.Location = new System.Drawing.Point(10, 309);
             this.lblPlaneIsTurning.Name = "lblPlaneIsTurning";
             this.lblPlaneIsTurning.Size = new System.Drawing.Size(0, 19);
@@ -477,7 +479,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // picBoxCountry
             // 
-            this.picBoxCountry.Location = new System.Drawing.Point(8, 32);
+            this.picBoxCountry.Location = new System.Drawing.Point(8, 34);
             this.picBoxCountry.Name = "picBoxCountry";
             this.picBoxCountry.Size = new System.Drawing.Size(115, 62);
             this.picBoxCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -487,29 +489,29 @@ namespace Project_III_Group1_Group_Project
             // lblProvinceStateInfo
             // 
             this.lblProvinceStateInfo.AutoSize = true;
-            this.lblProvinceStateInfo.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceStateInfo.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProvinceStateInfo.Location = new System.Drawing.Point(143, 17);
             this.lblProvinceStateInfo.Name = "lblProvinceStateInfo";
-            this.lblProvinceStateInfo.Size = new System.Drawing.Size(0, 15);
+            this.lblProvinceStateInfo.Size = new System.Drawing.Size(0, 17);
             this.lblProvinceStateInfo.TabIndex = 21;
             // 
             // lblProvinceState
             // 
             this.lblProvinceState.AutoSize = true;
-            this.lblProvinceState.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProvinceState.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProvinceState.Location = new System.Drawing.Point(6, 16);
             this.lblProvinceState.Name = "lblProvinceState";
-            this.lblProvinceState.Size = new System.Drawing.Size(131, 15);
+            this.lblProvinceState.Size = new System.Drawing.Size(149, 17);
             this.lblProvinceState.TabIndex = 20;
             this.lblProvinceState.Text = "Currently Flying over: ";
             // 
             // lblFlightTimeRemaining
             // 
             this.lblFlightTimeRemaining.AutoSize = true;
-            this.lblFlightTimeRemaining.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFlightTimeRemaining.Location = new System.Drawing.Point(6, 17);
+            this.lblFlightTimeRemaining.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightTimeRemaining.Location = new System.Drawing.Point(6, 16);
             this.lblFlightTimeRemaining.Name = "lblFlightTimeRemaining";
-            this.lblFlightTimeRemaining.Size = new System.Drawing.Size(197, 15);
+            this.lblFlightTimeRemaining.Size = new System.Drawing.Size(221, 17);
             this.lblFlightTimeRemaining.TabIndex = 19;
             this.lblFlightTimeRemaining.Text = "Estimated Flight Time Remaining: ";
             // 
@@ -530,28 +532,28 @@ namespace Project_III_Group1_Group_Project
             // lblCurrentDateTime
             // 
             this.lblCurrentDateTime.AutoSize = true;
-            this.lblCurrentDateTime.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentDateTime.Location = new System.Drawing.Point(175, 39);
+            this.lblCurrentDateTime.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentDateTime.Location = new System.Drawing.Point(107, 36);
             this.lblCurrentDateTime.Name = "lblCurrentDateTime";
-            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 15);
+            this.lblCurrentDateTime.Size = new System.Drawing.Size(0, 17);
             this.lblCurrentDateTime.TabIndex = 22;
             // 
             // lblEstimatedTimeLeft
             // 
             this.lblEstimatedTimeLeft.AutoSize = true;
-            this.lblEstimatedTimeLeft.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstimatedTimeLeft.Location = new System.Drawing.Point(209, 17);
+            this.lblEstimatedTimeLeft.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstimatedTimeLeft.Location = new System.Drawing.Point(227, 14);
             this.lblEstimatedTimeLeft.Name = "lblEstimatedTimeLeft";
-            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 15);
+            this.lblEstimatedTimeLeft.Size = new System.Drawing.Size(0, 17);
             this.lblEstimatedTimeLeft.TabIndex = 21;
             // 
             // lblCurrentTime
             // 
             this.lblCurrentTime.AutoSize = true;
-            this.lblCurrentTime.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentTime.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentTime.Location = new System.Drawing.Point(6, 37);
             this.lblCurrentTime.Name = "lblCurrentTime";
-            this.lblCurrentTime.Size = new System.Drawing.Size(86, 15);
+            this.lblCurrentTime.Size = new System.Drawing.Size(98, 17);
             this.lblCurrentTime.TabIndex = 20;
             this.lblCurrentTime.Text = "Current Time: ";
             // 
@@ -583,7 +585,7 @@ namespace Project_III_Group1_Group_Project
             // FuelLevelButton
             // 
             this.FuelLevelButton.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FuelLevelButton.Location = new System.Drawing.Point(861, 303);
+            this.FuelLevelButton.Location = new System.Drawing.Point(868, 289);
             this.FuelLevelButton.Margin = new System.Windows.Forms.Padding(2);
             this.FuelLevelButton.Name = "FuelLevelButton";
             this.FuelLevelButton.Size = new System.Drawing.Size(178, 58);
@@ -601,7 +603,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbAutoPilot.AutoSize = true;
             this.lbAutoPilot.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAutoPilot.Location = new System.Drawing.Point(866, 262);
+            this.lbAutoPilot.Location = new System.Drawing.Point(875, 250);
             this.lbAutoPilot.Name = "lbAutoPilot";
             this.lbAutoPilot.Size = new System.Drawing.Size(161, 19);
             this.lbAutoPilot.TabIndex = 22;
@@ -612,7 +614,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lbDoor.AutoSize = true;
             this.lbDoor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDoor.Location = new System.Drawing.Point(886, 472);
+            this.lbDoor.Location = new System.Drawing.Point(893, 432);
             this.lbDoor.Name = "lbDoor";
             this.lbDoor.Size = new System.Drawing.Size(120, 19);
             this.lbDoor.TabIndex = 23;
@@ -668,7 +670,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.btnStartPlane.Enabled = false;
             this.btnStartPlane.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartPlane.Location = new System.Drawing.Point(52, 71);
+            this.btnStartPlane.Location = new System.Drawing.Point(18, 48);
             this.btnStartPlane.Name = "btnStartPlane";
             this.btnStartPlane.Size = new System.Drawing.Size(133, 59);
             this.btnStartPlane.TabIndex = 28;
@@ -681,7 +683,7 @@ namespace Project_III_Group1_Group_Project
             this.lblDefaultMessage.AutoSize = true;
             this.lblDefaultMessage.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefaultMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblDefaultMessage.Location = new System.Drawing.Point(15, 34);
+            this.lblDefaultMessage.Location = new System.Drawing.Point(13, 20);
             this.lblDefaultMessage.Name = "lblDefaultMessage";
             this.lblDefaultMessage.Size = new System.Drawing.Size(216, 25);
             this.lblDefaultMessage.TabIndex = 29;
@@ -913,7 +915,7 @@ namespace Project_III_Group1_Group_Project
             this.groupBox3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(872, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(292, 194);
+            this.groupBox3.Size = new System.Drawing.Size(292, 175);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Plane Info";
@@ -923,7 +925,7 @@ namespace Project_III_Group1_Group_Project
             this.lblPercentageLeft.AutoSize = true;
             this.lblPercentageLeft.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPercentageLeft.ForeColor = System.Drawing.Color.Black;
-            this.lblPercentageLeft.Location = new System.Drawing.Point(165, 140);
+            this.lblPercentageLeft.Location = new System.Drawing.Point(175, 113);
             this.lblPercentageLeft.Name = "lblPercentageLeft";
             this.lblPercentageLeft.Size = new System.Drawing.Size(0, 17);
             this.lblPercentageLeft.TabIndex = 33;
@@ -934,7 +936,7 @@ namespace Project_III_Group1_Group_Project
             this.lblPlaneTakeoff.AutoSize = true;
             this.lblPlaneTakeoff.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaneTakeoff.ForeColor = System.Drawing.Color.Green;
-            this.lblPlaneTakeoff.Location = new System.Drawing.Point(6, 135);
+            this.lblPlaneTakeoff.Location = new System.Drawing.Point(15, 113);
             this.lblPlaneTakeoff.Name = "lblPlaneTakeoff";
             this.lblPlaneTakeoff.Size = new System.Drawing.Size(159, 17);
             this.lblPlaneTakeoff.TabIndex = 32;
@@ -943,7 +945,7 @@ namespace Project_III_Group1_Group_Project
             // 
             // planeProgressBar
             // 
-            this.planeProgressBar.Location = new System.Drawing.Point(6, 161);
+            this.planeProgressBar.Location = new System.Drawing.Point(16, 141);
             this.planeProgressBar.Name = "planeProgressBar";
             this.planeProgressBar.Size = new System.Drawing.Size(100, 23);
             this.planeProgressBar.TabIndex = 33;
@@ -953,7 +955,7 @@ namespace Project_III_Group1_Group_Project
             // 
             this.lblPlaneRefuel.AutoSize = true;
             this.lblPlaneRefuel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneRefuel.Location = new System.Drawing.Point(886, 363);
+            this.lblPlaneRefuel.Location = new System.Drawing.Point(893, 349);
             this.lblPlaneRefuel.Name = "lblPlaneRefuel";
             this.lblPlaneRefuel.Size = new System.Drawing.Size(0, 19);
             this.lblPlaneRefuel.TabIndex = 24;
@@ -1019,11 +1021,27 @@ namespace Project_III_Group1_Group_Project
             // 
             this.progressBarTimer.Tick += new System.EventHandler(this.progressBarTimer_Tick);
             // 
+            // autopilotProgressBar
+            // 
+            this.autopilotProgressBar.Location = new System.Drawing.Point(872, 188);
+            this.autopilotProgressBar.Maximum = 106;
+            this.autopilotProgressBar.Name = "autopilotProgressBar";
+            this.autopilotProgressBar.Size = new System.Drawing.Size(168, 14);
+            this.autopilotProgressBar.TabIndex = 34;
+            this.autopilotProgressBar.Value = 106;
+            this.autopilotProgressBar.Visible = false;
+            // 
+            // autoPilotBarTimer
+            // 
+            this.autoPilotBarTimer.Interval = 80;
+            this.autoPilotBarTimer.Tick += new System.EventHandler(this.autoPilotBarTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1169, 801);
+            this.Controls.Add(this.autopilotProgressBar);
             this.Controls.Add(this.lblPlaneIsTurning);
             this.Controls.Add(this.lblNotMonitored);
             this.Controls.Add(this.pictureBox4);
@@ -1154,6 +1172,8 @@ namespace Project_III_Group1_Group_Project
         private ProgressBar planeProgressBar;
         private Timer progressBarTimer;
         private Label lblPercentageLeft;
+        private ProgressBar autopilotProgressBar;
+        private Timer autoPilotBarTimer;
     }
 }
 

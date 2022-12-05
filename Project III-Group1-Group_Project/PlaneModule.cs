@@ -41,6 +41,7 @@ namespace Project_III_Group1_Group_Project
         Random random = new Random();
         int i = 1;
         int counter = 0;
+        int autoPilotCounter = 0;
         int weatherimageNum = 0;
         int tempimageNum = 0;
         bool startingUpSequence = true;
@@ -156,11 +157,14 @@ namespace Project_III_Group1_Group_Project
             if (statusUpdatesData.obtainAutoPilotstatus() == true)
             {
                 lbAutoPilot.Text = "Auto Pilot Engaged";
+                autoPilotBarTimer.Start();
+              
                 btnLeft45.Enabled = false;
                 btnLeft90.Enabled = false;
                 btnRight45.Enabled = false;
                 btnRight90.Enabled = false;
                 lbAutoPilot.ForeColor = Color.Green;
+                autopilotProgressBar.Visible = true;
             }
             else if (statusUpdatesData.obtainAutoPilotstatus() == false)
             {
@@ -777,6 +781,32 @@ namespace Project_III_Group1_Group_Project
                 planeProgressBar.Visible = false;
                 lblPercentageLeft.Visible = false;
                 progressBarTimer.Stop();
+            }
+            if(counter >= 0 && counter <= 33)
+            {
+                lblPercentageLeft.ForeColor = Color.Red;
+            }
+            if (counter >= 34 && counter <= 67)
+            {
+                lblPercentageLeft.ForeColor = Color.Orange;
+            }
+            if (counter >= 68 && counter <= 100)
+            {
+                lblPercentageLeft.ForeColor = Color.Green;
+            }
+
+        }
+
+        private void autoPilotBarTimer_Tick(object sender, EventArgs e)
+        {
+            autopilotProgressBar.Value -= 1;
+            if(autopilotProgressBar.Value == 0)
+            {
+                autopilotProgressBar.Visible = false;
+                autopilotProgressBar.Value = 106;
+                autopilotProgressBar.Visible = false;
+                autoPilotBarTimer.Stop();
+                
             }
         }
     }
